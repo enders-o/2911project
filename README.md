@@ -7,3 +7,4 @@ HTML/CSS
 GROUP MEMBERS
 Ender Sotelo
 Chris Tang
+Jonathan Parras
