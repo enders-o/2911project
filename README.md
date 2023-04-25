@@ -6,3 +6,4 @@ HTML/CSS
 
 GROUP MEMBERS
 Ender Sotelo
+Chris Tang
