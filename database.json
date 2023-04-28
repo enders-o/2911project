@@ -1,0 +1,25 @@
+{
+    "teams": [
+        {
+            "id": 1,
+            "name": "Savage Ultimate",
+            "player_count": 24,
+            "tier": 1
+        }
+    ],
+
+    "players": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "johndoe@gmail.com",
+            "password": "jd"
+        },
+        {
+            "id": 2,
+            "name": "Sarah Jane",
+            "email": "sarahjane@gmail.com",
+            "password": "sj"
+        }
+    ]
+}
