@@ -2,24 +2,121 @@
     "teams": [
         {
             "id": 1,
-            "name": "Savage Ultimate",
+            "name": "Savage",
+            "description": "fun group of individuals",
+            "sport": "Ultimate Frisbee",
+            "skill_level": "advanced",
+            "competitive": true,
             "player_count": 24,
-            "tier": 1
+            "manager_name": "Ellen Young",
+            "manager_email": "ellenyoung@gmail.com",
+            "location": "Richmond, BC"
+        },
+        {
+            "id": 2,
+            "name": "Thunderbirds",
+            "description": "dedicated and hardworking",
+            "sport": "Basketball",
+            "skill_level": "intermediate",
+            "competitive": true,
+            "player_count": 12,
+            "manager_name": "Mark Johnson",
+            "manager_email": "markjohnson@gmail.com",
+            "location": "Vancouver, BC"
+        },
+        {
+            "id": 3,
+            "name": "Wave Riders",
+            "description": "laid back and fun-loving",
+            "sport": "Surfing",
+            "skill_level": "beginner",
+            "competitive": false,
+            "player_count": 8,
+            "manager_name": "Kelly Jackson",
+            "manager_email": "kellyjackson@gmail.com",
+            "location": "Santa Cruz, CA"
+        },
+        {
+            "id": 4,
+            "name": "Thunderbolts",
+            "description": "energetic and passionate",
+            "sport": "Volleyball",
+            "skill_level": "advanced",
+            "competitive": true,
+            "player_count": 16,
+            "manager_name": "Emily Davis",
+            "manager_email": "emilydavis@gmail.com",
+            "location": "Toronto, ON"
+        },
+        {
+            "id": 5,
+            "name": "Wildcats",
+            "description": "young and ambitious",
+            "sport": "Soccer",
+            "skill_level": "intermediate",
+            "competitive": true,
+            "player_count": 20,
+            "manager_name": "Joshua Kim",
+            "manager_email": "joshuakim@gmail.com",
+            "location": "New York, NY"
         }
     ],
-
     "players": [
         {
             "id": 1,
-            "name": "John Doe",
+            "fname": "John",
+            "lname": "Doe",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "advanced",
+            "dob": "2002-08-27",
             "email": "johndoe@gmail.com",
             "password": "jd"
         },
         {
             "id": 2,
-            "name": "Sarah Jane",
-            "email": "sarahjane@gmail.com",
-            "password": "sj"
+            "name": "Thunder",
+            "description": "experienced and skilled",
+            "sport": "Football",
+            "skill_level": "advanced",
+            "competitive": true,
+            "player_count": 22,
+            "manager_name": "William Chen",
+            "manager_email": "williamchen@gmail.com",
+            "location": "Los Angeles, CA"
+        },
+        {
+            "id": 3,
+            "fname": "Jane",
+            "lname": "Smith",
+            "gender": "Female",
+            "sport": "Basketball",
+            "skill": "intermediate",
+            "dob": "1999-06-14",
+            "email": "janesmith@gmail.com",
+            "password": "js"
+        },
+        {
+            "id": 4,
+            "fname": "Alex",
+            "lname": "Lee",
+            "gender": "Non-Binary",
+            "sport": "Surfing",
+            "skill": "beginner",
+            "dob": "2001-02-08",
+            "email": "alexlee@gmail.com",
+            "password": "al"
+        },
+        {
+            "id": 5,
+            "fname": "Samantha",
+            "lname": "Taylor",
+            "gender": "Female",
+            "sport": "Volleyball",
+            "skill": "advanced",
+            "dob": "1998-11-17",
+            "email": "samanthataylor@gmail.com",
+            "password": "st"
         }
     ]
 }
