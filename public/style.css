@@ -137,3 +137,9 @@ ol, ul, dl {
     text-align: inherit;
   }
 }
+
+/* ********team-link********* */
+
+.btn-outline-info {
+  color:#2b2f31;
+}
