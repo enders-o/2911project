@@ -23,6 +23,32 @@ let teamController = {
       return player.id == playerToFind
     })
     res.render("team/player-profile", {player: searchResult})
+   },
+
+   create: (req, res) => {
+    const team = {
+      id: database.teams.length + 1,
+      name: req.body.name,
+      description: req.body.description,
+      sport: req.body.sport,
+      skill_level: req.body.skill_level,
+      competitive: req.body.competitive,
+      player_count: req.body.player_count,
+      manager_name: req.body.manager_name,
+      manager_email: req.body.manager_email,
+      location: req.body.location,
+    };
+    database.teams.push(team);
+    res.redirect("/teams");
+   },
+
+   edit: (req, res) => {
+    let teamToFind = req.params.id;
+    return
+   },
+
+   delete: (req, res) => {
+    return
    }
 };
 
