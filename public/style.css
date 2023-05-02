@@ -26,20 +26,100 @@ header.masthead {
   background-size: contain;
   padding-top: 8rem;
   padding-bottom: 8rem;
-}
-
-header.masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.2;
+  background: url("https://img.freepik.com/free-vector/sport-equipment-cartoon-set-balls-gaming-item-hockey-rugby-baseball-tennis-racket-bowling-boxing-golf-collection_74855-20727.jpg") no-repeat right center;
 }
 
 header.masthead h1 {
   font-size: 2rem;
+}
+
+.navbar {
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0.5rem;
+  --bs-navbar-color: rgba(0, 0, 0, 0.55);
+  --bs-navbar-hover-color: rgba(0, 0, 0, 0.7);
+  --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
+  --bs-navbar-active-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-brand-padding-y: 0.3rem;
+  --bs-navbar-brand-margin-end: 1rem;
+  --bs-navbar-brand-font-size: 1.25rem;
+  --bs-navbar-brand-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-brand-hover-color: rgba(0, 0, 0, 0.9);
+  --bs-navbar-nav-link-padding-x: 0.5rem;
+  --bs-navbar-toggler-padding-y: 0.25rem;
+  --bs-navbar-toggler-padding-x: 0.75rem;
+  --bs-navbar-toggler-font-size: 1.25rem;
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-color: rgba(0, 0, 0, 0.1);
+  --bs-navbar-toggler-border-radius: 0;
+  --bs-navbar-toggler-focus-width: 0.25rem;
+  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}
+
+ .container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.site-block.dark {
+  background-color: #f6f6f6;
+}
+
+.site-block .block-heading {
+  padding-top: 50px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.site-block .block-heading p {
+  max-width: 420px;
+  margin: auto;
+  opacity: .7;
+}
+
+.page-footer.dark .footer-copyright p {
+  color: #ccc;
+  margin: 10px;
+}
+
+.page-footer.dark h5, .page-footer.dark .h5, .page-footer.dark li{
+  color: #fff;
+}
+
+.page-footer h5, .page-footer .h5 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+.page-footer ul {
+  list-style-type: none;
+  padding-left: 0;
+  line-height: 1.7;
+}
+
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.page-footer.dark {
+  background-color: #2b2f31;
+}
+
+.footer-copyright {
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -50,86 +130,10 @@ header.masthead h1 {
   header.masthead h1 {
     font-size: 3rem;
   }
-}
 
-/* .showcase .showcase-text {
-  padding: 3rem;
-} */
-
-/* .showcase .showcase-img {
-  min-height: 30rem;
-  background-size: cover;
-} */
-
-/* @media (min-width: 768px) {
-  .showcase .showcase-text {
-    padding: 7rem;
+  .site-block.site-info {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: inherit;
   }
-} */
-
-/* .features-icons {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-} */
-
-/* .features-icons .features-icons-item {
-  max-width: 20rem;
-} */
-
-/* .features-icons .features-icons-item .features-icons-icon {
-  height: 7rem;
-} */
-
-/* .features-icons .features-icons-item .features-icons-icon i {
-  font-size: 4.5rem;
-} */
-
-/* .features-icons .features-icons-item:hover .features-icons-icon i {
-  font-size: 5rem;
-} */
-
-/* .testimonials {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-} */
-
-/* .testimonials .testimonial-item {
-  max-width: 18rem;
-} */
-
-/* .testimonials .testimonial-item img {
-  max-width: 12rem;
-  box-shadow: 0px 5px 5px 0px #adb5bd;
-} */
-
-/* .call-to-action {
-  position: relative;
-  background-color: #343a40;
-  background: url("./img/bg-masthead.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-} */
-
-/* .call-to-action .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-} */
-
-/* footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-} */
-
-/* .form-signin .checkbox{
-  margin-bottom: 10px;
-  margin-top: 10px;
-} */
+}

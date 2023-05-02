@@ -3,7 +3,8 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -19,27 +20,125 @@
   </head>
 
   <body>
-    <div class="container">
-      <nav class="navbar navbar-light bg-primary">TeamPlay</nav>
-    </div>
+    <!--Navigation-->
+    <nav
+      id="mainNav"
+      class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3"
+    >
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="/"
+          ><span>TeamPlay</span></a
+        ><button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navcol-1"
+        >
+          <span class="visually-hidden">Toggle navigation</span
+          ><span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navcol-1" class="collapse navbar-collapse">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="teams">Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="players">Players</a>
+            </li>
+          </ul>
+          <a class="btn btn-primary shadow" role="button" href="signup.html"
+            >Sign up</a
+          >
+        </div>
+      </div>
+    </nav>
 
+    <!-- Masthead -->
     <header class="masthead">
       <div class="container">
         <div class="row">
-          <div class="col-md-8">
-            <h1>Meet. Compete. Win!</h1>
-            <p>[Enter Description here]</p>
-            <button type="button" class="btn btn-primary">Join Now!</button>
+          <div class="col-md-10 col-lg-8 mx-auto position-relative">
+            <div class="site-heading">
+              <h1>Clean Blog</h1>
+              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+            </div>
           </div>
-          <div class="col-md-4">Image here</div>
         </div>
       </div>
     </header>
 
-    <section>
+    <section class="site-block site-info dark">
       <div class="container">
-        More Information
+        <div class="block-heading">
+          <h2 class="text-info">Info</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam
+            urna, dignissim nec auctor in, mattis vitae leo.
+          </p>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <img class="img-thumbnail" src="https://img.freepik.com/free-photo/black-man-doing-sports-playing-basketball-sunrise-jumping-silhouette_285396-1440.jpg" />
+          </div>
+          <div class="col-md-6">
+            <h3>Lorem impsum dolor sit amet</h3>
+            <div class="getting-started-info">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </p>
+            </div>
+            <button class="btn btn-outline-primary btn-lg" type="button">
+              Join Now
+            </button>
+          </div>
+        </div>
       </div>
     </section>
+
+    <footer class="page-footer dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <h5>Get started</h5>
+            <ul>
+              <li>Home</li>
+              <li>Sign up</li>
+              <li>Downloads</li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <h5>About us</h5>
+            <ul>
+              <li>Company Information</li>
+              <li>Contact us</li>
+              <li>Reviews</li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <h5>Support</h5>
+            <ul>
+              <li>FAQ</li>
+              <li>Help desk</li>
+              <li>Forums</li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <h5>Legal</h5>
+            <ul>
+              <li>Terms of Service</li>
+              <li>Terms of Use</li>
+              <li>Privacy Policy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2023 Copyright Text</p>
+      </div>
+    </footer>
   </body>
 </html>
