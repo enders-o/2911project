@@ -1,12 +1,29 @@
 <div class="container">
-<h1 style="text-align:center">Registered Teams</h1>
-    <% teams.forEach( item => { %>
-        <button class="btn btn-outline-info btn-lg btn-block" style="background-color: lightskyblue;">
-            <h2><%= item.name%></h2>
-            <p>Number of players: <%= item.player_count%></p>
-            <p>Skill Level: <%= item.skill_level%></p>
-            <p>Manager name: <%=item.manager_name%></p>
-            <p>Manager email: <%=item.manager_email%></p>   
+    <h1 style="text-align:center">Registered Teams</h1>
+    <% teams.forEach((item, index)=> { %>
+        <button class="btn btn-outline-info btn-lg btn-block" style="background-color: lightskyblue;"
+            data-toggle="collapse" data-target="#collapseExample<%= index %>" aria-expanded="false"
+            aria-controls="collapseExample<%= index %>">
+            <h2>
+                <%= item.name %>
+            </h2>
+            <p>Number of players: <%= item.player_count %>
+            </p>
+            <p>Sport: <%= item.sport%>
+            </p>
+            <p>Manager name: <%= item.manager_name %>
+            </p>
+            <p>Manager email: <%= item.manager_email %>
+            </p>
         </button>
-    <%})%>
+        <div class="collapse" id="collapseExample<%= index %>">
+            <p>Description: <%= item.description %>
+            </p>
+            <p>Skill Level: <%= item.skill_level %>
+            </p>
+            <p>Location: <%= item.location%>
+            </p>
+        </div>
+        <% }) %>
+
 </div>
