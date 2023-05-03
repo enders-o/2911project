@@ -1,6 +1,43 @@
 <div class="container">
-<h1>test2</h1>
-    <%players.forEach( item => { %>
-        <%= item.name %>
+  <h1>Players</h1>
+  <div class="row row-cols-1 row-cols-md-3">
+    <% players.forEach( item => { %>
+      <div class="col mb-4">
+        <div class="card">
+            <img
+            src="<%= item.picture %>"
+            class="card-img-top"
+            alt="insert image here"
+            width="380"
+            height="200"
+            />
+            <div class="card-body">
+            <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5>
+            <div class="card-text">
+                <p>Sport: <%= item.sport %> <br />Skill: <%= item.skill %></p>
+            </div>
+            <button
+                class="btn btn-link btn-block text-left"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseOne<%= item.id %>"
+                aria-expanded="false"
+                aria-controls="#collapseOne<%= item.id %>"
+            >
+                Click here for more info
+            </button>
+            </div>
+            <div id="collapseOne<%= item.id %>" class="collapse" aria-labelledby="headingOne">
+                <div class="card-body">
+                    <p>
+                        Gender: <%= item.gender %>
+                        <br />Date of Birth: <%= item.dob %>
+                        <br />Email: <%= item.email %>
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
     <%})%>
+  </div>
 </div>
