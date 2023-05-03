@@ -23,7 +23,11 @@ app.post("/teams/", teamController.create)
 
 app.get("/teams/:id/edit", teamController.edit)
 
+app.post("/teams/update/:id", teamController.update)
+
 app.get("/teams/:id", teamController.listOne)
+
+app.post("/teams/delete/:id", teamController.delete)
 
 app.get("/players", teamController.listAllPlayers)
 
