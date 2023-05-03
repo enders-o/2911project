@@ -10,7 +10,11 @@ let teamController = {
    },
 
    edit: (req, res) => {
-    res.render("team/edit-team");
+    let teamToFind = req.params.id;
+    let searchResult = database.teams.find( team => {
+      return team.id == teamToFind;
+    });
+    res.render("team/edit-team", {teamItem: searchResult});
    },
 
    listOne: (req, res) => {
@@ -52,11 +56,28 @@ let teamController = {
 
    update: (req, res) => {
     let teamToFind = req.params.id;
-    return
+    let index = database.teams.findIndex( team => {
+      return team.id == teamToFind;
+    });
+    database.teams[index].name = req.body.name;
+    database.teams[index].description = req.body.description;
+    database.teams[index].sport = req.body.sport;
+    database.teams[index].skill_level = req.body.skill_level;
+    database.teams[index].competitive = req.body.competitive;
+    database.teams[index].player_count = req.body.player_count;
+    database.teams[index].manager_name = req.body.manager_name;
+    database.teams[index].manager_email = req.body.manager_email;
+    database.teams[index].location = req.body.location;
+    res.redirect("/teams")
    },
 
    delete: (req, res) => {
-    return
+    let teamToFind = req.params.id;
+    let index = database.teams.findIndex(team => {
+      return team.id == teamToFind;
+    });
+    database.teams.splice(index,1);
+    res.redirect("/teams")
    }
 };
 
