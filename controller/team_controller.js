@@ -3,7 +3,15 @@ let database = require("../database.json")
 let teamController = {
    list: (req, res) => {
     res.render("team/index", { teams: database.teams});
-   }, 
+   },
+
+   new: (req, res) => {
+    res.render("team/create-team");
+   },
+
+   edit: (req, res) => {
+    res.render("team/edit-team");
+   },
 
    listOne: (req, res) => {
     let teamToFind = req.params.id;
@@ -42,7 +50,7 @@ let teamController = {
     res.redirect("/teams");
    },
 
-   edit: (req, res) => {
+   update: (req, res) => {
     let teamToFind = req.params.id;
     return
    },

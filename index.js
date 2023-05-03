@@ -17,6 +17,12 @@ app.set("view engine", "ejs");
 
 app.get("/teams", teamController.list)
 
+app.get("/teams/create", teamController.new)
+
+app.post("/teams/", teamController.create)
+
+app.get("/teams/:id/edit", teamController.edit)
+
 app.get("/teams/:id", teamController.listOne)
 
 app.get("/players", teamController.listAllPlayers)
