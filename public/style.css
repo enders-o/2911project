@@ -62,7 +62,7 @@ header.masthead h1 {
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
 
- .container {
+ .homepage-container {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   width: 100%;
