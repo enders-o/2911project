@@ -1,6 +1,13 @@
 <div class="container">
-    <!-- variable = teamItem -->
-    <!-- <% console.log(teamItem) %> -->
-    <h1><%= teamItem.name%></h1>
-    <a class="btn btn-primary" href=<%= "/teams/" +teamItem.id+"/edit" %>>Edit</a>
+    <h1>
+        <%= teamItem.name%>
+    </h1>
+    <p>Manager Contact Information
+        <br>
+        <%= teamItem.manager_name%>
+            <br>
+            <%= teamItem.manager_email%>
+    </p>
+    <a class="btn btn-primary" href=<%="/teams/" +teamItem.id+"/edit" %>>Edit</a>
+
 </div>
