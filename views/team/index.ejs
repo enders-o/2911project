@@ -7,14 +7,11 @@
             <h2>
                 <%= item.name %>
             </h2>
-            <p>Number of players: <%= item.player_count %>
-            </p>
             <p>Sport: <%= item.sport%>
             </p>
-            <p>Manager name: <%= item.manager_name %>
+            <p>Number of players: <%= item.player_count %>
             </p>
-            <p>Manager email: <%= item.manager_email %>
-            </p>
+
         </button>
         <div class="collapse" id="collapseExample<%= index %>">
             <p>Description: <%= item.description %>
@@ -23,7 +20,7 @@
             </p>
             <p>Location: <%= item.location%>
             </p>
-            <a class="btn btn-primary" href=<%= "/teams/" + item.id %>>More Info</a>
+            <a class="text-danger" href=<%="/teams/" + item.id %>>Click here for more information about <%= item.name%></a>
         </div>
         <% }) %>
 
