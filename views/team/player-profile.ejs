@@ -1,7 +1,22 @@
 <div class="container">
-<!-- variable player
-player.name
-player.id
-player.location -->
-<% console.log(player)%>
+  <h1>Player Profile</h1>
+  <div class="card mb-3" style="max-width: 700px">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<%= player.picture%>" alt="profile-picture" width="230" height="300"/>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= player.fname %> <%= player.lname %></h5>
+          <p class="card-text">
+            Sport: <%= player.sport %>
+            <br /> Skill: <%= player.skill %>
+            <br /> Gender: <%= player.gender %>
+            <br /> Date of Birth: <%= player.dob %>
+            <br /> Email: <%= player.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
