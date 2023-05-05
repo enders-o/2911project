@@ -1,5 +1,15 @@
 <div class="container">
   <h1>Players</h1>
+  <div class="dropdown pb-2">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+      Dropdown
+    </button>
+    <div class="dropdown-menu">
+      <button class="dropdown-item" type="button">Basketball</button>
+      <button class="dropdown-item" type="button">Volleyball</button>
+      <button class="dropdown-item" type="button">Ultimate Frisbee</button>
+    </div>
+  </div>
   <div class="row row-cols-1 row-cols-md-3">
     <% players.forEach( item => { %>
       <div class="col mb-4">
@@ -7,34 +17,16 @@
             <img
             src="<%= item.picture %>"
             class="card-img-top"
-            alt="insert image here"
+            alt="player profile"
             width="380"
             height="200"
             />
             <div class="card-body">
-            <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5>
-            <div class="card-text">
-                <p>Sport: <%= item.sport %> <br />Skill: <%= item.skill %></p>
-            </div>
-            <button
-                class="btn btn-link btn-block text-left"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne<%= item.id %>"
-                aria-expanded="false"
-                aria-controls="#collapseOne<%= item.id %>"
-            >
-                Click here for more info
-            </button>
-            </div>
-            <div id="collapseOne<%= item.id %>" class="collapse" aria-labelledby="headingOne">
-                <div class="card-body">
-                    <p>
-                        Gender: <%= item.gender %>
-                        <br />Date of Birth: <%= item.dob %>
-                        <br />Email: <%= item.email %>
-                    </p>
-                </div>
+              <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5>
+              <div class="card-text">
+                  <p>Sport: <%= item.sport %> <br />Skill: <%= item.skill %></p>
+              </div>
+              <a class="btn btn-primary" href= <%= "/players/" + item.id %>>Click here for more info</a>
             </div>
         </div>
       </div>
