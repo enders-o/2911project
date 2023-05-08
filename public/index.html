@@ -1,10 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -24,27 +21,24 @@
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="/">
-            <span>TeamPlay</span></a>
-            <button
-            class="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bs-target="#navcol-1"
-            >
-            <span class="visually-hidden">Toggle navigation</span>
-            <span class="navbar-toggler-icon"></span>
+          <span>TeamPlay</span></a>
+        <button class="navbar-toggler" data-bs-toggle="collapse"data-bs-target="#navcol-1">
+          <span class="visually-hidden">Toggle navigation</span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div id="navcol-1" class="collapse navbar-collapse">
           <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="teams">Teams</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="players">Players</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/teams/create">Create</a>
+            </li>
           </ul>
+          <a class="btn btn-primary shadow" href="/login">Login</a>
         </div>
       </div>
     </nav>
@@ -54,10 +48,17 @@
       <div class="container">
         <div class="homepage-container">
           <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto position-relative">
+            <div class="col-md-10 col-lg-5 position-relative">
               <div class="site-heading">
-                <h1>Clean Blog</h1>
-                <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                <h1>Meet. Compete. Win!</h1>
+                <span class="subheading">
+                  Whatever sports you're interested in, TeamPlay gathers all
+                  people to meet and have a good time!</span>
+                <div class= "pt-2">
+                  <a class="btn btn-outline-primary btn-lg" href="/register">
+                  Join Now!
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -65,16 +66,62 @@
       </div>
     </header>
 
-    <section class="site-block site-info dark">
+    <section class="site-block site-info dark pb-5">
+      <div class="container">
+        <div class="block-heading">
+          <h2 class="text-info">About TeamPlay</h2>
+          <p>
+            TeamPlay offers a platform allowing people to join groups easily!
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card special-skill-item border-0">
+              <div class="card-header bg-transparent border-0">
+                <i class="icon ion-ios-star-outline"></i>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Sign Up</h3>
+                <p class="card-text">
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
+                  justo odio, dapibus ac facilisis in, egestas eget quam.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card special-skill-item border-0">
+              <div class="card-header bg-transparent border-0">
+                <i class="icon ion-ios-lightbulb-outline"></i>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Join a Group</h3>
+                <p class="card-text">
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
+                  justo odio, dapibus ac facilisis in, egestas eget quam.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card special-skill-item border-0">
+              <div class="card-header bg-transparent border-0">
+                <i class="icon ion-ios-gear-outline"></i>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Play!</h3>
+                <p class="card-text">
+                  Nullam id dolor id nibh ultricies vehicula ut id elit. Cras
+                  justo odio, dapibus ac facilisis in, egestas eget quam.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-5">
       <div class="container">
         <div class="homepage-container">
-          <div class="block-heading">
-            <h2 class="text-info">Info</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam
-              urna, dignissim nec auctor in, mattis vitae leo.
-            </p>
-          </div>
           <div class="row align-items-center">
             <div class="col-md-6">
               <img
@@ -91,9 +138,6 @@
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 </p>
               </div>
-              <button class="btn btn-outline-primary btn-lg" type="button">
-                Join Now
-              </button>
             </div>
           </div>
         </div>
