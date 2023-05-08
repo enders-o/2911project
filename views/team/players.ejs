@@ -1,5 +1,8 @@
 <div class="container">
   <h1>Players</h1>
+  <div class="pb-2 w-25">
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  </div>
   <div class="dropdown pb-2">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
       Dropdown
@@ -10,9 +13,9 @@
       <button class="dropdown-item" type="button">Ultimate Frisbee</button>
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-3" id="myPlayers">
     <% players.forEach( item => { %>
-      <div class="col mb-4">
+      <div class="col mb-4 playerList">
         <div class="card">
             <img
             src="<%= item.picture %>"
@@ -33,3 +36,14 @@
     <%})%>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myPlayers .playerList").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
