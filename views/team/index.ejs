@@ -1,27 +1,36 @@
 <div class="container">
-    <h1 style="text-align:center">Registered Teams</h1>
-    <% teams.forEach((item, index)=> { %>
-        <button class="btn btn-outline-info btn-lg btn-block" style="background-color: lightskyblue;"
-            data-toggle="collapse" data-target="#collapseExample<%= index %>" aria-expanded="false"
-            aria-controls="collapseExample<%= index %>">
-            <h2>
-                <%= item.name %>
-            </h2>
-            <p>Sport: <%= item.sport%>
-            </p>
-            <p>Number of players: <%= item.player_count %>
-            </p>
-
-        </button>
-        <div class="collapse" id="collapseExample<%= index %>">
-            <p>Description: <%= item.description %>
-            </p>
-            <p>Skill Level: <%= item.skill_level %>
-            </p>
-            <p>Location: <%= item.location%>
-            </p>
-            <a class="text-danger" href=<%="/teams/" + item.id %>>Click here for more information about <%= item.name%></a>
-        </div>
-        <% }) %>
-
+    <h1 style="text-align: center;">Registered Teams</h1>
+    <div class="row row-cols-1 row-cols-md-3">
+        <% teams.forEach( item=> { %>
+            <div class="col mb-4">
+                <div class="card" style="border: solid 2px lightskyblue">
+                    <img src="<%= item.picture %>" class="card-img-top" alt="insert image here" width="380"
+                        height="200" />
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= item.name %>
+                        </h5>
+                        <div class="card-text">
+                            <p>Sport: <%= item.sport %> <br />Skill: <%= item.skill_level %>
+                            </p>
+                        </div>
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne<%= item.id %>" aria-expanded="false"
+                            aria-controls="#collapseOne<%= item.id %>">
+                            Click here for more info
+                        </button>
+                    </div>
+                    <div id="collapseOne<%= item.id %>" class="collapse" aria-labelledby="headingOne">
+                        <div class="card-body">
+                            <p>
+                                Manager: <%= item.manager_name %>
+                                    <br />Email: <%= item.manager_email %>
+                                        <br />Location: <%= item.location %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%})%>
+    </div>
 </div>
