@@ -1,5 +1,8 @@
 <div class="container">
     <h1 style="text-align: center;">Registered Teams</h1>
+    <div class="pb-2 w-25">
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    </div>
     <div class="row row-cols-1 row-cols-md-3">
         <% teams.forEach( item=> { %>
             <div class="col mb-4">
@@ -34,43 +37,13 @@
             <%})%>
     </div>
 </div>
-    <h1 style="text-align:center">Registered Teams</h1>
-    <div class="pb-2 w-25">
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-    </div>
-    <div id="myTeams">
-        <% teams.forEach((item, index)=> { %>
-            <button class="btn btn-outline-info btn-lg btn-block teamList" style="background-color: lightskyblue;"
-                data-toggle="collapse" data-target="#collapseExample<%= index %>" aria-expanded="false"
-                aria-controls="collapseExample<%= index %>">
-                <h2>
-                    <%= item.name %>
-                </h2>
-                <p>Sport: <%= item.sport%>
-                </p>
-                <p>Number of players: <%= item.player_count %>
-                </p>
-
-            </button>
-            <div class="collapse" id="collapseExample<%= index %>">
-                <p>Description: <%= item.description %>
-                </p>
-                <p>Skill Level: <%= item.skill_level %>
-                </p>
-                <p>Location: <%= item.location%>
-                </p>
-                <a class="text-danger" href=<%="/teams/" + item.id %>>Click here for more information about <%= item.name%></a>
-            </div>
-        <% }) %>
-    </div>
-</div>
 <script>
-    $(document).ready(function(){
-      $("#myInput").on("keyup", function() {
-        var value = $(this).val().toLowerCase();
-        $("#myTeams .teamList").filter(function() {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#myTeams .teamList").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
         });
-      });
     });
 </script>
