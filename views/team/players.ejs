@@ -6,9 +6,22 @@
   
   <div class="row">
     <div class="col">
-      <button data-toggle="collapse" data-target="#demo">Collapsible</button>
-      <div id="demo" class="collapse">
-        Lorem ipsum dolor text....
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#orderBy">
+        Order by
+      </button>
+      <div id="orderBy" class="collapse show">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="myOrder" id="alphaAZ" value="option1">
+          <label class="form-check-label" for="myOrder">
+            Player name (A-Z)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="myOrder" id="alphaZA" value="option2">
+          <label class="form-check-label" for="myOrder">
+            Player name (Z-A)
+          </label>
+        </div>
       </div>
     </div>
     <div class="col-10">
@@ -47,4 +60,12 @@
       });
     });
   });
+
+  var mylist = $('#myPlayers');
+  var listitems = mylist.children('.playerList').children('div').children(".card-body").children(".card-title").get();
+  $(console.log(listitems));
+  listitems.sort(function(a, b) {
+    return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+  })
+  $.each(listitems, function(idx, itm) { mylist.append(itm); });
 </script>
