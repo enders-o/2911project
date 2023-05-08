@@ -61,11 +61,15 @@
     });
   });
 
-  var mylist = $('#myPlayers');
-  var listitems = mylist.children('.playerList').children('div').children(".card-body").children(".card-title").get();
-  $(console.log(listitems));
-  listitems.sort(function(a, b) {
-    return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
-  })
-  $.each(listitems, function(idx, itm) { mylist.append(itm); });
+  $(document).ready(function(){
+    $("#alphaAZ").on("click", function() {
+      var mylist = $('#myPlayers');
+      var listitems = mylist.children('.playerList').children('div').children(".card-body").children(".card-title").get();
+      var playerCards = $('.playerList');
+      listitems.sort(function(a, b) {
+        return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+      })
+      $.each(playerCards, function(idx, itm) { console.log(idx); });
+    });
+  });
 </script>
