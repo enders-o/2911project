@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const ejsLayouts = require("express-ejs-layouts");
 const teamController = require("./controller/team_controller");
-// const authController = require("./controller/auth_controller");
+const authController = require("./controller/auth_controller");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -32,6 +32,15 @@ app.post("/teams/delete/:id", teamController.delete)
 app.get("/players", teamController.listAllPlayers)
 
 app.get("/players/:id", teamController.listPlayer)
+
+// auth routes
+app.get("/register", authController.register);
+
+app.get("/login", authController.login);
+
+app.post("/register", authController.loginSubmit);
+
+app.post("/login", authController.loginSubmit);
 
 app.listen(3001, function () {
   console.log(
