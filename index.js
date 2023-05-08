@@ -76,8 +76,13 @@ app.post("/login", authController.loginSubmit);
 
 app.get("logout", authController.logout);
 
-app.listen(3001, function () {
+const server = app.listen(3001, function () {
   console.log(
     "Server running. Visit: localhost:3001 in your browser 🚀"
   );
 });
+
+module.exports = {
+  app,
+  server
+}
