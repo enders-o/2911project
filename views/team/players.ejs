@@ -86,8 +86,14 @@
 
 <!-- Event Listeners -->
 <script>
-  // Search Function
+  // Clear Function
   $(document).ready(function(){
+    $("#clearFilters").on("click", function() {
+      $('input[type=checkbox]').prop('checked',false);
+      toggleCheckbox();
+    });
+
+    // Search Function
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       $("#myPlayers .playerList").filter(function() {
@@ -95,15 +101,12 @@
       });
     });
 
-    
-
     // Order by alphabet
     $("#alphaAZ").on("click", function() {
       var mylist = $('#myPlayers');
       var listitems = mylist.children('.playerList').get();
       listitems.sort(function(a, b) {
         return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
-        // return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
       })
       $.each(listitems, function(idx, itm) {
         for (let i = itm.classList.length - 1; i >= 0; i--) {
@@ -133,17 +136,13 @@
       });
     });
     
-    // not exactly vanilla as there is one lodash function
-
+    // Filter by skill
     var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
     var allPlayers = Array.from(document.querySelectorAll('.playerList'));
     var checked = {};
 
     getChecked('playerSkill');
     // getChecked('injured');
-    // getChecked('position');
-    // getChecked('nbaTeam');
-    // getChecked('conference');
 
     Array.prototype.forEach.call(allCheckboxes, function (el) {
       el.addEventListener('change', toggleCheckbox);
@@ -164,9 +163,6 @@
       allPlayers.map(function (el) {
         var playerSkill = checked.playerSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase().substr(7))], checked.playerSkill).length : true;
         // var injured = checked.injured.length ? _.intersection(Array.from(el.classList), checked.injured).length : true;
-        // var position = checked.position.length ? _.intersection(Array.from(el.classList), checked.position).length : true;
-        // var nbaTeam = checked.nbaTeam.length ? _.intersection(Array.from(el.classList), checked.nbaTeam).length : true;
-        // var conference = checked.conference.length ? _.intersection(Array.from(el.classList), checked.conference).length : true;
         if (playerSkill) {
         // if (startingReserves && injured && position && nbaTeam && conference) {
           // el.style.display = 'block';
