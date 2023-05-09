@@ -1,11 +1,19 @@
 <div class="container">
     <h1 style="text-align: center;">Registered Teams</h1>
     <div class="pb-2 w-25">
+        <select class="form-control" id="sortBySport">
+            <option value="All">Pick your sport</option>
+            <option value="Football">Football</option>
+            <option value="Basketball">Basketball</option>
+            <option value="Soccer">Soccer</option>
+            <option value="Badminton">Badminton</option>
+            <option value="Surfing">Surfing</option>
+        </select>
         <input class="form-control" id="myInput" type="text" placeholder="Search..">
     </div>
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-md-3" id="myTeams">
         <% teams.forEach( item=> { %>
-            <div class="col mb-4">
+            <div class="col mb-4 teamList">
                 <div class="card" style="border: solid 2px lightskyblue">
                     <img src="<%= item.picture %>" class="card-img-top" alt="insert image here" width="380"
                         height="200" />
@@ -44,6 +52,18 @@
             $("#myTeams .teamList").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
+        });
+    });
+
+    
+    $("#sortBySport").change(function () {
+        var selectedSport = $(this).children("option:selected").val();
+        $("#myTeams .teamList").filter(function () {
+            if (selectedSport === "All") {
+                $(this).show();
+            } else {
+                $(this).toggle($(this).find('.card-text').text().toLowerCase().indexOf(selectedSport.toLowerCase()) > -1);
+            }
         });
     });
 </script>
