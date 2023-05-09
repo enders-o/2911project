@@ -26,6 +26,7 @@
     "nodemon": "^1.11.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "superjest": "^0.1.0",
     "supertest": "^6.3.3"
   }
 }
