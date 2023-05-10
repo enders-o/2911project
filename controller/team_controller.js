@@ -6,7 +6,7 @@ let teamController = {
    },
 
    new: (req, res) => {
-    res.render("team/create-team");
+    res.render("team/create-team",{user: req.user});
    },
 
    edit: (req, res) => {
