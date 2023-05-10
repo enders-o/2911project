@@ -1,49 +1,68 @@
 <div class="container">
-    <h1 style="text-align: center;">Registered Teams</h1>
-    <div class="pb-2 w-25">
-        <select class="form-control" id="sortBySport">
-            <option value="All">Pick your sport</option>
-            <option value="Ultimate Frisbee">Ultimate Frisbee</option>
-            <option value="Basketball">Basketball</option>
-            <option value="Volleyball">Volleyball</option>
-        </select>
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-    </div>
-    <div class="row row-cols-1 row-cols-md-3" id="myTeams">
-        <% teams.forEach( item=> { %>
-            <div class="col mb-4 teamList">
-                <div class="card" style="border: solid 2px lightskyblue">
-                    <img src="<%= item.picture %>" class="card-img-top" alt="insert image here" width="380"
-                        height="200" />
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= item.name %>
-                        </h5>
-                        <div class="card-text">
-                            <p>Sport: <%= item.sport %> <br />Skill: <%= item.skill_level %> <br />Players: <%= item.player_count%>
-                            </p>
-                        </div>
-                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                            data-target="#collapseOne<%= item.id %>" aria-expanded="false"
-                            aria-controls="#collapseOne<%= item.id %>">
-                            Click here for more info
-                        </button>
-                    </div>
-                    <div id="collapseOne<%= item.id %>" class="collapse" aria-labelledby="headingOne">
-                        <a class="btn btn-primary" href= <%= "/teams/" + item.id+"/edit" %>>Click here for more info</a>
-                        <div class="card-body">
-                            <p>
-                                Manager: <%= item.manager_name %>
-                                    <br />Email: <%= item.manager_email %>
-                                        <br />Location: <%= item.location %>
-                            </p>
-                        </div>
-                    </div>
+    <h1 class="text-center">Registered Teams</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="pb-3">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#orderBy">Order
+                    by</button>
+            </div>
+            <div id="orderBy" class="collapse show pb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="myOrder" id="alphaAZ" value="option1">
+                    <label class="form-check-label" for="alphaAZ">Team name (A-Z)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="myOrder" id="alphaZA" value="option2">
+                    <label class="form-check-label" for="alphaZA">Team name (Z-A)</label>
                 </div>
             </div>
-            <%})%>
+            <div class="pb-3">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#skillLevel">Skill
+                    Level (not available yet)</button>
+            </div>
+            <div id="skillLevel" class="collapse show pb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="playerSkill">
+                    <label class="form-check-label" for="beginner">Beginner</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="intermediate" id="intermediate"
+                        name="playerSkill">
+                    <label class="form-check-label" for="intermediate">Intermediate</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="advanced" id="advanced" name="playerSkill">
+                    <label class="form-check-label" for="advanced">Advanced</label>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="clearFilters">Clear all filters</button>
+        </div>
+        <div class="col-md-9">
+            <div class="row" id="myTeams">
+                <% teams.forEach(item=> { %>
+                    <div class="col-md-4 mb-4 teamList">
+                        <div class="card border-primary h-100">
+                            <img src="<%= item.picture %>" class="card-img-top" alt="insert image here" />
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= item.name %>
+                                </h5>
+                                <div class="card-text">
+                                    <p>Sport: <%= item.sport %><br />Skill: <%= item.skill_level %><br />Players: <%=
+                                                    item.player_count %>
+                                    </p>
+                                </div>
+                            </div>
+                            <a class="btn btn-primary stretched-link" href=<%="/teams/" + item.id %>>Click here for more
+                                info</a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function () {
         $("#myInput").on("keyup", function () {
@@ -54,15 +73,47 @@
         });
     });
 
-    
-    $("#sortBySport").change(function () {
-        var selectedSport = $(this).children("option:selected").val();
-        $("#myTeams .teamList").filter(function () {
-            if (selectedSport === "All") {
-                $(this).show();
-            } else {
-                $(this).toggle($(this).find('.card-text').text().toLowerCase().indexOf(selectedSport.toLowerCase()) > -1);
+    $(document).ready(function () {
+        $('input[name="myOrder"]').change(function () {
+            var order = $('input[name="myOrder"]:checked').val();
+            var teamList = $('#myTeams');
+            if (order === "option1") {
+                var sortedTeams = teamList.children('.teamList').sort(function (a, b) {
+                    var textA = $(a).find('.card-title').text().toUpperCase();
+                    var textB = $(b).find('.card-title').text().toUpperCase();
+                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                });
+                teamList.append(sortedTeams);
+            } else if (order === "option2") {
+                var sortedTeams = teamList.children('.teamList').sort(function (a, b) {
+                    var textA = $(a).find('.card-title').text().toUpperCase();
+                    var textB = $(b).find('.card-title').text().toUpperCase();
+                    return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
+                });
+                teamList.append(sortedTeams);
             }
         });
     });
+    $(document).ready(function () {
+        $('input[name="playerSkill"]').change(function () {
+            var skillList = [];
+            $('input[name="playerSkill"]:checked').each(function () {
+                skillList.push($(this).val());
+            });
+            if (skillList.length > 0) {
+                $("#myTeams .teamList").hide().filter(function () {
+                    return skillList.indexOf($(this).find('.card-text').text().trim().split('skill: ')[1]) >= 0;
+                }).show();
+            } else {
+                $("#myTeams .teamList").show();
+            }
+        });
+    $(document).ready(function () {
+        $('#clearFilters').click(function () {
+            $('input[name="myOrder"][value="option1"]').prop('checked', false);
+            $('input[name="playerSkill"]').prop('checked', false);
+            $('.teamList').show();
+        });
+    });
+});
 </script>
