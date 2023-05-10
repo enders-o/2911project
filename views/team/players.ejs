@@ -28,7 +28,7 @@
       </div>
       <div class="pb-3">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#skillLevel">
-          Skill Level (not available yet)
+          Skill Level
         </button>
       </div>
       <div id="skillLevel" class="collapse show pb-3">
@@ -88,11 +88,6 @@
 <script>
   // Clear Function
   $(document).ready(function(){
-    $("#clearFilters").on("click", function() {
-      $('input[type=checkbox]').prop('checked',false);
-      toggleCheckbox();
-    });
-
     // Search Function
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
@@ -174,5 +169,21 @@
       });
     }
 
+    $("#clearFilters").on("click", function() {
+      $('input[type=checkbox]').prop('checked',false);
+      $('input[type=radio]').prop('checked',false);
+      $('.playerList').show();
+
+      var resetList = $('#myPlayers');
+      var removeFilter = resetList.children('.playerList').get();
+      $.each(removeFilter, function(idx, itm) {
+        for (let i = itm.classList.length - 1; i >= 0; i--) {
+          const className = itm.classList[i];
+          if (className.startsWith('order')) {
+            itm.classList.remove(className);
+          }
+        }
+      });
+    });
   });
 </script>
