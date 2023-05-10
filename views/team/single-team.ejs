@@ -1,13 +1,26 @@
 <div class="container">
     <h1>
         <%= teamItem.name%>
-    </h1>
-    <p>Manager Contact Information
-        <br>
-        <%= teamItem.manager_name%>
-            <br>
-            <%= teamItem.manager_email%>
+    </h1>   
     </p>
+    <div class="card mb-3" style="max-width: 700px">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="<%= teamItem.picture%>" alt="profile-picture" width="350" height="300"/>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+              <p class="card-text" style="text-align: center;">
+                Sport: <%= teamItem.sport %>
+                <br /> Tier: <%= teamItem.skill_level %>
+                <br /> Manager: <%= teamItem.manager_name %>
+                <br /> Email: <%= teamItem.manager_email %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     <a class="btn btn-primary" href=<%="/teams/" +teamItem.id+"/edit" %>>Edit</a>
 
 </div>
