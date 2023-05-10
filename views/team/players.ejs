@@ -1,9 +1,12 @@
 <div class="container">
   <h1>Players</h1>
-  <div class="pb-2 w-25">
-    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-  </div>
-  
+  <form class="form-inline pb-2">
+    <div class="mr-2">
+      <input class="form-control" id="myInput" type="text">
+    </div>
+    <button type="button" id="searchBtn" class="btn btn-secondary">Search</button>
+  </form>
+
   <div class="row">
     <!-------- Filters -------->
     <div class="col">
@@ -22,6 +25,14 @@
       </div>
       <div id="skillLevel" class="collapse show pb-3">
         <!-- Filter by skill buttons -->
+      </div>
+      <div class="pb-3">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#playerSport">
+          Sport
+        </button>
+      </div>
+      <div id="playerSport" class="collapse show pb-3">
+        <!-- Filter by player sport -->
       </div>
       <button type="button" class="btn btn-primary" id="clearFilters">Cear all filters</button>
     </div>
@@ -56,8 +67,8 @@
   </div>
 </div>
 
-<!-- Event Listeners -->
 <script>
+  //------------------------------------------------ Adds buttons -----------------------------------------------//
   // -------- Order by Buttons -------- //
   let orderOptions = [
     {
@@ -123,14 +134,58 @@
       );
   })
 
+  // -------- Filter by skill buttons -------- //
+  let sportOptions = [
+    {
+      'id' : 'basketball',
+      'input' : 'Basketball'
+    },
+    {
+      'id' : 'Frisbee',
+      'input' : 'Ultimate Frisbee'
+    },
+    {
+      'id' : 'volleyball',
+      'input' : 'Volleyball'
+    }
+  ]
+  sportOptions.forEach(function (item) {
+    $('<div/>', {
+      'class' : 'form-check'
+    }
+      ).appendTo('#playerSport').append(
+        $('<input>', {
+          'class' : 'form-check-input',
+          'type' : 'checkbox',
+          'name' : 'plySport',
+          'id' : `${item.id}`,
+          'value': `${item.input}`
+        }),
+        $('<label/>', {
+          'class' : 'form-check-label',
+          'for' : 'defaultCheck1',
+          'text' : `${item.input}`
+        })
+      );
+  })
+
+  //------------------------------------------------ Event Listeners -----------------------------------------------//
   $(document).ready(function(){
     // -------- Search Function -------- //
-    $("#myInput").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#myPlayers .playerList").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
+    $("#searchBtn").on("click", function() { filterPlayers(); });
+    $('#myInput').on("keypress", function() {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        filterPlayers();
+      }
+    })
+
+    function filterPlayers() {
+      let value = $("#myInput").val().toLowerCase();
+        $("#myPlayers .playerList").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    }
 
     // -------- Order by alphabet -------- //
     let mylist = $('#myPlayers');
@@ -164,7 +219,7 @@
     var checked = {};
 
     getChecked('playerSkill');
-    // getChecked('injured');
+    getChecked('plySport');
 
     Array.prototype.forEach.call(allCheckboxes, function (el) {
       el.addEventListener('change', toggleCheckbox);
@@ -183,14 +238,11 @@
 
     function setVisibility() {
       allPlayers.map(function (el) {
-        var playerSkill = checked.playerSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase().substr(7))], checked.playerSkill).length : true;
-        // var injured = checked.injured.length ? _.intersection(Array.from(el.classList), checked.injured).length : true;
-        if (playerSkill) {
-        // if (startingReserves && injured && position && nbaTeam && conference) {
-          // el.style.display = 'block';
+        let playerSkill = checked.playerSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase().substr(7))], checked.playerSkill.map(x => x.toLowerCase())).length : true;
+        let plySport = checked.plySport.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.sport').text().toLowerCase().substr(7))], checked.plySport.map(x => x.toLowerCase())).length : true;
+        if (playerSkill && plySport) {
           $(el).toggle(true);
         } else {
-          // el.style.display = 'none';
           $(el).toggle(false);
         }
       });
@@ -202,8 +254,8 @@
       $('input[type=radio]').prop('checked',false);
       $('.playerList').show();
 
-      var resetList = $('#myPlayers');
-      var removeFilter = resetList.children('.playerList').get();
+      let resetList = $('#myPlayers');
+      let removeFilter = resetList.children('.playerList').get();
       $.each(removeFilter, function(idx, itm) {
         for (let i = itm.classList.length - 1; i >= 0; i--) {
           const className = itm.classList[i];
@@ -212,6 +264,8 @@
           }
         }
       });
+      $("#myInput").val("");
     });
+
   });
 </script>
