@@ -5,7 +5,7 @@
   </div>
   
   <div class="row">
-    <!-- Filters -->
+    <!-------- Filters -------->
     <div class="col">
       <div class="pb-3">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#orderBy">
@@ -13,18 +13,7 @@
         </button>
       </div>
       <div id="orderBy" class="collapse show pb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="myOrder" id="alphaAZ" value="option1">
-          <label class="form-check-label" for="myOrder">
-            Player name (A-Z)
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="myOrder" id="alphaZA" value="option2">
-          <label class="form-check-label" for="myOrder">
-            Player name (Z-A)
-          </label>
-        </div>
+        <!-- Order by buttons -->
       </div>
       <div class="pb-3">
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#skillLevel">
@@ -32,29 +21,12 @@
         </button>
       </div>
       <div id="skillLevel" class="collapse show pb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="beginner" id="beginner" name="playerSkill">
-          <label class="form-check-label" for="defaultCheck1">
-            Beginner
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="intermediate" id="intermediate" name="playerSkill">
-          <label class="form-check-label" for="defaultCheck2">
-            Intermediate
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="advanced" id="advanced" name="playerSkill">
-          <label class="form-check-label" for="defaultCheck3">
-            Advanced
-          </label>
-        </div>
+        <!-- Filter by skill buttons -->
       </div>
       <button type="button" class="btn btn-primary" id="clearFilters">Cear all filters</button>
     </div>
 
-    <!-- Actual Data -->
+    <!-------- Player Data -------->
     <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3" id="myPlayers">
         <% players.forEach( item => { %>
@@ -86,9 +58,73 @@
 
 <!-- Event Listeners -->
 <script>
-  // Clear Function
+  // -------- Order by Buttons -------- //
+  let orderOptions = [
+    {
+      'id' : 'alphaAZ',
+      'input' : 'Player name (A-Z)'
+    },
+    {
+      'id' : 'alphaZA',
+      'input' : 'Player name (Z-A)'
+    }
+  ]
+  orderOptions.forEach(function (item) {
+    $('<div/>', {
+      'class' : 'form-check'
+    }
+      ).appendTo('#orderBy').append(
+        $('<input>', {
+          'class' : 'form-check-input',
+          'type' : 'radio',
+          'name' : 'myOrder',
+          'id' : `${item.id}`
+        }),
+        $('<label/>', {
+          'class' : 'form-check-label',
+          'for' : 'myOrder',
+          'text' : `${item.input}`
+        })
+      );
+  })
+
+  // -------- Filter by skill buttons -------- //
+  let skillOptions = [
+    {
+      'id' : 'beginner',
+      'input' : 'Beginner'
+    },
+    {
+      'id' : 'intermediate',
+      'input' : 'Intermediate'
+    },
+    {
+      'id' : 'advanced',
+      'input' : 'Advanced'
+    }
+  ]
+  skillOptions.forEach(function (item) {
+    $('<div/>', {
+      'class' : 'form-check'
+    }
+      ).appendTo('#skillLevel').append(
+        $('<input>', {
+          'class' : 'form-check-input',
+          'type' : 'checkbox',
+          'name' : 'playerSkill',
+          'id' : `${item.id}`,
+          'value': `${item.id}`
+        }),
+        $('<label/>', {
+          'class' : 'form-check-label',
+          'for' : 'defaultCheck1',
+          'text' : `${item.input}`
+        })
+      );
+  })
+
   $(document).ready(function(){
-    // Search Function
+    // -------- Search Function -------- //
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       $("#myPlayers .playerList").filter(function() {
@@ -96,27 +132,14 @@
       });
     });
 
-    // Order by alphabet
-    $("#alphaAZ").on("click", function() {
-      var mylist = $('#myPlayers');
-      var listitems = mylist.children('.playerList').get();
-      listitems.sort(function(a, b) {
-        return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
-      })
-      $.each(listitems, function(idx, itm) {
-        for (let i = itm.classList.length - 1; i >= 0; i--) {
-          const className = itm.classList[i];
-          if (className.startsWith('order')) {
-            itm.classList.remove(className);
-          }
-        }
-        $(itm).addClass(`order-${(idx+1)}`)
-      });
-    });
+    // -------- Order by alphabet -------- //
+    let mylist = $('#myPlayers');
+    let listitems = mylist.children('.playerList').get();
 
-    $("#alphaZA").on("click", function() {
-      var mylist = $('#myPlayers');
-      var listitems = mylist.children('.playerList').get();
+    $("#alphaAZ").on("click", applyOrderby);
+    $("#alphaZA").on("click", applyOrderby);
+
+    function applyOrderby(e) {
       listitems.sort(function(a, b) {
         return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
       })
@@ -127,11 +150,15 @@
             itm.classList.remove(className);
           }
         }
-        $(itm).addClass(`order-${(listitems.length - idx)}`)
+        if (e.target.id === 'alphaAZ') {
+          $(itm).addClass(`order-${(idx+1)}`);
+        } else {
+          $(itm).addClass(`order-${(listitems.length - idx)}`)
+        }
       });
-    });
+    }
     
-    // Filter by skill
+    // -------- Filter by skill -------- //
     var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
     var allPlayers = Array.from(document.querySelectorAll('.playerList'));
     var checked = {};
@@ -169,6 +196,7 @@
       });
     }
 
+    // -------- Clear Filters -------- //
     $("#clearFilters").on("click", function() {
       $('input[type=checkbox]').prop('checked',false);
       $('input[type=radio]').prop('checked',false);
