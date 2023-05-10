@@ -12,4 +12,7 @@
     <%=user.email%>
     <br>
     <a class="btn btn-primary" href="/user/edit">Edit</a>
+    <%if(user.isManager === true){%>
+    <a class="btn btn-success" href="/teams/create">Create a Team</a>
+    <%}%>
 </div>
