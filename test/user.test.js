@@ -1,7 +1,6 @@
 const { app, server } = require("../index");
 
 const { test, expect, done } = require("@jest/globals");
-const { response } = require("express");
 const request = require("supertest")
 
 afterAll( async () => {
@@ -11,5 +10,9 @@ afterAll( async () => {
 it("login page", async () => {
     await request(server)
     .get("/login")
-    .expect(200)
+    .expect(res => {
+        res.text.includes('email');
+        res.text.includes('password');
+    })
+    .expect(200);
 });
