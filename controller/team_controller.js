@@ -37,6 +37,31 @@ let teamController = {
     res.render("team/player-profile", {player: searchResult})
    },
 
+   userProfile: (req, res) => {
+    // let user = req.user;
+    res.render("user/user-profile", {user: req.user})
+   },
+
+   userEdit: (req, res) => {
+    res.render("user/user-edit", {user: req.user})
+   },
+
+   userEditSubmit: (req, res) => {
+    // let playerToFind = req.params.id
+    let index = database.players.findIndex( player => {
+      return player.id == req.user.id; 
+    })
+    // console.log(index)
+    database.players[index].fname = req.body.fname;
+    database.players[index].lname = req.body.lname;
+    database.players[index].gender = req.body.gender;
+    database.players[index].sport = req.body.sport;
+    database.players[index].skill = req.body.skill_level;
+    database.players[index].dob = req.body.dob;
+    database.players[index].email = req.body.email;
+    res.redirect("/user");
+   },
+
    create: (req, res) => {
     const team = {
       id: database.teams.length + 1,
