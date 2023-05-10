@@ -91,7 +91,8 @@
             "dob": "2002-08-27",
             "email": "johndoe@gmail.com",
             "password": "jd",
-            "picture": "https://img.freepik.com/free-vector/athlete-running-man-sprinter-man-sport-training-athletic-cartoon-character-illustration_1150-50801.jpg?"
+            "picture": "https://img.freepik.com/free-vector/athlete-running-man-sprinter-man-sport-training-athletic-cartoon-character-illustration_1150-50801.jpg?",
+            "isManager": false
         },
         {
             "id": 3,
@@ -103,7 +104,8 @@
             "dob": "1999-06-14",
             "email": "janesmith@gmail.com",
             "password": "js",
-            "picture": "https://img.freepik.com/free-vector/ball_1308-18679.jpg?"
+            "picture": "https://img.freepik.com/free-vector/ball_1308-18679.jpg?",
+            "isManager": false
         },
         {
             "id": 4,
@@ -115,7 +117,8 @@
             "dob": "2001-02-08",
             "email": "alexlee@gmail.com",
             "password": "al",
-            "picture": "https://img.freepik.com/free-photo/mesmerizing-view-silhouette-surfer-ocean-during-sunset-indonesia_181624-44971.jpg?"
+            "picture": "https://img.freepik.com/free-photo/mesmerizing-view-silhouette-surfer-ocean-during-sunset-indonesia_181624-44971.jpg?",
+            "isManager": false
         },
         {
             "id": 5,
@@ -127,7 +130,21 @@
             "dob": "1998-11-17",
             "email": "samanthataylor@gmail.com",
             "password": "st",
-            "picture": "https://img.freepik.com/free-vector/athletic-handball-player-with-flat-design_23-2147875614.jpg?"
+            "picture": "https://img.freepik.com/free-vector/athletic-handball-player-with-flat-design_23-2147875614.jpg?",
+            "isManager": false
+        },
+        {
+            "id":6,
+            "fname": "Ellen",
+            "lname":"Young",
+            "gender": "Female",
+            "sport":"Ultimate Frisbee",
+            "skill":"advanced",
+            "dob":"2001-02-08",
+            "email": "ellenyoung@gmail.com",
+            "password": "ey",
+            "picture": null,
+            "isManager": true
         }
     ]
 }

@@ -33,17 +33,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  console.log(`User details are: `);
-  console.log(req.user);
+// app.use((req, res, next) => {
+//   console.log(`User details are: `);
+//   console.log(req.user);
   
-  console.log("Entire session object:");
-  console.log(req.session);
+//   console.log("Entire session object:");
+//   console.log(req.session);
   
-  console.log(`Session details are: `);
-  console.log(req.session.passport);
-  next();
-});
+//   console.log(`Session details are: `);
+//   console.log(req.session.passport);
+//   next();
+// });
 
 // routes
 
@@ -65,6 +65,12 @@ app.get("/players", ensureAuthenticated, teamController.listAllPlayers)
 
 app.get("/players/:id", teamController.listPlayer)
 
+app.get("/user", ensureAuthenticated, teamController.userProfile)
+
+app.get("/user/edit", ensureAuthenticated, teamController.userEdit)
+
+app.post("/user/edit", ensureAuthenticated, teamController.userEditSubmit)
+
 // auth routes
 app.get("/register", authController.register);
 
@@ -74,7 +80,7 @@ app.post("/register", authController.registerSubmit);
 
 app.post("/login", authController.loginSubmit);
 
-app.get("logout", authController.logout);
+app.get("/logout", authController.logout);
 
 const server = app.listen(3001, function () {
   console.log(
