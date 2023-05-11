@@ -47,19 +47,29 @@ app.use(passport.session());
 
 // routes
 
-app.get("/teams", ensureAuthenticated, teamController.list)
+app.get("/teams", ensureAuthenticated, teamController.list);
 
-app.get("/teams/create", ensureAuthenticated, teamController.new)
+app.get("/teams/create", ensureAuthenticated, teamController.new);
 
-app.post("/teams/", teamController.create)
+app.post("/teams/", teamController.create);
 
-app.get("/teams/:id/edit", teamController.edit)
+app.get("/teams/:id/edit", teamController.edit);
 
-app.post("/teams/update/:id", teamController.update)
+app.post("/teams/update/:id", teamController.update);
 
-app.get("/teams/:id", teamController.listOne)
+app.get("/teams/:id", teamController.listOne);
 
-app.post("/teams/delete/:id", teamController.delete)
+app.post("/teams/delete/:id", teamController.delete);
+
+app.post("/teams/:id/cancel", teamController.cancel);
+
+app.post("/teams/:id/leave", teamController.leave);
+
+app.post("/teams/:id/request", teamController.request);
+
+app.post("/teams/:id/accept", teamController.acceptRequest);
+
+app.post("/teams/:id/decline", teamController.decline);
 
 app.get("/players", ensureAuthenticated, teamController.listAllPlayers)
 

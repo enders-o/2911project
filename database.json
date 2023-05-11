@@ -86,7 +86,9 @@
             "email": "johndoe@gmail.com",
             "password": "jd",
             "picture": "https://img.freepik.com/free-vector/athlete-running-man-sprinter-man-sport-training-athletic-cartoon-character-illustration_1150-50801.jpg?",
-            "isManager": false
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [1]
         },
         {
             "id": 3,
@@ -99,7 +101,9 @@
             "email": "janesmith@gmail.com",
             "password": "js",
             "picture": "https://img.freepik.com/free-vector/ball_1308-18679.jpg?",
-            "isManager": false
+            "isManager": false,
+            "requestedTeams": [2, 3],
+            "joinedTeams": []
         },
         {
             "id": 4,
@@ -112,7 +116,9 @@
             "email": "alexlee@gmail.com",
             "password": "al",
             "picture": "https://img.freepik.com/free-photo/mesmerizing-view-silhouette-surfer-ocean-during-sunset-indonesia_181624-44971.jpg?",
-            "isManager": false
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": []
         },
         {
             "id": 5,
@@ -125,7 +131,9 @@
             "email": "samanthataylor@gmail.com",
             "password": "st",
             "picture": "https://img.freepik.com/free-vector/athletic-handball-player-with-flat-design_23-2147875614.jpg?",
-            "isManager": false
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": []
         },
         {
             "id":6,
@@ -138,7 +146,9 @@
             "email": "ellenyoung@gmail.com",
             "password": "ey",
             "picture": null,
-            "isManager": true
+            "isManager": true,
+            "requestedTeams": [],
+            "joinedTeams": []
         },
         {
             "id": 7,
@@ -151,7 +161,9 @@
             "email": "markjohnson@gmail.com",
             "password": "mj",
             "picture": null,
-            "isManager": true
+            "isManager": true,
+            "requestedTeams": [],
+            "joinedTeams": []
         },
         {
             "id":8,
@@ -164,7 +176,9 @@
             "email": "emilydavis@gmail.com",
             "password": "ed",
             "picture": null,
-            "isManager": true
+            "isManager": true,
+            "requestedTeams": [],
+            "joinedTeams": []
         }
     ]
 }
