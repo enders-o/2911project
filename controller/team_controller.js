@@ -1,63 +1,63 @@
 let database = require("../database.json")
 
 let teamController = {
-   list: (req, res) => {
-    res.render("team/index", { teams: database.teams});
-   },
+  list: (req, res) => {
+    res.render("team/index", { teams: database.teams });
+  },
 
-   new: (req, res) => {
-    res.render("team/create-team",{user: req.user});
-   },
+  new: (req, res) => {
+    res.render("team/create-team", { user: req.user });
+  },
 
-   edit: (req, res) => {
+  edit: (req, res) => {
     let teamToFind = req.params.id;
-    let searchResult = database.teams.find( team => {
+    let searchResult = database.teams.find(team => {
       return team.id == teamToFind;
     });
     let managerId = searchResult.manager_id;
     let manager = database.players.find(player => {
       return player.id == managerId;
     })
-    res.render("team/edit-team", {teamItem: searchResult, manager: manager, user: req.user});
-   },
+    res.render("team/edit-team", { teamItem: searchResult, manager: manager, user: req.user });
+  },
 
-   listOne: (req, res) => {
+  listOne: (req, res) => {
     let teamToFind = req.params.id;
-    let searchResult = database.teams.find( team => {
+    let searchResult = database.teams.find(team => {
       return team.id == teamToFind;
     })
     let managerId = searchResult.manager_id;
     let manager = database.players.find(player => {
       return player.id == managerId;
     })
-    res.render("team/single-team", {teamItem: searchResult, manager: manager});
-   },
+    res.render("team/single-team", { teamItem: searchResult, manager: manager, user: req.user });
+  },
 
-   listAllPlayers: (req, res) => {
-      res.render("team/players", {players: database.players});
-   },
+  listAllPlayers: (req, res) => {
+    res.render("team/players", { players: database.players });
+  },
 
-   listPlayer: (req, res) => {
+  listPlayer: (req, res) => {
     let playerToFind = req.params.id;
-    let searchResult = database.players.find( player => {
+    let searchResult = database.players.find(player => {
       return player.id == playerToFind
     })
-    res.render("team/player-profile", {player: searchResult})
-   },
+    res.render("team/player-profile", { player: searchResult })
+  },
 
-   userProfile: (req, res) => {
+  userProfile: (req, res) => {
     // let user = req.user;
-    res.render("user/user-profile", {user: req.user, teams: database.teams})
-   },
+    res.render("user/user-profile", { user: req.user, teams: database.teams ,players: database.players})
+  },
 
-   userEdit: (req, res) => {
-    res.render("user/user-edit", {user: req.user})
-   },
+  userEdit: (req, res) => {
+    res.render("user/user-edit", { user: req.user })
+  },
 
-   userEditSubmit: (req, res) => {
+  userEditSubmit: (req, res) => {
     // let playerToFind = req.params.id
-    let index = database.players.findIndex( player => {
-      return player.id == req.user.id; 
+    let index = database.players.findIndex(player => {
+      return player.id == req.user.id;
     })
     // console.log(index)
     database.players[index].fname = req.body.fname;
@@ -68,9 +68,9 @@ let teamController = {
     database.players[index].dob = req.body.dob;
     database.players[index].email = req.body.email;
     res.redirect("/user");
-   },
+  },
 
-   create: (req, res) => {
+  create: (req, res) => {
     const team = {
       id: database.teams.length + 1,
       name: req.body.name,
@@ -83,11 +83,11 @@ let teamController = {
     };
     database.teams.push(team);
     res.redirect("/teams");
-   },
+  },
 
-   update: (req, res) => {
+  update: (req, res) => {
     let teamToFind = req.params.id;
-    let index = database.teams.findIndex( team => {
+    let index = database.teams.findIndex(team => {
       return team.id == teamToFind;
     });
     database.teams[index].name = req.body.name;
@@ -98,16 +98,39 @@ let teamController = {
     database.teams[index].player_count = req.body.player_count;
     database.teams[index].location = req.body.location;
     res.redirect("/teams")
-   },
+  },
 
-   delete: (req, res) => {
+  delete: (req, res) => {
     let teamToFind = req.params.id;
     let index = database.teams.findIndex(team => {
       return team.id == teamToFind;
     });
-    database.teams.splice(index,1);
+    database.teams.splice(index, 1);
     res.redirect("/teams")
-   }
+  },
+
+  cancel: (req, res) => {
+  },
+
+  leave: (req, res) => {
+
+  },
+
+  request: (req, res) => {
+
+  },
+
+  acceptRequest: (req, res) => {
+
+  },
+
+  decline: (req, res) => {
+  },
+
+  kick: (req, res) => {
+
+  }
+
 };
 
 module.exports = teamController;

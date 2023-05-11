@@ -17,6 +17,16 @@
                 <br /> Manager: <%= manager.fname %> <%= manager.lname%>
                 <br /> Email: <%= manager.email %>
               </p>
+              <!-- Add button to join a team -->
+              <% if (user.id != manager.id) { %>
+                <% if (user.joinedTeams.includes(teamItem.id)) { %>
+                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/leave">Leave Team</a>
+                <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
+                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/cancel">Cancel Request</a>
+                <% } else { %>
+                  <a class="btn btn-success" href="/teams/<%= teamItem.id %>/request">Request To Join Team</a>
+                <% } %>
+              <% } %>
             </div>
           </div>
         </div>
