@@ -1,4 +1,5 @@
 <div class="container">
+    <%if(user.id === manager.id){%>
     <h1 class="page-header">Edit</h1>
     <form method="POST" action=<%= "/teams/delete/" +teamItem.id %>>
         <button type="submit" class="btn btn-danger">Delete</button>
@@ -15,18 +16,16 @@
     <div class="form-group">
         <label for="sport">Sport</label>
         <select name="sport" selected="">
+            <option hidden selected value="<%=teamItem.sport%>"><%=teamItem.sport%></option>
             <option class="form-control" value="Ultimate Frisbee">Ultimate Frisbee</option>
-            <option class="form-control" value="Badminton">Badminton</option>
             <option class="form-control" value="Basketball">Basketball</option>
             <option class="form-control" value="Basketball">Volleyball</option>
-            <option class="form-control" value="Basketball">Surfing</option>
-            <option class="form-control" value="Basketball">Football</option>
-            <option class="form-control" value="Basketball">Soccer</option>
         </select>
     </div>
     <div class="form-group">
         <label for="skill_level">Skill Level</label>
         <select name="skill_level">
+            <option hidden selected value="<%= teamItem.skill%>"><%= teamItem.skill_level%></option>
             <option class="form-control" value="Beginner">Beginner</option>
             <option class="form-control" value="Intermediate">Intermediate</option>
             <option class="form-control" value="Advanced">Advanced</option>
@@ -42,18 +41,12 @@
         <input class="form-control" type="number" name="player_count" min="1" max="99" value="<%= teamItem.player_count%>">
     </div>
     <div class="form-group">
-        <label for="manager_name">Manager Name</label>
-        <input class="form-control" type="text" name="manager_name" value="<%= teamItem.manager_name%>">
-    </div>
-    <div class="form-group">
-        <label for="manager_email">Manager Email</label>
-        <input class="form-control" type="email" name="manager_email" value="<%= teamItem.manager_email%>">
-    </div>
-    <div class="form-group">
         <label for="location">Location</label>
         <input class="form-control" type="text" name="location" value="<%= teamItem.location%>">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 
     </form>
+    <%}%>
+    <h1>Permission Denied</h1>
 </div>

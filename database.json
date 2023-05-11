@@ -8,8 +8,7 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 24,
-            "manager_name": "Ellen Young",
-            "manager_email": "ellenyoung@gmail.com",
+            "manager_id": 6,
             "location": "Richmond, BC",
             "picture": "https://d36m266ykvepgv.cloudfront.net/uploads/media/X1IX6cWCsC/c-232-160-160-0-1096-757/4bfbf2f2-1be3-4921-86c7-dde67a4e9677.png"
             
@@ -22,8 +21,7 @@
             "skill_level": "intermediate",
             "competitive": true,
             "player_count": 12,
-            "manager_name": "Mark Johnson",
-            "manager_email": "markjohnson@gmail.com",
+            "manager_id": 7,
             "location": "Vancouver, BC",
             "picture": "https://upload.wikimedia.org/wikipedia/en/e/e9/UBC_Thunderbirds_Logo.svg"
         },
@@ -35,8 +33,7 @@
             "skill_level": "beginner",
             "competitive": false,
             "player_count": 8,
-            "manager_name": "Kelly Jackson",
-            "manager_email": "kellyjackson@gmail.com",
+            "manager_id": 7,
             "location": "Santa Cruz, CA",
             "picture": "https://img.freepik.com/premium-vector/surfing-sport-logo_7785-371.jpg?w=2000"
         },
@@ -48,8 +45,7 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 16,
-            "manager_name": "Emily Davis",
-            "manager_email": "emilydavis@gmail.com",
+            "manager_id":8,
             "location": "Toronto, ON",
             "picture": "https://seeklogo.com/images/T/thunderbolts-logo-86727FBF42-seeklogo.com.png"
         },
@@ -61,8 +57,7 @@
             "skill_level": "intermediate",
             "competitive": true,
             "player_count": 20,
-            "manager_name": "Joshua Kim",
-            "manager_email": "joshuakim@gmail.com",
+            "manager_id":6,
             "location": "New York, NY",
             "picture": "https://media.istockphoto.com/id/1356489475/vector/lynx-wildcat-bobcat-tiger-big-cat-logo-mascot-vector-illustration.jpg?s=612x612&w=0&k=20&c=l7J2KPa9miB20mN9JQC0D25CWm2RZe4-rGnTVY92NEg="
         },
@@ -74,8 +69,7 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 22,
-            "manager_name": "William Chen",
-            "manager_email": "williamchen@gmail.com",
+            "manager_id": 8,
             "location": "Los Angeles, CA",
             "picture": "https://media.istockphoto.com/id/1270637086/vector/thunder-icon.jpg?s=612x612&w=0&k=20&c=BqjU6Zdj5FcHTGhXpzOCalLd5yeuHfmtHlcc0BIW-U4="
         }
@@ -143,6 +137,32 @@
             "dob":"2001-02-08",
             "email": "ellenyoung@gmail.com",
             "password": "ey",
+            "picture": null,
+            "isManager": true
+        },
+        {
+            "id": 7,
+            "fname": "Mark",
+            "lname": "Johnson",
+            "gender": "Male",
+            "sport":"Basketball",
+            "skill":"advanced",
+            "dob":"1998-04-02",
+            "email": "markjohnson@gmail.com",
+            "password": "mj",
+            "picture": null,
+            "isManager": true
+        },
+        {
+            "id":8,
+            "fname": "Emily",
+            "lname":"Davis",
+            "gender":"Female",
+            "sport":"Basketball",
+            "skill":"advanced",
+            "dob":"2002-05-15",
+            "email": "emilydavis@gmail.com",
+            "password": "ed",
             "picture": null,
             "isManager": true
         }
