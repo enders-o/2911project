@@ -14,13 +14,11 @@
               <p class="card-text" style="text-align: center;">
                 Sport: <%= teamItem.sport %>
                 <br /> Tier: <%= teamItem.skill_level %>
-                <br /> Manager: <%= teamItem.manager_name %>
-                <br /> Email: <%= teamItem.manager_email %>
+                <br /> Manager: <%= manager.fname %> <%= manager.lname%>
+                <br /> Email: <%= manager.email %>
               </p>
             </div>
           </div>
         </div>
       </div>
-    <a class="btn btn-primary" href=<%="/teams/" +teamItem.id+"/edit" %>>Edit</a>
-
 </div>

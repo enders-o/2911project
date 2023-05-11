@@ -14,7 +14,11 @@ let teamController = {
     let searchResult = database.teams.find( team => {
       return team.id == teamToFind;
     });
-    res.render("team/edit-team", {teamItem: searchResult});
+    let managerId = searchResult.manager_id;
+    let manager = database.players.find(player => {
+      return player.id == managerId;
+    })
+    res.render("team/edit-team", {teamItem: searchResult, manager: manager, user: req.user});
    },
 
    listOne: (req, res) => {
@@ -22,7 +26,11 @@ let teamController = {
     let searchResult = database.teams.find( team => {
       return team.id == teamToFind;
     })
-    res.render("team/single-team", {teamItem: searchResult});
+    let managerId = searchResult.manager_id;
+    let manager = database.players.find(player => {
+      return player.id == managerId;
+    })
+    res.render("team/single-team", {teamItem: searchResult, manager: manager});
    },
 
    listAllPlayers: (req, res) => {
@@ -39,7 +47,7 @@ let teamController = {
 
    userProfile: (req, res) => {
     // let user = req.user;
-    res.render("user/user-profile", {user: req.user})
+    res.render("user/user-profile", {user: req.user, teams: database.teams})
    },
 
    userEdit: (req, res) => {
@@ -71,8 +79,6 @@ let teamController = {
       skill_level: req.body.skill_level,
       competitive: req.body.competitive,
       player_count: req.body.player_count,
-      manager_name: req.body.manager_name,
-      manager_email: req.body.manager_email,
       location: req.body.location,
     };
     database.teams.push(team);
@@ -90,8 +96,6 @@ let teamController = {
     database.teams[index].skill_level = req.body.skill_level;
     database.teams[index].competitive = req.body.competitive;
     database.teams[index].player_count = req.body.player_count;
-    database.teams[index].manager_name = req.body.manager_name;
-    database.teams[index].manager_email = req.body.manager_email;
     database.teams[index].location = req.body.location;
     res.redirect("/teams")
    },

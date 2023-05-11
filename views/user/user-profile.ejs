@@ -12,7 +12,16 @@
     <%=user.email%>
     <br>
     <a class="btn btn-primary" href="/user/edit">Edit</a>
+    <br>
     <%if(user.isManager === true){%>
     <a class="btn btn-success" href="/teams/create">Create a Team</a>
+    <br>
+    <%teams.forEach(team => {%>
+        <%if(team.manager_id == user.id){%>
+            <%= team.name %>
+            <a class="btn btn-danger" href="/teams/<%=team.id%>/edit/">Edit Team</a>
+            <br>
+        <%}%>
+    <%})%>
     <%}%>
 </div>
