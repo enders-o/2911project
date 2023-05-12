@@ -1,61 +1,82 @@
 <div class="container">
     <h1>Profile</h1>
-    <h2><%= user.fname%> <%= user.lname %></h2>
-    <%=user.gender%>
-    <br>
-    <%=user.sport%>
-    <br>
-    <%=user.skill%>
-    <br>
-    <%=user.dob%>
-    <br>
-    <%=user.email%>
-    <br>
-    <a class="btn btn-primary" href="/user/edit">Edit</a>
+    <div class="card" style="width: 18rem;">
+        <div class="card-img-top">
+            <img src="<%=user.picture%>" class="img-fluid"/>
+            <div class="card-body">
+                <p class="card-text">
+                <h2>
+                    <%= user.fname%>
+                        <%= user.lname %>
+                </h2>
+                <%=user.gender%>
+                    <br>
+                    <%=user.sport%>
+                        <br>
+                        <%=user.skill%>
+                            <br>
+                            <%=user.dob%>
+                                <br>
+                                <%=user.email%>
+                                    <br></p>
+                                    <a class="btn btn-primary" href="/user/edit">Edit</a>
+            </div>
+        </div>
+    </div>
     <br>
     <h2>Requested Teams</h2>
     <%user.requestedTeams.forEach(teamId=> {%>
-        <%teams.forEach(team => {%>
-            <%if(team.id == teamId){%>
+        <%teams.forEach(team=> {%>
+            <%if(team.id==teamId){%>
                 <%=team.name%>
-                <a class="btn btn-danger" href="/teams/<%=team.id%>/cancel">Cancel Request</a>
-                <br>
-            <%}%>
-        <%})%>
-    <%})%>
-    <h2>Joined Teams</h2>
-    <%user.joinedTeams.forEach(teamId => {%>
-        <%teams.forEach(team => {%>
-            <%if(team.id == teamId){%>
-                <%=team.name%>
-                <a class="btn btn-danger" href="/teams/<%=team.id%>/leave">Leave Team</a>
-                <br>
-            <%}%>
-        <%})%>
-    <%})%>
-    <%if(user.isManager === true){%>
-    <h2>Manage Teams</h1>
-    
-    <a class="btn btn-success" href="/teams/create">Create a Team</a>
-    <br>
-    <!-- Add a button to accept all requests for a team -->
-        <%teams.forEach(team => {%>
-            <%if(team.manager_id == user.id){%>
-                <h3><%= team.name %></h3>
-            <a class="btn btn-danger" href="/teams/<%=team.id%>/edit/">Edit Team</a>
-            <br>
-            <h3>Requests</h3>
-                <% players.forEach(player => {%>
-                    <%player.requestedTeams.forEach(teamId => {%>
-                        <%if(team.id == teamId){%>
-                            <%=player.fname%> <%=player.lname%>
-                            <a class="btn btn-success" href="/teams/<%=team.id%>/accept/<%=player.id%>">Accept</a>
-                            <a class="btn btn-danger" href="/teams/<%=team.id%>/decline/<%=player.id%>">Decline</a>
-                            <br>
-                        <%}%>
-                     <%})%>
-                <%})%>
-            <%}%>
-        <%})%>
-    <%}%>
+                    <a class="btn btn-danger" href="/teams/<%=team.id%>/cancel">Cancel Request</a>
+                    <br>
+                    <%}%>
+                        <%})%>
+                            <%})%>
+                                <h2>Joined Teams</h2>
+                                <%user.joinedTeams.forEach(teamId=> {%>
+                                    <%teams.forEach(team=> {%>
+                                        <%if(team.id==teamId){%>
+                                            <%=team.name%>
+                                                <a class="btn btn-danger" href="/teams/<%=team.id%>/leave">Leave
+                                                    Team</a>
+                                                <br>
+                                                <%}%>
+                                                    <%})%>
+                                                        <%})%>
+                                                            <%if(user.isManager===true){%>
+                                                                <h2>Manage Teams</h1>
+
+                                                                    <a class="btn btn-success"
+                                                                        href="/teams/create">Create a Team</a>
+                                                                    <br>
+                                                                    <!-- Add a button to accept all requests for a team -->
+                                                                    <%teams.forEach(team=> {%>
+                                                                        <%if(team.manager_id==user.id){%>
+                                                                            <h3>
+                                                                                <%= team.name %>
+                                                                            </h3>
+                                                                            <a class="btn btn-danger"
+                                                                                href="/teams/<%=team.id%>/edit/">Edit
+                                                                                Team</a>
+                                                                            <br>
+                                                                            <h3>Requests</h3>
+                                                                            <% players.forEach(player=> {%>
+                                                                                <%player.requestedTeams.forEach(teamId=>
+                                                                                    {%>
+                                                                                    <%if(team.id==teamId){%>
+                                                                                        <%=player.fname%>
+                                                                                            <%=player.lname%>
+                                                                                                <a class="btn btn-success"
+                                                                                                    href="/teams/<%=team.id%>/accept/<%=player.id%>">Accept</a>
+                                                                                                <a class="btn btn-danger"
+                                                                                                    href="/teams/<%=team.id%>/decline/<%=player.id%>">Decline</a>
+                                                                                                <br>
+                                                                                                <%}%>
+                                                                                                    <%})%>
+                                                                                                        <%})%>
+                                                                                                            <%}%>
+                                                                                                                <%})%>
+                                                                                                                    <%}%>
 </div>

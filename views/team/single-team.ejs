@@ -1,34 +1,41 @@
 <div class="container">
-    <h1>
-        <%= teamItem.name%>
-    </h1>   
-    </p>
-    <div class="card mb-3" style="max-width: 700px">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="<%= teamItem.picture%>" alt="profile-picture" width="350" height="300"/>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"></h5>
-              <p class="card-text" style="text-align: center;">
-                Sport: <%= teamItem.sport %>
-                <br /> Tier: <%= teamItem.skill_level %>
-                <br /> Manager: <%= manager.fname %> <%= manager.lname%>
-                <br /> Email: <%= manager.email %>
-              </p>
-              <!-- Add button to join a team -->
-              <% if (user.id != manager.id) { %>
-                <% if (user.joinedTeams.includes(teamItem.id)) { %>
-                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/leave">Leave Team</a>
-                <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
-                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/cancel">Cancel Request</a>
-                <% } else { %>
-                  <a class="btn btn-success" href="/teams/<%= teamItem.id %>/request">Request To Join Team</a>
-                <% } %>
-              <% } %>
-            </div>
-          </div>
+  <h1>
+    <%= teamItem.name%>
+  </h1>
+  </p>
+  <div class="card mb-3" style="max-width: 700px">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="<%= teamItem.picture%>" alt="profile-picture" width="350" height="300" />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text" style="text-align: center;">
+            Sport: <%= teamItem.sport %>
+              <br /> Tier: <%= teamItem.skill_level %>
+                <br /> Manager: <%= manager.fname %>
+                  <%= manager.lname%>
+                    <br /> Email: <%= manager.email %>
+                      <br />
+                      <% if (teamItem.competitive) { %>
+                        Competitive
+                        <% } else { %>
+                          Recreational
+                          <% } %>
+          </p>
         </div>
       </div>
+      <!-- Add button to join a team -->
+      <% if (user.id !=manager.id) { %>
+        <% if (user.joinedTeams.includes(teamItem.id)) { %>
+          <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/leave">Leave Team</a>
+          <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
+            <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/cancel">Cancel Request</a>
+            <% } else { %>
+              <a class="btn btn-success" href="/teams/<%= teamItem.id %>/request">Request To Join Team</a>
+              <% } %>
+                <% } %>
+    </div>
+  </div>
 </div>
