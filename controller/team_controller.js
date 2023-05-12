@@ -26,7 +26,7 @@ let teamController = {
     let searchResult = database.teams.find(team => {
       return team.id == teamToFind;
     })
-    let managerId = searchResult.manager_id;
+    let managerId = searchResult.manager_id;    
     let manager = database.players.find(player => {
       return player.id == managerId;
     })
@@ -110,25 +110,129 @@ let teamController = {
   },
 
   cancel: (req, res) => {
+    const player = req.user;
+    const teamId = req.params.id;
+    const index = player.requestedTeams.findIndex(id => {
+      return id == teamId;
+    });
+    player.requestedTeams.splice(index, 1);
+    res.redirect("/user");
   },
 
   leave: (req, res) => {
-
+    const player = req.user;
+    console.log(player)
+    const teamId = req.params.id;
+    const index = player.joinedTeams.findIndex(id => {
+      return id == teamId;
+    });
+    player.joinedTeams.splice(index, 1);
+    res.redirect("/user");
   },
 
   request: (req, res) => {
-
+    const teamId = req.params.id;
+    const player = req.user;
+    if(!player.requestedTeams.includes(teamId)){
+      player.requestedTeams.push(teamId);
+    } else {
+      console.log("already requested")
+    };
+    res.redirect("/user");
   },
 
   acceptRequest: (req, res) => {
-
+    const teamId = req.params.team_id;
+    const playerId = req.params.player_id;
+    const playerToFind = database.players.find(player => {
+      return player.id == playerId;
+    });
+    const teamToFind = database.teams.find(team => {
+      return team.id == teamId;
+    });
+    // if(!teamToFind){
+    //   // console.log("team not found")
+    //   // respond with status 404
+    //   res.status(404).send("Team not found");
+    //   // res.redirect("/teams");
+    // }
+    // if(!playerToFind){
+    //   // console.log("player not found")
+    //   // respond with status 404
+    //   res.status(404).send("Player not found");
+    // };
+    // if(teamToFind && playerToFind){
+      // console.log("team and player found")
+      // add player to team
+    const index = playerToFind.requestedTeams.findIndex(id => {
+      return id == teamId;
+    });
+    playerToFind.requestedTeams.splice(index, 1);
+    playerToFind.joinedTeams.push(teamId);
+    res.redirect("/user");
+    // };
   },
 
   decline: (req, res) => {
+    const teamId = req.params.team_id;
+    const playerId = req.params.player_id;
+    const playerToFind = database.players.find(player => {
+      return player.id == playerId;
+    });
+    const teamToFind = database.teams.find(team => {
+      return team.id == teamId;
+    });
+    if(!teamToFind){
+      // console.log("team not found")
+      // respond with status 404
+      res.status(404).send("Team not found");
+      // res.redirect("/teams");
+    }
+    if(!playerToFind){
+      // console.log("player not found")
+      // respond with status 404
+      res.status(404).send("Player not found");
+    };
+    if(teamToFind && playerToFind){
+      // console.log("team and player found")
+      // add player to team
+    const index = playerToFind.requestedTeams.findIndex(id => {
+      return id == teamId;
+    });
+    playerToFind.requestedTeams.splice(index, 1);
+    res.redirect("/user");
+    };
   },
 
   kick: (req, res) => {
-
+    const teamId = req.params.team_id;
+    const playerId = req.params.player_id;
+    const playerToFind = database.players.find(player => {
+      return player.id == playerId;
+    });
+    const teamToFind = database.teams.find(team => {
+      return team.id == teamId;
+    });
+    if(!teamToFind){
+      // console.log("team not found")
+      // respond with status 404
+      res.status(404).send("Team not found");
+      // res.redirect("/teams");
+    }
+    if(!playerToFind){
+      // console.log("player not found")
+      // respond with status 404
+      res.status(404).send("Player not found");
+    };
+    if(teamToFind && playerToFind){
+      // console.log("team and player found")
+      // add player to team
+    const index = playerToFind.joinedTeams.findIndex(id => {
+      return id == teamId;
+    });
+    playerToFind.joinedTeams.splice(index, 1);
+    res.redirect("/user");
+    };
   }
 
 };
