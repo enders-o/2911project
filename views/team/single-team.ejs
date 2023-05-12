@@ -20,11 +20,18 @@
               <!-- Add button to join a team -->
               <% if (user.id != manager.id) { %>
                 <% if (user.joinedTeams.includes(teamItem.id)) { %>
-                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/leave">Leave Team</a>
+                  <!-- change to post request -->
+                  <form method="POST" action="/teams/<%= teamItem.id %>/leave">
+                    <button class="btn btn-danger" type="submit">Leave Team</button>
+                  </form>
                 <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
-                  <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/cancel">Cancel Request</a>
+                  <form method="POST" action="/teams/<%=teamItem.id%>/cancel">
+                    <button class="btn btn-danger" type="submit">Cancel Request</button>
+                  </form>
                 <% } else { %>
-                  <a class="btn btn-success" href="/teams/<%= teamItem.id %>/request">Request To Join Team</a>
+                  <form method="POST" action="/teams/<%=teamItem.id%>/request">
+                    <button class="btn btn-success" type="submit">Request to Join Team</button>
+                  </form>
                 <% } %>
               <% } %>
             </div>

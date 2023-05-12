@@ -18,7 +18,9 @@
         <%teams.forEach(team => {%>
             <%if(team.id == teamId){%>
                 <%=team.name%>
-                <a class="btn btn-danger" href="/teams/<%=team.id%>/cancel">Cancel Request</a>
+                <form method="POST" action="/teams/<%=team.id%>/cancel">
+                    <button class="btn btn-danger" type="submit">Cancel Request</button>
+                </form>
                 <br>
             <%}%>
         <%})%>
@@ -28,7 +30,9 @@
         <%teams.forEach(team => {%>
             <%if(team.id == teamId){%>
                 <%=team.name%>
-                <a class="btn btn-danger" href="/teams/<%=team.id%>/leave">Leave Team</a>
+                <form method="POST" action="/teams/<%=team.id%>/leave">
+                    <button class="btn btn-danger" type="submit">Leave Team</button>
+                </form>
                 <br>
             <%}%>
         <%})%>
@@ -45,12 +49,28 @@
             <a class="btn btn-danger" href="/teams/<%=team.id%>/edit/">Edit Team</a>
             <br>
             <h3>Requests</h3>
-                <% players.forEach(player => {%>
-                    <%player.requestedTeams.forEach(teamId => {%>
-                        <%if(team.id == teamId){%>
+            <% players.forEach(player => {%>
+                <%player.requestedTeams.forEach(teamId => {%>
+                    <%if(team.id == teamId){%>
                             <%=player.fname%> <%=player.lname%>
-                            <a class="btn btn-success" href="/teams/<%=team.id%>/accept/<%=player.id%>">Accept</a>
-                            <a class="btn btn-danger" href="/teams/<%=team.id%>/decline/<%=player.id%>">Decline</a>
+                            <form method="POST" action="/teams/<%=team.id%>/accept/<%=player.id%>">
+                                <button class="btn btn-success" type="submit">Accept</button>
+                            </form>
+                            <form method="POST" action="/teams/<%=team.id%>/decline/<%=player.id%>">
+                                <button class="btn btn-danger" type="submit">Decline</button>
+                            </form>
+                            <br>
+                        <%}%>
+                     <%})%>
+                <%})%>
+            <h3>Current Members</h3>
+            <% players.forEach(player => {%>
+                <%player.joinedTeams.forEach(teamId => {%>
+                    <%if(team.id == teamId){%>
+                            <%=player.fname%> <%=player.lname%>
+                            <form method="POST" action="/teams/<%=team.id%>/kick/<%=player.id%>">
+                                <button class="btn btn-danger" type="submit">Kick</button>
+                            </form>
                             <br>
                         <%}%>
                      <%})%>

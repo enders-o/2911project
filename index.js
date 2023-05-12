@@ -67,9 +67,11 @@ app.post("/teams/:id/leave", teamController.leave);
 
 app.post("/teams/:id/request", teamController.request);
 
-app.post("/teams/:id/accept", teamController.acceptRequest);
+app.post("/teams/:team_id/accept/:player_id", teamController.acceptRequest);
 
-app.post("/teams/:id/decline", teamController.decline);
+app.post("/teams/:team_id/decline/:player_id", teamController.decline);
+
+app.post("/teams/:team_id/kick/:player_id", teamController.kick);
 
 app.get("/players", ensureAuthenticated, teamController.listAllPlayers)
 
