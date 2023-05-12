@@ -103,7 +103,7 @@
             "picture": "https://img.freepik.com/free-vector/ball_1308-18679.jpg?",
             "isManager": false,
             "requestedTeams": [2, 3],
-            "joinedTeams": []
+            "joinedTeams": [1,5]
         },
         {
             "id": 4,
@@ -118,7 +118,7 @@
             "picture": "https://img.freepik.com/free-photo/mesmerizing-view-silhouette-surfer-ocean-during-sunset-indonesia_181624-44971.jpg?",
             "isManager": false,
             "requestedTeams": [],
-            "joinedTeams": []
+            "joinedTeams": [2]
         },
         {
             "id": 5,
@@ -163,7 +163,7 @@
             "picture": null,
             "isManager": true,
             "requestedTeams": [],
-            "joinedTeams": []
+            "joinedTeams": [4]
         },
         {
             "id":8,
