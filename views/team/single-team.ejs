@@ -17,37 +17,26 @@
                 <br /> Manager: <%= manager.fname %> <%= manager.lname%>
                 <br /> Email: <%= manager.email %>
               </p>
-              <!-- Add button to join a team -->
-              <% if (user.id != manager.id) { %>
-                <% if (user.joinedTeams.includes(teamItem.id)) { %>
-                  <!-- change to post request -->
-                  <form method="POST" action="/teams/<%= teamItem.id %>/leave">
-                    <button class="btn btn-danger" type="submit">Leave Team</button>
-                  </form>
-                <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
-                  <form method="POST" action="/teams/<%=teamItem.id%>/cancel">
-                    <button class="btn btn-danger" type="submit">Cancel Request</button>
-                  </form>
-                <% } else { %>
-                  <form method="POST" action="/teams/<%=teamItem.id%>/request">
-                    <button class="btn btn-success" type="submit">Request to Join Team</button>
-                  </form>
-                <% } %>
-              <% } %>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Add button to join a team -->
-      <% if (user.id !=manager.id) { %>
-        <% if (user.joinedTeams.includes(teamItem.id)) { %>
-          <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/leave">Leave Team</a>
+        <% if (user.id != manager.id) { %>
+          <% if (user.joinedTeams.includes(teamItem.id)) { %>
+            <!-- change to post request -->
+            <form method="POST" action="/teams/<%= teamItem.id %>/leave">
+              <button class="btn btn-danger" type="submit">Leave Team</button>
+            </form>
           <% } else if (user.requestedTeams.includes(teamItem.id)) { %>
-            <a class="btn btn-danger" href="/teams/<%= teamItem.id %>/cancel">Cancel Request</a>
-            <% } else { %>
-              <a class="btn btn-success" href="/teams/<%= teamItem.id %>/request">Request To Join Team</a>
-              <% } %>
-                <% } %>
+            <form method="POST" action="/teams/<%=teamItem.id%>/cancel">
+              <button class="btn btn-danger" type="submit">Cancel Request</button>
+            </form>
+          <% } else { %>
+            <form method="POST" action="/teams/<%=teamItem.id%>/request">
+              <button class="btn btn-success" type="submit">Request to Join Team</button>
+            </form>
+          <% } %>
+        <% } %>
+      </div>
     </div>
   </div>
 </div>
