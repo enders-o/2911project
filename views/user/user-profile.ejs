@@ -1,92 +1,310 @@
-<div class="container">
-    <h1>Profile</h1>
-    <div class="card" style="width: 18rem;">
-        <div class="card-img-top">
-            <img src="<%=user.picture%>" class="img-fluid"/>
-            <div class="card-body">
-                <p class="card-text">
-                <h2>
-                    <%= user.fname%>
-                        <%= user.lname %>
-                </h2>
-                <%=user.gender%>
-                    <br>
-                    <%=user.sport%>
-                        <br>
-                        <%=user.skill%>
-                            <br>
-                            <%=user.dob%>
-                                <br>
-                                <%=user.email%>
-                                    <br></p>
-                                    <a class="btn btn-primary" href="/user/edit">Edit</a>
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+        <div class="col-lg-4">
+            <div class="card mb-4">
+            <div class="card-body text-center">
+                <img src="<%=user.picture%>" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"><%= user.fname%></h5>
+                <p class="text-muted mb-1"><%= user.sport%> Enthusiast</p>
+                <p class="text-muted mb-4">Vancouver, BC</p>
+                <div class="d-flex justify-content-center mb-2">
+                    <a class="btn btn-warning" href="/user/edit">Edit</a>
+                </div>
+            </div>
+            </div>
+            <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fas fa-globe fa-lg text-warning"></i>
+                    <p class="mb-0">[Personal Link]</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fas fa-user fa-lg" style="color: #333333;"></i>
+                    <p class="mb-0">jd_github</p>
+                </li>
+                </ul>
+            </div>
             </div>
         </div>
+        <div class="col-lg-8">
+            <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Full Name</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= user.fname%> <%= user.lname%></p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                    <p class="mb-0">Sport</p>
+                    </div>
+                    <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= user.sport%></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= user.email%></p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0">(097) 234-5678</p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Skill</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= user.skill%></p>
+                </div>
+                </div>
+                <hr>
+                <div class="row">
+                <div class="col-sm-3">
+                    <p class="mb-0">Date of Birth</p>
+                </div>
+                <div class="col-sm-9">
+                    <p class="text-muted mb-0"><%= user.dob%></p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4 mb-md-0">
+                    <div class="card-body">
+                        <p class="mb-4">Joined Teams
+                        </p>
+                        <p class="mb-1">
+                            <%user.joinedTeams.forEach(teamId => {%>
+                                <%teams.forEach(team=> {%>
+                                    <%if(team.id == teamId){%>
+                                        <div class="d-flex align-items-center p-2">
+                                            <div class="flex-grow-1" style="font-size: .80rem;">
+                                                <%=team.name%>
+                                            </div>
+                                            <div class="mr-2">
+                                                <form method="POST" action="/teams/<%=team.id%>/leave">
+                                                    <button class="btn btn-link p-0" type="submit"
+                                                    style="font-size: .80rem;">Leave Team</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    <%}%>
+                                <%})%>
+                            <%})%>
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            <div class="col-md-6">
+                <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                    <p class="mb-4">Team Requests
+                    </p>
+                    <p class="mb-1">
+                        <%user.requestedTeams.forEach(teamId=> {%>
+                            <%teams.forEach(team=> {%>
+                                <%if(team.id == teamId){%>
+                                    <div class="d-flex align-items-center p-2">
+                                        <div class="flex-grow-1" style="font-size: .80rem;">
+                                            <%=team.name%>
+                                        </div>
+                                        <div class="mr-2">
+                                            <form method="POST" action="/teams/<%=team.id%>/cancel">
+                                                <button class="btn btn-link p-0" type="submit"
+                                                style="font-size: .80rem;">Cancel Request</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <%}%>
+                            <%})%>
+                        <%})%>
+                    </p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
-    <br>
-    <h2>Requested Teams</h2>
-    <%user.requestedTeams.forEach(teamId=> {%>
-        <%teams.forEach(team=> {%>
-            <%if(team.id==teamId){%>
-                <%=team.name%>
-                <form method="POST" action="/teams/<%=team.id%>/cancel">
-                    <button class="btn btn-danger" type="submit">Cancel Request</button>
-                </form>
-                <br>
-            <%}%>
-        <%})%>
-    <%})%>
-    <h2>Joined Teams</h2>
-    <%user.joinedTeams.forEach(teamId => {%>
-        <%teams.forEach(team => {%>
-            <%if(team.id == teamId){%>
-                <%=team.name%>
-                <form method="POST" action="/teams/<%=team.id%>/leave">
-                    <button class="btn btn-danger" type="submit">Leave Team</button>
-                </form>
-                <br>
-            <%}%>
-        <%})%>
-    <%})%>
+
     <%if(user.isManager === true){%>
-    <h2>Manage Teams</h1>
-    
-    <a class="btn btn-success" href="/teams/create">Create a Team</a>
-    <br>
-    <!-- Add a button to accept all requests for a team -->
+        <div class="container">
+        <h1>Manage Teams</h1>
+        <a class="btn btn-success" href="/teams/create">Create a Team</a>
         <%teams.forEach(team => {%>
-            <%if(team.manager_id == user.id){%>
-                <h3><%= team.name %></h3>
-            <a class="btn btn-danger" href="/teams/<%=team.id%>/edit/">Edit Team</a>
-            <br>
-            <h3>Requests</h3>
-            <% players.forEach(player => {%>
-                <%player.requestedTeams.forEach(teamId => {%>
-                    <%if(team.id == teamId){%>
-                            <%=player.fname%> <%=player.lname%>
-                            <form method="POST" action="/teams/<%=team.id%>/accept/<%=player.id%>">
-                                <button class="btn btn-success" type="submit">Accept</button>
-                            </form>
-                            <form method="POST" action="/teams/<%=team.id%>/decline/<%=player.id%>">
-                                <button class="btn btn-danger" type="submit">Decline</button>
-                            </form>
-                            <br>
-                        <%}%>
-                     <%})%>
-                <%})%>
-            <h3>Current Members</h3>
-            <% players.forEach(player => {%>
-                <%player.joinedTeams.forEach(teamId => {%>
-                    <%if(team.id == teamId){%>
-                            <%=player.fname%> <%=player.lname%>
-                            <form method="POST" action="/teams/<%=team.id%>/kick/<%=player.id%>">
-                                <button class="btn btn-danger" type="submit">Kick</button>
-                            </form>
-                            <br>
-                        <%}%>
-                     <%})%>
-                <%})%>
-            <%}%>
+        <%if(team.manager_id == user.id){%>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                        <img src="<%= team.picture %>" alt="avatar"
+                        class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3"><%= team.name %></h5>
+                        <p class="text-muted mb-1"><%= team.description %></p>
+                        <p class="text-muted mb-4"><%= team.location %></p>
+                        <div class="d-flex justify-content-center mb-2">
+                            <a class="btn btn-warning" href="/teams/<%=team.id%>/edit/">Edit Team</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-4 mb-lg-0">
+                    <div class="card-body p-0">
+                    <ul class="list-group list-group-flush rounded-3">
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fas fa-globe fa-lg text-warning"></i>
+                        <p class="mb-0">[Personal Link]</p>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fas fa-user fa-lg" style="color: #333333;"></i>
+                        <p class="mb-0">jd_github</p>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Sport</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0"><%=team.sport%></p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Rank</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0"><%=team.skill_level%></p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Level</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">
+                            <%if(team.competitive === true){%>
+                                Competitive
+                            <%} else {%>
+                                Recreational
+                            <%}%>
+                        </p>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Number of Players</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">
+                            <%let count=0 %>
+                            <% players.forEach(player => {%>
+                                <%player.joinedTeams.forEach(teamId => {%>
+                                    <%if(team.id == teamId){ count++ }%>
+                                <%})%>
+                                
+                            <%})%>
+                            <%= count %>
+                            </p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-4 mb-md-0">
+                            <div class="card-body">
+                                <p class="mb-4">Current Members
+                                </p>
+                                <p class="mb-1">
+                                    <% players.forEach(player => {%>
+                                        <%player.joinedTeams.forEach(teamId => {%>
+                                            <%if(team.id == teamId){%>
+                                                <div class="d-flex align-items-center p-2">
+                                                    <div class="flex-grow-1" style="font-size: .80rem;">
+                                                        <%=player.fname%> <%=player.lname%>
+                                                    </div>
+                                                    <div class="mr-2">
+                                                        <form method="POST" action="/teams/<%=team.id%>/kick/<%=player.id%>">
+                                                            <button class="btn btn-danger" type="submit"
+                                                            style="font-size: .80rem;">Kick</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            <%}%>
+                                        <%})%>
+                                    <%})%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-4 mb-md-0">
+                            <div class="card-body">
+                                <p class="mb-4">Team Requests
+                                </p>
+                                <p class="mb-1">
+                                    <% players.forEach(player => {%>
+                                        <%player.requestedTeams.forEach(teamId => {%>
+                                            <%if(team.id == teamId){%>
+                                                <div class="d-flex align-items-center p-2">
+                                                    <div class="flex-grow-1" style="font-size: .80rem;">
+                                                        <%=player.fname%> <%=player.lname%>
+                                                    </div>
+                                                    <div class="mr-2">
+                                                    <form method="POST" action="/teams/<%=team.id%>/accept/<%=player.id%>">
+                                                        <button class="btn btn-success" type="submit"
+                                                        style="font-size: .80rem;">Accept</button>
+                                                    </form>
+                                                    </div>
+                                                    <div>
+                                                    <form method="POST" action="/teams/<%=team.id%>/decline/<%=player.id%>">
+                                                        <button class="btn btn-danger" type="submit"
+                                                        style="font-size: .80rem;">Decline</button>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                            <%}%>
+                                        <%})%>
+                                    <%})%>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <%}%>
         <%})%>
+        </div>
     <%}%>
-</div>
+</section>
