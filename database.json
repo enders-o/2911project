@@ -55,7 +55,7 @@
             "description": "young and ambitious",
             "sport": "Ultimate Frisbee",
             "skill_level": "intermediate",
-            "competitive": true,
+            "competitive": false,
             "player_count": 20,
             "manager_id":6,
             "location": "New York, NY",
@@ -85,7 +85,7 @@
             "dob": "2002-08-27",
             "email": "johndoe@gmail.com",
             "password": "jd",
-            "picture": "https://img.freepik.com/free-vector/athlete-running-man-sprinter-man-sport-training-athletic-cartoon-character-illustration_1150-50801.jpg?",
+            "picture": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp",
             "isManager": false,
             "requestedTeams": [],
             "joinedTeams": [1]
