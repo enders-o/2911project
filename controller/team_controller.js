@@ -131,7 +131,7 @@ let teamController = {
   },
 
   request: (req, res) => {
-    const teamId = req.params.id;
+    const teamId = parseInt(req.params.id);
     const player = req.user;
     if(!player.requestedTeams.includes(teamId)){
       player.requestedTeams.push(teamId);
