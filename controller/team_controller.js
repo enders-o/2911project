@@ -79,6 +79,7 @@ let teamController = {
     database.players[index].skill = req.body.skill_level;
     database.players[index].dob = req.body.dob;
     database.players[index].email = req.body.email;
+    database.players[index].social_link = req.body.social_link;
     res.redirect("/user");
   },
 
