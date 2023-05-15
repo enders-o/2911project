@@ -6,10 +6,21 @@ let teamController = {
   },
 
   new: (req, res) => {
-    res.render("team/create-team", { user: req.user });
+    if(req.user.isManager == false){
+      res.status(401);
+      res.send("You are not authorized to edit a team.");
+      res.end();
+    } else {
+      res.render("team/create-team", { user: req.user });
+    }
   },
 
   edit: (req, res) => {
+  if(req.user.isManager == false){
+      res.status(401);
+      res.send("You are not authorized to edit a team.");
+      res.end();
+  } else {
     let teamToFind = req.params.id;
     let searchResult = database.teams.find(team => {
       return team.id == teamToFind;
@@ -19,6 +30,7 @@ let teamController = {
       return player.id == managerId;
     })
     res.render("team/edit-team", { teamItem: searchResult, manager: manager, user: req.user });
+  }
   },
 
   listOne: (req, res) => {
@@ -71,6 +83,11 @@ let teamController = {
   },
 
   create: (req, res) => {
+    if(req.user.isManager == false){
+      res.status(401);
+      res.send("You are not authorized to create a team.");
+      res.end();
+    } else {
     const team = {
       id: database.teams.length + 1,
       name: req.body.name,
@@ -80,12 +97,19 @@ let teamController = {
       competitive: req.body.competitive,
       player_count: req.body.player_count,
       location: req.body.location,
+      manager_id: req.user.id
     };
     database.teams.push(team);
     res.redirect("/teams");
+  }
   },
 
   update: (req, res) => {
+    if(req.user.isManager == false){
+      res.status(401);
+      res.send("You are not authorized to edit a team.");
+      res.end();
+    } else {
     let teamToFind = req.params.id;
     let index = database.teams.findIndex(team => {
       return team.id == teamToFind;
@@ -98,15 +122,22 @@ let teamController = {
     database.teams[index].player_count = req.body.player_count;
     database.teams[index].location = req.body.location;
     res.redirect("/teams")
+  }
   },
 
   delete: (req, res) => {
+    if(req.user.isManager == false){
+      res.status(401);
+      res.send("You are not authorized to delete a team.");
+      res.end();
+    } else {
     let teamToFind = req.params.id;
     let index = database.teams.findIndex(team => {
       return team.id == teamToFind;
     });
     database.teams.splice(index, 1);
     res.redirect("/teams")
+  }
   },
 
   cancel: (req, res) => {
