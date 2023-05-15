@@ -42,7 +42,7 @@ let teamController = {
     let manager = database.players.find(player => {
       return player.id == managerId;
     })
-    res.render("team/single-team", { teamItem: searchResult, manager: manager, user: req.user });
+    res.render("team/single-team", { teamItem: searchResult, manager: manager, user: req.user, teams: database.teams, players: database.players});
   },
 
   listAllPlayers: (req, res) => {
