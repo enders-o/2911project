@@ -7,15 +7,15 @@
     <form action=<%= "/teams/update/" + teamItem.id %> method="POST">
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" class="form-control" value="<%= teamItem.name%>">
+            <input required type="text" name="title" class="form-control" value="<%= teamItem.name%>">
         </div>
         <div class="form-group">
             <label for="title">Description</label>
-            <textarea class="form-control" rows="3" name="description" value="<% teamItem.description %>"><%= teamItem.description%></textarea>
+            <textarea required class="form-control" rows="3" name="description" value="<% teamItem.description %>"><%= teamItem.description%></textarea>
         </div>
     <div class="form-group">
         <label for="sport">Sport</label>
-        <select name="sport" selected="">
+        <select required name="sport" selected="">
             <option hidden selected value="<%=teamItem.sport%>"><%=teamItem.sport%></option>
             <option class="form-control" value="Ultimate Frisbee">Ultimate Frisbee</option>
             <option class="form-control" value="Basketball">Basketball</option>
@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="skill_level">Skill Level</label>
-        <select name="skill_level">
+        <select required name="skill_level">
             <option hidden selected value="<%= teamItem.skill%>"><%= teamItem.skill_level%></option>
             <option class="form-control" value="Beginner">Beginner</option>
             <option class="form-control" value="Intermediate">Intermediate</option>
@@ -33,20 +33,24 @@
     </div>
     <div class="form-group">
         <label for="competitive">Competitive or Recreational?</label>
-        <input type="radio" name="competitive" value="Competitive">Competitive<br>
-        <input type="radio" name="competitive" value="Recreational">Recreational<br>
+        <%if(teamItem.competitive === true){%>
+            <input checked type="radio" name="competitive" value="Competitive">Competitive<br>
+            <input type="radio" name="competitive" value="Recreational">Recreational<br>
+        <%}else{%>
+            <input type="radio" name="competitive" value="Competitive">Competitive<br>
+            <input checked type="radio" name="competitive" value="Recreational">Recreational<br>
+        <%}%>
     </div>
     <div class="form-group">
         <label for="player_count">Player Count</label>
-        <input class="form-control" type="number" name="player_count" min="1" max="99" value="<%= teamItem.player_count%>">
+        <input required class="form-control" type="number" name="player_count" min="1" max="99" value="<%= teamItem.player_count%>">
     </div>
     <div class="form-group">
         <label for="location">Location</label>
-        <input class="form-control" type="text" name="location" value="<%= teamItem.location%>">
+        <input required class="form-control" type="text" name="location" value="<%= teamItem.location%>">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 
     </form>
     <%}%>
-    <h1>Permission Denied</h1>
 </div>

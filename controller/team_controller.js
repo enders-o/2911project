@@ -79,6 +79,7 @@ let teamController = {
     database.players[index].skill = req.body.skill_level;
     database.players[index].dob = req.body.dob;
     database.players[index].email = req.body.email;
+    database.players[index].social_link = req.body.social_link;
     res.redirect("/user");
   },
 
@@ -162,7 +163,7 @@ let teamController = {
   },
 
   request: (req, res) => {
-    const teamId = req.params.id;
+    const teamId = parseInt(req.params.id);
     const player = req.user;
     if(!player.requestedTeams.includes(teamId)){
       player.requestedTeams.push(teamId);
