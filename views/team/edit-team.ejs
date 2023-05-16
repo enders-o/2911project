@@ -23,9 +23,9 @@
         </select>
     </div>
     <div class="form-group">
-        <label for="skill_level">Skill Level</label>
-        <select required name="skill_level">
-            <option hidden selected value="<%= teamItem.skill%>"><%= teamItem.skill_level%></option>
+        <label for="skill">Skill Level</label>
+        <select name="skill" selected="">
+            <option hidden selected value="<%=teamItem.skill%>"><%=teamItem.skill_level%></option>
             <option class="form-control" value="Beginner">Beginner</option>
             <option class="form-control" value="Intermediate">Intermediate</option>
             <option class="form-control" value="Advanced">Advanced</option>
@@ -48,6 +48,10 @@
     <div class="form-group">
         <label for="location">Location</label>
         <input required class="form-control" type="text" name="location" value="<%= teamItem.location%>">
+    </div>
+    <div class="form-group">
+        <label for="social_link">Social Link</label>
+        <input required type="text" class="form-control" name="social_link" value="<%=teamItem.social_link%>">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
 
