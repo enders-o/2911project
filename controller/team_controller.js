@@ -8,7 +8,7 @@ let teamController = {
   new: (req, res) => {
     if(req.user.isManager == false){
       res.status(401);
-      res.send("You are not authorized to edit a team.");
+      res.send("You are not authorized to create a team.");
       res.end();
     } else {
       res.render("team/create-team", { user: req.user });

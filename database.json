@@ -8,7 +8,7 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 24,
-            "manager_id": 6,
+            "manager_id": 4,
             "location": "Richmond, BC",
             "picture": "https://d36m266ykvepgv.cloudfront.net/uploads/media/X1IX6cWCsC/c-232-160-160-0-1096-757/4bfbf2f2-1be3-4921-86c7-dde67a4e9677.png"
             
@@ -21,7 +21,7 @@
             "skill_level": "intermediate",
             "competitive": true,
             "player_count": 12,
-            "manager_id": 7,
+            "manager_id": 5,
             "location": "Vancouver, BC",
             "picture": "https://upload.wikimedia.org/wikipedia/en/e/e9/UBC_Thunderbirds_Logo.svg"
         },
@@ -33,7 +33,7 @@
             "skill_level": "beginner",
             "competitive": false,
             "player_count": 8,
-            "manager_id": 7,
+            "manager_id": 5,
             "location": "Santa Cruz, CA",
             "picture": "https://img.freepik.com/premium-vector/surfing-sport-logo_7785-371.jpg?w=2000"
         },
@@ -45,7 +45,7 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 16,
-            "manager_id":8,
+            "manager_id":6,
             "location": "Toronto, ON",
             "picture": "https://seeklogo.com/images/T/thunderbolts-logo-86727FBF42-seeklogo.com.png"
         },
@@ -57,7 +57,7 @@
             "skill_level": "intermediate",
             "competitive": false,
             "player_count": 20,
-            "manager_id":6,
+            "manager_id":4,
             "location": "New York, NY",
             "picture": "https://media.istockphoto.com/id/1356489475/vector/lynx-wildcat-bobcat-tiger-big-cat-logo-mascot-vector-illustration.jpg?s=612x612&w=0&k=20&c=l7J2KPa9miB20mN9JQC0D25CWm2RZe4-rGnTVY92NEg="
         },
@@ -69,14 +69,14 @@
             "skill_level": "advanced",
             "competitive": true,
             "player_count": 22,
-            "manager_id": 8,
+            "manager_id": 6,
             "location": "Los Angeles, CA",
             "picture": "https://media.istockphoto.com/id/1270637086/vector/thunder-icon.jpg?s=612x612&w=0&k=20&c=BqjU6Zdj5FcHTGhXpzOCalLd5yeuHfmtHlcc0BIW-U4="
         }
     ],
     "players": [
         {
-            "id": 1,
+            "id": 0,
             "fname": "John",
             "lname": "Doe",
             "gender": "Male",
@@ -92,7 +92,7 @@
             "joinedTeams": [1]
         },
         {
-            "id": 3,
+            "id": 1,
             "fname": "Jane",
             "lname": "Smith",
             "gender": "Female",
@@ -108,7 +108,7 @@
             "joinedTeams": [1,5]
         },
         {
-            "id": 4,
+            "id": 2,
             "fname": "Alex",
             "lname": "Lee",
             "gender": "Non-Binary",
@@ -124,7 +124,7 @@
             "joinedTeams": [2]
         },
         {
-            "id": 5,
+            "id": 3,
             "fname": "Samantha",
             "lname": "Taylor",
             "gender": "Female",
@@ -140,7 +140,7 @@
             "joinedTeams": []
         },
         {
-            "id":6,
+            "id":4,
             "fname": "Ellen",
             "lname":"Young",
             "gender": "Female",
@@ -156,7 +156,7 @@
             "joinedTeams": []
         },
         {
-            "id": 7,
+            "id": 5,
             "fname": "Mark",
             "lname": "Johnson",
             "gender": "Male",
@@ -172,7 +172,7 @@
             "joinedTeams": [4]
         },
         {
-            "id":8,
+            "id":6,
             "fname": "Emily",
             "lname":"Davis",
             "gender":"Female",
