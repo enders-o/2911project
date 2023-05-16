@@ -39,15 +39,15 @@
   
       <!-------- Player Data -------->
       <div class="col-10">
-        <div class="row row-cols-1 row-cols-md-3" id="myPlayers">
+        <div class="scrolling-wrapper row flex-row flex-nowrap" id="myPlayers">
           <% teams.forEach( item => { %>
-            <div class="col mb-4 playerList">
+            <div class="col playerList">
               <div class="card">
                   <img
                   src="<%= item.picture %>"
-                  class="card-img-top"
+                  class="card-img-top img-fluid"  
                   alt="player profile"
-                  width="380"
+                  width="350"
                   height="200"
                   />
                   <div class="card-body">

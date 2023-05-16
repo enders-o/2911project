@@ -145,3 +145,19 @@ ol, ul, dl {
 .btn-outline-info {
   color:#2b2f31;
 }
+
+.scrolling-wrapper {
+  overflow-x: auto;
+}
+
+.card-body {
+  margin: 2.2rem;
+  height: 270px;
+  width: 150px;
+  padding: 0 !important
+}
+
+.card {
+  height: 100%;
+}
+
