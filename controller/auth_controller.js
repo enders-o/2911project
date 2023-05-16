@@ -17,6 +17,7 @@ let authController = {
     }),
 
     registerSubmit: (req, res) => {
+        const isManager = req.body.isManager == "true" ? true : false;
         const user = {
             id: database.players.length + 1,
             fname: req.body.firstName,
@@ -27,7 +28,11 @@ let authController = {
             dob: req.body.dob,
             email: req.body.email,
             password: req.body.password,
-            picture: null
+            picture: null,
+            social_link: req.body.social_link,
+            isManager: isManager,
+            requestedTeams: [],
+            joinedTeams: []
         };
         database.players.push(user);
         res.redirect("/login");
