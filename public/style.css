@@ -26,7 +26,6 @@ header.masthead {
   background-size: contain;
   padding-top: 8rem;
   padding-bottom: 8rem;
-  background: url("https://img.freepik.com/free-vector/sport-equipment-cartoon-set-balls-gaming-item-hockey-rugby-baseball-tennis-racket-bowling-boxing-golf-collection_74855-20727.jpg") no-repeat right center;
 }
 
 header.masthead h1 {
@@ -97,6 +96,7 @@ ol, ul, dl {
   header.masthead {
     padding-top: 12rem;
     padding-bottom: 12rem;
+    background: url("https://img.freepik.com/free-vector/sport-equipment-cartoon-set-balls-gaming-item-hockey-rugby-baseball-tennis-racket-bowling-boxing-golf-collection_74855-20727.jpg") no-repeat right center;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -148,7 +148,7 @@ ol, ul, dl {
 
 .scrolling-wrapper {
   overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-y: auto;
   white-space: nowrap;
   padding-bottom: 10px;
 }
@@ -169,10 +169,18 @@ ol, ul, dl {
   border: solid orangered 2px;
   background-image: url(https://wallpaperaccess.com/full/1302164.jpg);
   vertical-align: top;
+
+  width: 265px;
 }
 
 .card-main img {
   border-radius: 37%;
   border: solid whitesmoke 3px;
   background-color: whitesmoke;
+}
+
+.login-page {
+  background-image: url(https://img4.goodfon.com/wallpaper/nbig/7/aa/synthpop-synth-retrowave-darkwave-synth-pop-synthwave-sinti.jpg);
+  background-size: cover;
+  color: whitesmoke;
 }
