@@ -1,53 +1,131 @@
-<div class="container">
-    <h1>Edit <%= user.fname %> <%= user.lname%> Profile</h1>
-    <form method="POST" action="/user/edit">
-        <div class="form-group">
-            <label for="fname">First Name</label>
-            <input required type="text" name="fname" class="form-control" value="<%= user.fname%>">
+<section class="h-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo" class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">Edit My Profile</h3>
+                    
+                  <form method="POST" action="/user/edit">
+                  <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input required type="text" name="fname" id="fname" class="form-control form-control-lg" value="<%= user.fname%>">
+                        <label class="form-label" for="fname">First name</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input required type="text" id="lname" name="lname" class="form-control form-control-lg" value="<%= user.lname%>"/>
+                        <label class="form-label" for="lname">Last name</label>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="form-outline mb-4">
+                    <input required type="text" id="email" name="email" class="form-control form-control-lg" value="<%= user.email%>"/>
+                    <label class="form-label" for="email">Email</label>
+                  </div>
+
+                    <div class="form-outline mb-4">
+                        <input required type="date" name="dob" id="dob" class="form-control form-control-lg" value="<%= user.dob %>">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+  
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2 playerGender">
+  
+                    <h6 class="mb-0 mr-4">Gender: </h6>
+  
+                    <div class="form-check form-check-inline mb-0 me-4" id="<%= user.gender%>">
+                      <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                        value="Female"/>
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0 me-4" id="<%= user.gender%>">
+                      <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                        value="Male" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0" id="<%= user.gender%>">
+                      <input class="form-check-input" type="radio" name="gender" id="otherGender"
+                        value="Non-Binary" />
+                      <label class="form-check-label" for="otherGender">Non-Binary</label>
+                    </div>
+  
+                  </div>
+  
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="sport">
+                        <option hidden selected value="<%= user.sport%>" id="sportValue"><%= user.sport%></option>
+                        <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        </select>
+                        <label class="form-label" for="sport">Sport</label>
+
+                    </div>
+
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="skill">
+                        <option hidden selected value="<%= user.skill%>" id="skillValue"><%= user.skill%></option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        </select>
+                        <label class="form-label" for="skill_level">Skill Level</label>
+
+                    </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="socialLink" class="form-control form-control-lg" name="social_link" value="<%=user.social_link%>"/>
+                    <label class="form-label" for="social_link">Social Link</label>
+                  </div>
+  
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="button" class="btn btn-light btn-lg mr-2" id="resetAll">Reset all</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Submit Form</button>
+                  </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-            <label for="lname">Last Name</label>
-            <input required type="text" name="lname" class="form-control" value="<%=user.lname%>">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input required type="text" name="email" class="form-control" value="<%= user.email %>">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select required name="gender" id="">
-                <option hidden selected value="<%= user.gender%>"><%= user.gender%></option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Non-Binary">Non-Binary</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="sport">Sport</label>
-            <select required name="sport" id="">
-                <option hidden selected value="<%= user.sport%>"><%= user.sport%></option>
-                <option value="Ultimate Frisbee">Ultimate Frisbee</option>
-                <option value="Basketball">Basketball</option>
-                <option value="Volleyball">Volleyball</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="skill_level">Skill Level</label>
-            <select required name="skill_level" id="">
-                <option hidden selected value="<%= user.skill%>"><%= user.skill%></option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input required type="date" name="dob" id="" value="<%= user.dob %>">
-        </div>
-        <div class="form-group">
-            <label for="social_link">Social Link</label>
-            <input type="text" name="social_link" value="<%=user.social_link%>">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-</div>
+      </div>
+    </div>
+</section>
+
+<script>
+    let allGenders = document.querySelector('.playerGender');
+    let genderCat = document.querySelectorAll('.playerGender > div');
+
+    for (let item of genderCat) {
+        if (item.getAttribute('id') === item.querySelector('label').textContent) {
+            item.querySelector('input').setAttribute('checked','');
+        }
+    }
+
+    $("#resetAll").on("click", function() {
+        $("#fname").val("");
+        $("#lname").val("");
+        $("#email").val("");
+        $("#sportValue").text("");
+        $("#skillValue").text("");
+        $("#dob").val("");
+        $("#socialLink").val("");
+        $('input[type=radio]').prop('checked',false);
+    })
+    
+</script>
