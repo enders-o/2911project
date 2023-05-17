@@ -152,3 +152,27 @@ ol, ul, dl {
   white-space: nowrap;
   padding-bottom: 10px;
 }
+
+.card-name {
+  color: whitesmoke;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-info {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.card-frame {
+  border: solid orangered 2px;
+  background-image: url(https://wallpaperaccess.com/full/1302164.jpg);
+  vertical-align: top;
+}
+
+.card-main img {
+  border-radius: 37%;
+  border: solid whitesmoke 3px;
+  background-color: whitesmoke;
+}
