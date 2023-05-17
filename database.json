@@ -5,11 +5,12 @@
             "name": "Savage",
             "description": "fun group of individuals",
             "sport": "Ultimate Frisbee",
-            "skill_level": "advanced",
+            "skill_level": "Advanced",
             "competitive": true,
             "player_count": 24,
-            "manager_id": 6,
+            "manager_id": 4,
             "location": "Richmond, BC",
+            "social_link": "instagram.com/reignopen",
             "picture": "https://d36m266ykvepgv.cloudfront.net/uploads/media/X1IX6cWCsC/c-232-160-160-0-1096-757/4bfbf2f2-1be3-4921-86c7-dde67a4e9677.png"
             
         },
@@ -18,11 +19,12 @@
             "name": "Thunderbirds",
             "description": "dedicated and hardworking",
             "sport": "Basketball",
-            "skill_level": "intermediate",
+            "skill_level": "Intermediate",
             "competitive": true,
             "player_count": 12,
-            "manager_id": 7,
+            "manager_id": 5,
             "location": "Vancouver, BC",
+            "social_link": "instagram.com/ubc",
             "picture": "https://upload.wikimedia.org/wikipedia/en/e/e9/UBC_Thunderbirds_Logo.svg"
         },
         {
@@ -30,11 +32,12 @@
             "name": "Wave Riders",
             "description": "laid back and fun-loving",
             "sport": "Basketball",
-            "skill_level": "beginner",
+            "skill_level": "Beginner",
             "competitive": false,
             "player_count": 8,
-            "manager_id": 7,
+            "manager_id": 5,
             "location": "Santa Cruz, CA",
+            "social_link": "instagram.com/wave",
             "picture": "https://img.freepik.com/premium-vector/surfing-sport-logo_7785-371.jpg?w=2000"
         },
         {
@@ -42,11 +45,12 @@
             "name": "Thunderbolts",
             "description": "energetic and passionate",
             "sport": "Volleyball",
-            "skill_level": "advanced",
+            "skill_level": "Advanced",
             "competitive": true,
             "player_count": 16,
-            "manager_id":8,
+            "manager_id":6,
             "location": "Toronto, ON",
+            "social_link": "instagram.com/thunder",
             "picture": "https://seeklogo.com/images/T/thunderbolts-logo-86727FBF42-seeklogo.com.png"
         },
         {
@@ -54,11 +58,12 @@
             "name": "Wildcats",
             "description": "young and ambitious",
             "sport": "Ultimate Frisbee",
-            "skill_level": "intermediate",
+            "skill_level": "Intermediate",
             "competitive": false,
             "player_count": 20,
-            "manager_id":6,
+            "manager_id":4,
             "location": "New York, NY",
+            "social_link": "instagram.com/wildcats",
             "picture": "https://media.istockphoto.com/id/1356489475/vector/lynx-wildcat-bobcat-tiger-big-cat-logo-mascot-vector-illustration.jpg?s=612x612&w=0&k=20&c=l7J2KPa9miB20mN9JQC0D25CWm2RZe4-rGnTVY92NEg="
         },
         {
@@ -66,22 +71,23 @@
             "name": "Thunder",
             "description": "experienced and skilled",
             "sport": "Volleyball",
-            "skill_level": "advanced",
+            "skill_level": "Advanced",
             "competitive": true,
             "player_count": 22,
-            "manager_id": 8,
+            "manager_id": 6,
             "location": "Los Angeles, CA",
+            "social_link": "instagram.com/th",
             "picture": "https://media.istockphoto.com/id/1270637086/vector/thunder-icon.jpg?s=612x612&w=0&k=20&c=BqjU6Zdj5FcHTGhXpzOCalLd5yeuHfmtHlcc0BIW-U4="
         }
     ],
     "players": [
         {
-            "id": 1,
+            "id": 0,
             "fname": "John",
             "lname": "Doe",
             "gender": "Male",
             "sport": "Ultimate Frisbee",
-            "skill": "advanced",
+            "skill": "Advanced",
             "dob": "2002-08-27",
             "email": "johndoe@gmail.com",
             "password": "jd",
@@ -92,12 +98,12 @@
             "joinedTeams": [1]
         },
         {
-            "id": 3,
+            "id": 1,
             "fname": "Jane",
             "lname": "Smith",
             "gender": "Female",
             "sport": "Basketball",
-            "skill": "intermediate",
+            "skill": "Intermediate",
             "dob": "1999-06-14",
             "email": "janesmith@gmail.com",
             "password": "js",
@@ -108,12 +114,12 @@
             "joinedTeams": [1,5]
         },
         {
-            "id": 4,
+            "id": 2,
             "fname": "Alex",
             "lname": "Lee",
             "gender": "Non-Binary",
             "sport": "Basketball",
-            "skill": "beginner",
+            "skill": "Beginner",
             "dob": "2001-02-08",
             "email": "alexlee@gmail.com",
             "password": "al",
@@ -124,12 +130,12 @@
             "joinedTeams": [2]
         },
         {
-            "id": 5,
+            "id": 3,
             "fname": "Samantha",
             "lname": "Taylor",
             "gender": "Female",
             "sport": "Volleyball",
-            "skill": "advanced",
+            "skill": "Advanced",
             "dob": "1998-11-17",
             "email": "samanthataylor@gmail.com",
             "password": "st",
@@ -140,12 +146,12 @@
             "joinedTeams": []
         },
         {
-            "id":6,
+            "id":4,
             "fname": "Ellen",
             "lname":"Young",
             "gender": "Female",
             "sport":"Ultimate Frisbee",
-            "skill":"advanced",
+            "skill":"Advanced",
             "dob":"2001-02-08",
             "email": "ellenyoung@gmail.com",
             "password": "ey",
@@ -156,12 +162,12 @@
             "joinedTeams": []
         },
         {
-            "id": 7,
+            "id": 5,
             "fname": "Mark",
             "lname": "Johnson",
             "gender": "Male",
             "sport":"Basketball",
-            "skill":"advanced",
+            "skill":"Advanced",
             "dob":"1998-04-02",
             "email": "markjohnson@gmail.com",
             "password": "mj",
@@ -172,12 +178,12 @@
             "joinedTeams": [4]
         },
         {
-            "id":8,
+            "id":6,
             "fname": "Emily",
             "lname":"Davis",
             "gender":"Female",
             "sport":"Basketball",
-            "skill":"advanced",
+            "skill":"Advanced",
             "dob":"2002-05-15",
             "email": "emilydavis@gmail.com",
             "password": "ed",

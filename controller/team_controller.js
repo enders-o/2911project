@@ -8,7 +8,7 @@ let teamController = {
   new: (req, res) => {
     if(req.user.isManager == false){
       res.status(401);
-      res.send("You are not authorized to edit a team.");
+      res.send("You are not authorized to create a team.");
       res.end();
     } else {
       res.render("team/create-team", { user: req.user });
@@ -76,7 +76,7 @@ let teamController = {
     database.players[index].lname = req.body.lname;
     database.players[index].gender = req.body.gender;
     database.players[index].sport = req.body.sport;
-    database.players[index].skill = req.body.skill_level;
+    database.players[index].skill = req.body.skill;
     database.players[index].dob = req.body.dob;
     database.players[index].email = req.body.email;
     database.players[index].social_link = req.body.social_link;
@@ -94,11 +94,12 @@ let teamController = {
       name: req.body.name,
       description: req.body.description,
       sport: req.body.sport,
-      skill_level: req.body.skill_level,
+      skill: req.body.skill,
       competitive: req.body.competitive,
       player_count: req.body.player_count,
       location: req.body.location,
-      manager_id: req.user.id
+      manager_id: req.user.id,
+      social_link: req.body.social_link,
     };
     database.teams.push(team);
     res.redirect("/teams");
@@ -122,6 +123,7 @@ let teamController = {
     database.teams[index].competitive = req.body.competitive;
     database.teams[index].player_count = req.body.player_count;
     database.teams[index].location = req.body.location;
+    database.teams[index].social_link = req.body.social_link;
     res.redirect("/teams")
   }
   },
