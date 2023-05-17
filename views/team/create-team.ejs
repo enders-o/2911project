@@ -1,55 +1,114 @@
-<div class="container">
+<section class="h-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
     <% if(user.isManager === true) {%>
-    <form action="/teams" method="post">
-    <div class="form-group">
-        <label for="name">Team Name</label>
-        <input required type="text" class="form-control" id="nameInput" placeholder="Name" name="name">
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea required class="form-control" id="descriptionInput" rows="3" placeholder="Description" name="description"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="sport">Sport</label>
-        <select required name="sport">
-            <option class="form-control" value="Ultimate Frisbee">Ultimate Frisbee</option>
-            <option class="form-control" value="Badminton">Badminton</option>
-            <option class="form-control" value="Basketball">Basketball</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="skill_level">Skill Level</label>
-        <select required name="skill_level">
-            <option class="form-control" value="Beginner">Beginner</option>
-            <option class="form-control" value="Intermediate">Intermediate</option>
-            <option class="form-control" value="Advanced">Advanced</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-            <input checked class="form-check-input" type="radio" name="competitive">
-            <label class="form-check-label" for="competitive">Competitive</label>
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo" class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                    <h3 class="mb-5 text-uppercase">Create a Team</h3>
+                    
+                    <form action="/teams" method="post">
+                    <div class="form-outline mb-4">
+                    <input required type="text" name="name" id="nameInput" class="form-control form-control-lg" placeholder="Team Name">
+                    <label class="form-label" for="title">Title</label>
+                    </div>
+
+                  <div class="form-outline mb-4">
+                    <textarea required class="form-control form-control-lg" rows="3" name="description"
+                    id="descriptionInput" placeholder="Description"></textarea>
+                    <label class="form-label" for="description">Description</label>
+                  </div>
+
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="sport" id="sportValue">
+                        <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        </select>
+                        <label class="form-label" for="sport">Sport</label>
+
+                    </div>
+
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="skill_level" id="skillValue">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        </select>
+                        <label class="form-label" for="skill">Skill Rank</label>
+
+                    </div>
+
+                    <div class="d-md-flex justify-content-start align-items-center mb-4 py-2 teamLevel">
+  
+                        <h6 class="mb-0 mr-4">Level: </h6>
+      
+                        <div class="form-check form-check-inline mb-0 me-4">
+                          <input class="form-check-input" type="radio" name="competitive" id="competitive" />
+                          <label class="form-check-label" for="competitive">Competitive</label>
+                        </div>
+      
+                        <div class="form-check form-check-inline mb-0 me-4">
+                          <input class="form-check-input" type="radio" name="competitive" id="recreational"
+                            value="Recreational" />
+                          <label class="form-check-label" for="recreational">Recreational</label>
+                        </div>
+      
+                    </div>
+
+                      <div class="form-outline mb-4">
+                        <input required type="number" id="playerCount" class="form-control form-control-lg"
+                        min="1" max="99" name="player_count"/>
+                        <label class="form-label" for="player_count">Player Count</label>
+                      </div>
+
+                      <div class="form-outline mb-4">
+                        <input required type="text" id="location" class="form-control form-control-lg" name="location" />
+                        <label class="form-label" for="location">Location</label>
+                      </div>
+  
+                  <div class="form-outline mb-4">
+                    <input required type="text" id="socialLink" class="form-control form-control-lg" name="social_link" />
+                    <label class="form-label" for="social_link">Social Link</label>
+                  </div>
+  
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="button" class="btn btn-light btn-lg mr-2" id="resetAll">Reset all</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Submit Form</button>
+                  </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="form-check">
-            <input type="radio" name="competitive">
-            <label class="form-check-label" for="recreational">Recreational</label>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="player_count">Player Count</label>
-        <input required class="form-control" type="number" name="player_count" min="1" max="99">
-    </div>
-    <div class="form-group">
-        <label for="location">Location</label>
-        <input required class="form-control" type="text" name="location">
-    </div>
-    <div class="form-group">
-        <label for="social_link">Social Link</label>
-        <input required type="text" class="form-control" name="social_link">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <% } else {%>
+      </div>
+      <% } else {%>
         <h1>Not a Manager</h1>
     <%}%>
-</div>
+    </div>
+</section>
+
+<script>
+    $("#resetAll").on("click", function() {
+        $("#nameInput").val("");
+        $("#descriptionInput").val("");
+        $("#sportValue").text("");
+        $("#skillValue").text("");
+        $("#playerCount").val("");
+        $("#location").val("");
+        $("#socialLink").val("");
+        $('input[type=radio]').prop('checked',false);
+    })
+    
+</script>

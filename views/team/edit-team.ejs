@@ -1,65 +1,4 @@
-<div class="container">
-    <%if(user.id === manager.id){%>
-    <h1 class="page-header">Edit</h1>
-    <form method="POST" action=<%= "/teams/delete/" +teamItem.id %>>
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form> 
-    <form action=<%= "/teams/update/" + teamItem.id %> method="POST">
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input required type="text" name="title" class="form-control" value="<%= teamItem.name%>">
-        </div>
-        <div class="form-group">
-            <label for="title">Description</label>
-            <textarea required class="form-control" rows="3" name="description" value="<% teamItem.description %>"><%= teamItem.description%></textarea>
-        </div>
-    <div class="form-group">
-        <label for="sport">Sport</label>
-        <select required name="sport" selected="">
-            <option hidden selected value="<%=teamItem.sport%>"><%=teamItem.sport%></option>
-            <option class="form-control" value="Ultimate Frisbee">Ultimate Frisbee</option>
-            <option class="form-control" value="Basketball">Basketball</option>
-            <option class="form-control" value="Basketball">Volleyball</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="skill">Skill Level</label>
-        <select name="skill" selected="">
-            <option hidden selected value="<%=teamItem.skill%>"><%=teamItem.skill_level%></option>
-            <option class="form-control" value="Beginner">Beginner</option>
-            <option class="form-control" value="Intermediate">Intermediate</option>
-            <option class="form-control" value="Advanced">Advanced</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="competitive">Competitive or Recreational?</label>
-        <%if(teamItem.competitive === true){%>
-            <input checked type="radio" name="competitive" value="Competitive">Competitive<br>
-            <input type="radio" name="competitive" value="Recreational">Recreational<br>
-        <%}else{%>
-            <input type="radio" name="competitive" value="Competitive">Competitive<br>
-            <input checked type="radio" name="competitive" value="Recreational">Recreational<br>
-        <%}%>
-    </div>
-    <div class="form-group">
-        <label for="player_count">Player Count</label>
-        <input required class="form-control" type="number" name="player_count" min="1" max="99" value="<%= teamItem.player_count%>">
-    </div>
-    <div class="form-group">
-        <label for="location">Location</label>
-        <input required class="form-control" type="text" name="location" value="<%= teamItem.location%>">
-    </div>
-    <div class="form-group">
-        <label for="social_link">Social Link</label>
-        <input required type="text" class="form-control" name="social_link" value="<%=teamItem.social_link%>">
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-
-    </form>
-    <%}%>
-</div>
-
-<section class="h-100 bg-dark">
+<section class="h-100" style="background-color: #eee;">
     <div class="container py-5 h-100">
     <%if(user.id === manager.id){%>
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -73,14 +12,23 @@
               </div>
               <div class="col-xl-6">
                 <div class="card-body p-md-5 text-black">
-                  <h3 class="mb-5 text-uppercase">Edit My Team</h3>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <h3 class="mb-5 text-uppercase">Edit My Team</h3>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <form method="POST" action=<%= "/teams/delete/" +teamItem.id %>>
+                                <button type="submit" class="btn btn-danger">Delete Team</button>
+                            </form> 
+                        </div>
+                    </div>
                     
-                  <form method="POST" action=<%= "/teams/update/" + teamItem.id %>>
+                  <form action=<%= "/teams/update/" + teamItem.id %> method="POST">
                     <div class="form-outline mb-4">
-                    <input required type="text" name="title" id="title" class="form-control form-control-lg" value="<%= teamItem.name%>">
+                    <input required type="text" name="name" id="title" class="form-control form-control-lg" value="<%= teamItem.name%>">
                     <label class="form-label" for="title">Title</label>
                     </div>
-  
+
                   <div class="form-outline mb-4">
                     <textarea required class="form-control form-control-lg" rows="3" name="description" id="description" value="<% teamItem.description %>"><%= teamItem.description%></textarea>
                     <label class="form-label" for="description">Description</label>
@@ -156,7 +104,9 @@
           </div>
         </div>
       </div>
-      <%}%>
+      <% } else {%>
+        <h1>Not a Manager</h1>
+    <%}%>
     </div>
 </section>
 

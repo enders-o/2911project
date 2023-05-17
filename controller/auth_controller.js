@@ -24,7 +24,7 @@ let authController = {
             lname: req.body.lastName,
             gender: req.body.gender,
             sport: req.body.sport,
-            skill: req.body.skill_level,
+            skill: req.body.skill,
             dob: req.body.dob,
             email: req.body.email,
             password: req.body.password,
