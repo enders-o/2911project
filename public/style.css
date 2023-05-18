@@ -107,6 +107,7 @@ ol, ul, dl {
     padding-right: 0px;
     text-align: inherit;
   }
+
 }
 
 /* Nav bar */
@@ -146,12 +147,6 @@ ol, ul, dl {
   color:#2b2f31;
 }
 
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: auto;
-  white-space: nowrap;
-  padding-bottom: 10px;
-}
 
 .card-name {
   color: whitesmoke;
@@ -166,10 +161,9 @@ ol, ul, dl {
 }
 
 .card-frame {
-  border: solid orangered 2px;
+  border: solid rgb(243, 157, 126) 2px;
   background-image: url(https://wallpaperaccess.com/full/1302164.jpg);
   vertical-align: top;
-
   width: 265px;
 }
 
@@ -178,9 +172,49 @@ ol, ul, dl {
   border: solid whitesmoke 3px;
   background-color: whitesmoke;
 }
-
+/* login */
 .login-page {
-  background-image: url(https://img4.goodfon.com/wallpaper/nbig/7/aa/synthpop-synth-retrowave-darkwave-synth-pop-synthwave-sinti.jpg);
-  background-size: cover;
+  background-color: black;
+  height: 480px;
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }
+
+.edit-page {
+    /* fallback for old browsers */
+    background: #6a11cb;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+}
+
+.edit-card {
+  background-color: #2b2f31;
+  color: whitesmoke;
+}
+
+
+.team-header {
+  color: whitesmoke;
+}
+
+.team-btn {
+  background-color: #9BA4B5;
+  color: black;
+}
+
+.form-check {
   color: whitesmoke;
 }
