@@ -107,6 +107,7 @@ ol, ul, dl {
     padding-right: 0px;
     text-align: inherit;
   }
+
 }
 
 /* Nav bar */
@@ -146,12 +147,6 @@ ol, ul, dl {
   color:#2b2f31;
 }
 
-.scrolling-wrapper {
-  overflow-x: scroll;
-  overflow-y: auto;
-  white-space: nowrap;
-  padding-bottom: 10px;
-}
 
 .card-name {
   color: whitesmoke;
@@ -166,7 +161,7 @@ ol, ul, dl {
 }
 
 .card-frame {
-  border: solid orangered 2px;
+  border: solid rgb(243, 157, 126) 2px;
   background-image: url(https://wallpaperaccess.com/full/1302164.jpg);
   vertical-align: top;
 
@@ -182,5 +177,19 @@ ol, ul, dl {
 .login-page {
   background-image: url(https://img4.goodfon.com/wallpaper/nbig/7/aa/synthpop-synth-retrowave-darkwave-synth-pop-synthwave-sinti.jpg);
   background-size: cover;
+  color: whitesmoke;
+}
+
+
+.team-header {
+  color: whitesmoke;
+}
+
+.team-btn {
+  background-color: #9BA4B5;
+  color: #394867;
+}
+
+.form-check {
   color: whitesmoke;
 }
