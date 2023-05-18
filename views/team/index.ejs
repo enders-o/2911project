@@ -27,28 +27,27 @@
           <!-- Filter by skill buttons -->
         </div>
         <div class="pb-3">
-          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#playerSport">
+          <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#teamSport">
             Sport
           </button>
         </div>
-        <div id="playerSport" class="collapse show pb-3">
+        <div id="teamSport" class="collapse show pb-3">
           <!-- Filter by player sport -->
         </div>
         <button type="button" class="btn btn-primary" id="clearFilters">Cear all filters</button>
       </div>
   
-      <!-------- Player Data -------->
+      <!-------- Team Data -------->
       <div class="col-10">
-        <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" id="myPlayers">
+        <div class="scrolling-wrapper row flex-row flex-nowrap mt-4 pb-4 pt-2" id="myTeams">
           <% teams.forEach( item => { %>
-            <div class="card-main col mb-4 playerList">
+            <div class="card-main col mb-4 teamList">
               <div class="card-frame">
                 <div class="card-body">
-                  <!-- <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5> -->
                   <div class="card-text">
                       <p class="card-name"><%= item.name %></p>
-                      <p class="card-info"><%= item.sport %></p>
-                      <p class="card-info"><%= item.skill_level %></p>
+                      <p class="card-info sport"><%= item.sport %></p>
+                      <p class="card-info skill"><%= item.skill_level %></p>
                   </div>
                   <a class="btn btn-primary d-flex justify-content-center" href= <%= "/teams/" + item.id %>>Click here for more info</a>
                 </div>
@@ -74,11 +73,11 @@
     let orderOptions = [
       {
         'id' : 'alphaAZ',
-        'input' : 'Player name (A-Z)'
+        'input' : 'Team name (A-Z)'
       },
       {
         'id' : 'alphaZA',
-        'input' : 'Player name (Z-A)'
+        'input' : 'Team name (Z-A)'
       }
     ]
     orderOptions.forEach(function (item) {
@@ -123,7 +122,7 @@
           $('<input>', {
             'class' : 'form-check-input',
             'type' : 'checkbox',
-            'name' : 'playerSkill',
+            'name' : 'teamSkill',
             'id' : `${item.id}`,
             'value': `${item.id}`
           }),
@@ -135,7 +134,7 @@
         );
     })
   
-    // -------- Filter by skill buttons -------- //
+    // -------- Filter by sport buttons -------- //
     let sportOptions = [
       {
         'id' : 'basketball',
@@ -154,11 +153,11 @@
       $('<div/>', {
         'class' : 'form-check'
       }
-        ).appendTo('#playerSport').append(
+        ).appendTo('#teamSport').append(
           $('<input>', {
             'class' : 'form-check-input',
             'type' : 'checkbox',
-            'name' : 'plySport',
+            'name' : 'tmSport',
             'id' : `${item.id}`,
             'value': `${item.input}`
           }),
@@ -183,21 +182,21 @@
   
       function filterPlayers() {
         let value = $("#myInput").val().toLowerCase();
-          $("#myPlayers .playerList").filter(function() {
+          $("#myTeams .teamList").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
       }
   
       // -------- Order by alphabet -------- //
-      let mylist = $('#myPlayers');
-      let listitems = mylist.children('.playerList').get();
+      let mylist = $('#myTeams');
+      let listitems = mylist.children('.teamList').get();
   
       $("#alphaAZ").on("click", applyOrderby);
       $("#alphaZA").on("click", applyOrderby);
   
       function applyOrderby(e) {
         listitems.sort(function(a, b) {
-          return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
+          return $(a).children('div').children('div').children('div').children('.card-name').text().toUpperCase().localeCompare($(b).children('div').children('div').children('div').children('.card-name').text().toUpperCase());
         })
         $.each(listitems, function(idx, itm) {
           for (let i = itm.classList.length - 1; i >= 0; i--) {
@@ -216,11 +215,11 @@
       
       // -------- Filter by skill -------- //
       var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
-      var allPlayers = Array.from(document.querySelectorAll('.playerList'));
+      var allPlayers = Array.from(document.querySelectorAll('.teamList'));
       var checked = {};
   
-      getChecked('playerSkill');
-      getChecked('plySport');
+      getChecked('teamSkill');
+      getChecked('tmSport');
   
       Array.prototype.forEach.call(allCheckboxes, function (el) {
         el.addEventListener('change', toggleCheckbox);
@@ -239,9 +238,9 @@
   
       function setVisibility() {
         allPlayers.map(function (el) {
-          let playerSkill = checked.playerSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase().substr(7))], checked.playerSkill.map(x => x.toLowerCase())).length : true;
-          let plySport = checked.plySport.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.sport').text().toLowerCase().substr(7))], checked.plySport.map(x => x.toLowerCase())).length : true;
-          if (playerSkill && plySport) {
+          let teamSkill = checked.teamSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase())], checked.teamSkill.map(x => x.toLowerCase())).length : true;
+          let tmSport = checked.tmSport.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.sport').text().toLowerCase())], checked.tmSport.map(x => x.toLowerCase())).length : true;
+          if (teamSkill && tmSport) {
             $(el).toggle(true);
           } else {
             $(el).toggle(false);
@@ -253,10 +252,10 @@
       $("#clearFilters").on("click", function() {
         $('input[type=checkbox]').prop('checked',false);
         $('input[type=radio]').prop('checked',false);
-        $('.playerList').show();
+        $('.teamList').show();
   
-        let resetList = $('#myPlayers');
-        let removeFilter = resetList.children('.playerList').get();
+        let resetList = $('#myTeams');
+        let removeFilter = resetList.children('.teamList').get();
         $.each(removeFilter, function(idx, itm) {
           for (let i = itm.classList.length - 1; i >= 0; i--) {
             const className = itm.classList[i];
