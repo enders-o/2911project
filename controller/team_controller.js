@@ -94,7 +94,7 @@ let teamController = {
       name: req.body.name,
       description: req.body.description,
       sport: req.body.sport,
-      skill: req.body.skill,
+      skill_level: req.body.skill_level,
       competitive: req.body.competitive,
       player_count: req.body.player_count,
       location: req.body.location,

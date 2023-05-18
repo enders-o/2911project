@@ -1,65 +1,141 @@
-<div class="container">
-    <form action="/register" method="POST">
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input required name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input required name="firstName" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input required name="lastName" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select required name="gender">
-                <option class="form-control" value="Male">Male</option>
-                <option class="form-control" value="Female">Female</option>
-                <option class="form-control" value="Non-Binary">Non-Binary</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="skill_level">Skill Level</label>
-            <select required name="skill_level">
-                <option class="form-control" value="Beginner">Beginner</option>
-                <option class="form-control" value="Intermediate">Intermediate</option>
-                <option class="form-control" value="Advanced">Advanced</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="dob">Date of Birth</label>
-            <input required type="date" name="dob">
-        </div>
-        <div class="form-group">
-            <label for="sport">Sport</label>
-            <select required name="sport">
-                <option class="form-control" value="Ultimate Frisbee">Ultimate Frisbee</option>
-                <option class="form-control" value="Badminton">Badminton</option>
-                <option class="form-control" value="Basketball">Basketball</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="location">Social Link</label>
-            <input required name="social_link" type="text" class="form-control">
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="isManager">
-                <label class="form-check-label" for="true">Manager</label>
+<section class="h-100" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+          <div class="card card-registration my-4">
+            <div class="row g-0">
+              <div class="col-xl-6 d-none d-xl-block">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                  alt="Sample photo" class="img-fluid"
+                  style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+              </div>
+              <div class="col-xl-6">
+                <div class="card-body p-md-5 text-black">
+                  <h3 class="mb-5 text-uppercase">Create My Profile</h3>
+                    
+                  <form action="/register" method="POST">
+                    <div class="form-outline mb-4">
+                        <input required type="email" id="exampleInputEmail1" name="email"
+                        class="form-control form-control-lg" aria-describedby="emailHelp" placeholder="Enter email"/>
+                        <label class="form-label" for="email">Email address</label>
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input required type="password" id="exampleInputPassword1" name="password" class="form-control form-control-lg" placeholder="Password"/>
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input required type="text" name="firstName" id="fname" class="form-control form-control-lg">
+                        <label class="form-label" for="firstName">First name</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <input required type="text" id="lname" name="lastName" class="form-control form-control-lg"/>
+                        <label class="form-label" for="lastName">Last name</label>
+                      </div>
+                    </div>
+                </div>
+
+                    <div class="form-outline mb-4">
+                        <input required type="date" name="dob" id="dob" class="form-control form-control-lg">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+  
+                  <div class="d-md-flex justify-content-start align-items-center mb-4 py-2 playerGender">
+  
+                    <h6 class="mb-0 mr-4">Gender: </h6>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="gender" id="femaleGender"
+                        value="Female"/>
+                      <label class="form-check-label" for="femaleGender">Female</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0 me-4">
+                      <input class="form-check-input" type="radio" name="gender" id="maleGender"
+                        value="Male" />
+                      <label class="form-check-label" for="maleGender">Male</label>
+                    </div>
+  
+                    <div class="form-check form-check-inline mb-0">
+                      <input class="form-check-input" type="radio" name="gender" id="otherGender"
+                        value="Non-Binary" />
+                      <label class="form-check-label" for="otherGender">Non-Binary</label>
+                    </div>
+  
+                  </div>
+
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2 accountType">
+                    <h6 class="mb-0 mr-4">Account Type: </h6>
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input class="form-check-input" type="radio" name="isManager">
+                        <label class="form-check-label" for="true">Manager</label>
+                    </div>
+                    <div class="form-check form-check-inline mb-0 me-4">
+                        <input checked class="form-check-input" type="radio" name="isManager">
+                        <label class="form-check-label" for="false">Player</label>
+                    </div>
+                </div>
+  
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="sport" id="sportValue">
+                        <option value="Ultimate Frisbee">Ultimate Frisbee</option>
+                        <option value="Basketball">Basketball</option>
+                        <option value="Volleyball">Volleyball</option>
+                        </select>
+                        <label class="form-label" for="sport">Sport</label>
+
+                    </div>
+
+                    <div class="justify-content-start align-items-center mb-4 py-2">
+
+                        <select required class="select form-control form-control-lg" name="skill" id="skillValue">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        </select>
+                        <label class="form-label" for="skill">Skill Level</label>
+
+                    </div>
+  
+                  <div class="form-outline mb-4">
+                    <input type="text" id="socialLink" class="form-control form-control-lg" name="social_link"/>
+                    <label class="form-label" for="social_link">Social Link</label>
+                  </div>
+  
+                  <div class="d-flex justify-content-end pt-3">
+                    <button type="button" class="btn btn-light btn-lg mr-2" id="resetAll">Reset all</button>
+                    <button type="submit" class="btn btn-warning btn-lg ms-2">Submit Form</button>
+                  </div>
+                  </form>
+  
+                </div>
+              </div>
             </div>
-            <div class="form-check">
-                <input checked class="form-check-input" type="radio" name="isManager">
-                <label class="form-check-label" for="false">Player</label>
-            </div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+      </div>
+    </div>
+</section>
+
+<script>
+    $("#resetAll").on("click", function() {
+        $("#exampleInputEmail1").val("");
+        $("#exampleInputPassword1").val("");
+        $("#fname").val("");
+        $("#lname").val("");
+        $("#email").val("");
+        $("#sportValue").text("");
+        $("#skillValue").text("");
+        $("#dob").val("");
+        $("#socialLink").val("");
+        $('input[type=radio]').prop('checked',false);
+    })
+    
+</script>
