@@ -17,11 +17,15 @@
   </head>
 
   <body>
+    <section class="edit-page">
     <!--Navigation-->
     <nav id="mainNav" class="navbar navbar-light navbar-expand-md fixed-top navbar-shrink py-3">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="/">
-          <span>TeamPlay</span></a>
+        <a class="navbar-brand d-flex align-items-center" href="/" style="margin-right: -30px">
+          <span class="team-header">TeamPlay</span></a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trophy" style="color: whitesmoke;" viewBox="0 0 16 16">
+          <path d="M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935zM3.504 1c.007.517.026 1.006.056 1.469.13 2.028.457 3.546.87 4.667C5.294 9.48 6.484 10 7 10a.5.5 0 0 1 .5.5v2.61a1 1 0 0 1-.757.97l-1.426.356a.5.5 0 0 0-.179.085L4.5 15h7l-.638-.479a.501.501 0 0 0-.18-.085l-1.425-.356a1 1 0 0 1-.757-.97V10.5A.5.5 0 0 1 9 10c.516 0 1.706-.52 2.57-2.864.413-1.12.74-2.64.87-4.667.03-.463.049-.952.056-1.469H3.504z"/>
+        </svg>
         <button class="navbar-toggler" data-bs-toggle="collapse"data-bs-target="#navcol-1">
           <span class="visually-hidden">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -29,13 +33,13 @@
         <div id="navcol-1" class="collapse navbar-collapse">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="teams">Teams</a>
+              <a class="team-header nav-link" href="teams">Teams</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="players">Players</a>
+              <a class="team-header nav-link" href="players">Players</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/teams/create">Create</a>
+              <a class="team-header nav-link" href="/teams/create">Create</a>
             </li>
           </ul>
         </div>
@@ -44,7 +48,7 @@
 
     <!-- Masthead -->
     <header class="masthead">
-      <div class="container">
+      <div class="letter-color container">
         <div class="homepage-container">
           <div class="row">
             <div class="col-md-10 col-lg-5 position-relative">
@@ -54,10 +58,10 @@
                   Welcome to TeamPlay, a website that can let you create and play your favourite teams
                 to compete or play recreationally!</span>
                 <div class= "pt-2">
-                  <a class="btn btn-outline-primary btn-lg" href="/register">
+                  <a class="btn btn-outline-light btn-lg" href="/register">
                   Join Now!
                   </a>
-                  <a class="btn btn-outline-primary btn-lg" href="/login">
+                  <a class="btn btn-outline-light btn-lg" href="/login">
                     Log In
                   </a>
                 </div>
@@ -68,25 +72,25 @@
       </div>
     </header>
 
-    <section class="site-block site-info dark pb-5">
+    <section class="edit-page site-block site-info dark pb-5">
       <div class="container">
         <div class="block-heading">
-          <h2 class="text-info">About Us</h2>
-          <p>
+          <h2 style="color: lightblue">About Us</h2>
+          <p class="letter-color">
             We strive to create an open environment for people to meet and play!
           </p>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <div class="card special-skill-item border-0">
-              <div class="card-header bg-transparent border-0">
+            <div class="card special-skill-item border-2">
+              <div class="edit-page card-header bg-transparent border-0">
                 <i class="icon ion-ios-star-outline"></i>
               </div>
-              <div class="card-body">
-                <h3 class="card-title">Sign Up</h3>
-                <p class="card-text">
+              <div class="edit-page card-body">
+                <h3 class="letter-color card-title">Sign Up</h3>
+                <p class="letter-color card-text">
                   In order to sign up for a team you must click "Join Now!" below to register for an account.
-                  <br /> <a class="btn btn-outline-primary btn-lg" href="/register">
+                  <br /> <a class="btn btn-outline-light btn-lg" href="/register">
                     Join Now!
                     </a>
                 </p>
@@ -94,15 +98,15 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card special-skill-item border-0">
-              <div class="card-header bg-transparent border-0">
+            <div class="card special-skill-item border-2">
+              <div class="edit-page card-header bg-transparent border-0">
                 <i class="icon ion-ios-lightbulb-outline"></i>
               </div>
-              <div class="card-body">
-                <h3 class="card-title">Join a Group</h3>
-                <p class="card-text">
+              <div class="edit-page card-body">
+                <h3 class="letter-color ">Join a Group</h3>
+                <p class="letter-color card-text">
                   Once you have registered for an account you can join a group by clicking "Teams" in the navigation bar.
-                  <br /> <a class="btn btn-outline-primary btn-lg" href="/teams">
+                  <br /> <a class="btn btn-outline-light btn-lg" href="/teams">
                     Teams
                     </a>
                 </p>
@@ -110,13 +114,13 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card special-skill-item border-0">
-              <div class="card-header bg-transparent border-0">
+            <div class="card special-skill-item border-2">
+              <div class="edit-page card-header bg-transparent border-0">
                 <i class="icon ion-ios-gear-outline"></i>
               </div>
-              <div class="card-body">
-                <h3 class="card-title">Play!</h3>
-                <p class="card-text">
+              <div class="edit-page card-body">
+                <h3 class="letter-color ">Play!</h3>
+                <p class="letter-color card-text">
                   Lastly have fun with your team and play!
               </div>
             </div>
@@ -135,9 +139,9 @@
               />
             </div>
             <div class="col-md-6">
-              <h3>Join a league!</h3>
+              <h3 class="letter-color">Join a league!</h3>
               <div class="getting-started-info">
-                <p>
+                <p class="letter-color">
                  Striving for competition and fun? Join a league today! TeamPlay offers a variety of leagues to join, creating 
                  the best possible experience for our players. Whether it's for an evening party with recreational teams or a 
                 competitive league to win it all, TeamPlay has it all!
@@ -192,5 +196,6 @@
         <p>© 2023 Copyright Text</p>
       </div>
     </footer>
+    </section>
   </body>
 </html>

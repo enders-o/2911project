@@ -1,48 +1,49 @@
+<section class="edit-page">
 <div class="container">
-  <h1>Players</h1>
+  <h1 class="letter-color">Players</h1>
   <form class="form-inline pb-2">
     <div class="mr-2">
       <input class="form-control" id="myInput" type="text">
     </div>
-    <button type="button" id="searchBtn" class="btn btn-secondary">Search</button>
+    <button type="button" id="searchBtn" class="btn btn-light">Search</button>
   </form>
 
   <div class="row">
     <!-------- Filters -------->
     <div class="col">
       <div class="pb-3">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#orderBy">
+        <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#orderBy">
           Order by
         </button>
       </div>
-      <div id="orderBy" class="collapse show pb-3">
+      <div id="orderBy" class="collapse pb-3">
         <!-- Order by buttons -->
       </div>
       <div class="pb-3">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#skillLevel">
+        <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#skillLevel">
           Skill Level
         </button>
       </div>
-      <div id="skillLevel" class="collapse show pb-3">
+      <div id="skillLevel" class="collapse pb-3">
         <!-- Filter by skill buttons -->
       </div>
       <div class="pb-3">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#playerSport">
+        <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#playerSport">
           Sport
         </button>
       </div>
-      <div id="playerSport" class="collapse show pb-3">
+      <div id="playerSport" class="collapse pb-3">
         <!-- Filter by player sport -->
       </div>
-      <button type="button" class="btn btn-primary" id="clearFilters">Cear all filters</button>
+      <button type="button" class="btn btn-light" id="clearFilters">Cear all filters</button>
     </div>
 
     <!-------- Player Data -------->
     <div class="col-10">
       <div class="row row-cols-1 row-cols-md-3" id="myPlayers">
         <% players.forEach( item => { %>
-          <div class="col mb-4 playerList">
-            <div class="card">
+          <div class="card-main col mb-4 playerList">
+            <div class="card-frame">
                 <img
                 src="<%= item.picture %>"
                 class="card-img-top"
@@ -51,12 +52,12 @@
                 height="200"
                 />
                 <div class="card-body">
-                  <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5>
+                  <h5 class="card-name"><%= item.fname %> <%= item.lname %></h5>
                   <div class="card-text">
-                      <p class="sport">Sport: <%= item.sport %></p>
-                      <p class="skill">Skill: <%= item.skill %></p>
+                      <p class="card-info">Sport: <%= item.sport %></p>
+                      <p class="card-info">Skill: <%= item.skill %></p>
                   </div>
-                  <a class="btn btn-primary" href= <%= "/players/" + item.id %>>Click here for more info</a>
+                  <a class="btn btn-light d-flex justify-content-center" href= <%= "/players/" + item.id %>>Click here for more info</a>
                 </div>
             </div>
           </div>
@@ -66,7 +67,7 @@
 
   </div>
 </div>
-
+</section>
 <script>
   //------------------------------------------------ Adds buttons -----------------------------------------------//
   // -------- Order by Buttons -------- //
@@ -252,7 +253,7 @@
     $("#clearFilters").on("click", function() {
       $('input[type=checkbox]').prop('checked',false);
       $('input[type=radio]').prop('checked',false);
-      $('.playerList').show();
+      $('.playerList')();
 
       let resetList = $('#myPlayers');
       let removeFilter = resetList.children('.playerList').get();

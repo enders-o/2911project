@@ -1,18 +1,18 @@
-<section style="background-color: #212A3E; padding: 50px 0px 50px 0px;">
+<section class="edit-page">
 <div class="container">
-    <h1 class="team-header">Registered Teams</h1>
+    <h1 class="letter-color">Registered Teams</h1>
     <form class="form-inline pb-2">
       <div class="mr-2">
         <input class="form-control" id="myInput" type="text">
       </div>
-      <button type="button" id="searchBtn" class="team-btn btn btn-light">Search</button>
+      <button type="button" id="searchBtn" class="btn btn-light">Search</button>
     </form>
   
     <div class="row">
       <!-------- Filters -------->
       <div class="col">
         <div class="pb-3">
-          <button class="team-btn btn btn-light" type="button" data-toggle="collapse" data-target="#orderBy">
+          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#orderBy">
             Order by
           </button>
         </div>
@@ -20,7 +20,7 @@
           <!-- Order by buttons -->
         </div>
         <div class="pb-3">
-          <button class="team-btn btn btn-light" type="button" data-toggle="collapse" data-target="#skillLevel">
+          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#skillLevel">
             Skill Level
           </button>
         </div>
@@ -28,14 +28,14 @@
           <!-- Filter by skill buttons -->
         </div>
         <div class="pb-3">
-          <button class="team-btn btn btn-light" type="button" data-toggle="collapse" data-target="#playerSport">
+          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#playerSport">
             Sport
           </button>
         </div>
         <div id="playerSport" class="collapse pb-3">
           <!-- Filter by player sport -->
         </div>
-        <button type="button" class="team-btn btn btn-light" id="clearFilters">Cear all filters</button>
+        <button type="button" class="btn btn-light" id="clearFilters">Cear all filters</button>
       </div>
   
       <!-------- Player Data -------->
@@ -51,7 +51,7 @@
                       <p class="card-info"><%= item.sport %></p>
                       <p class="card-info"><%= item.skill_level %></p>
                   </div>
-                  <a class="team-btn btn btn-light d-flex justify-content-center" href= <%= "/teams/" + item.id %>>Click here for more info</a>
+                  <a class="btn btn-light d-flex justify-content-center" href= <%= "/teams/" + item.id %>>Click here for more info</a>
                 </div>
                   <img
                   src="<%= item.picture %>"

@@ -161,8 +161,8 @@ ol, ul, dl {
 }
 
 .card-frame {
-  border: solid rgb(243, 157, 126) 2px;
-  background-image: url(https://wallpaperaccess.com/full/1302164.jpg);
+  border: solid rgb(148, 124, 164) 2px;
+  background-color: #403f3f;
   vertical-align: top;
   width: 265px;
 }
@@ -172,6 +172,7 @@ ol, ul, dl {
   border: solid whitesmoke 3px;
   background-color: whitesmoke;
 }
+
 /* login */
 .login-page {
   background-color: black;
@@ -194,10 +195,15 @@ ol, ul, dl {
     background: #6a11cb;
   
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    background: -webkit-linear-gradient(to right, rgb(77, 5, 155), rgb(10, 69, 172));
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    background: linear-gradient(to right, rgb(77, 5, 155), rgb(10, 69, 172))
+}
+
+.edit-border {
+  border: solid gray 2px;
+
 }
 
 .edit-card {
@@ -205,16 +211,33 @@ ol, ul, dl {
   color: whitesmoke;
 }
 
+.edit-social {
+  background-color: #2b2f31;
+  color: whitesmoke;
+  border-bottom: solid whitesmoke 1px;
+}
 
 .team-header {
   color: whitesmoke;
+  border-bottom: solid whitesmoke 1px;
+  margin-left: 45px;
+  margin-right: 45px;
 }
 
-.team-btn {
-  background-color: #9BA4B5;
-  color: black;
+.manage-header {
+  color: whitesmoke;
+  border-bottom: solid whitesmoke 1px;
 }
+
 
 .form-check {
+  color: whitesmoke;
+}
+
+.letter-color {
+  color: whitesmoke;
+}
+
+.navbar-light .navbar-nav .nav-link {
   color: whitesmoke;
 }
