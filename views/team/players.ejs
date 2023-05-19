@@ -54,8 +54,8 @@
                 <div class="card-body">
                   <h5 class="card-name"><%= item.fname %> <%= item.lname %></h5>
                   <div class="card-text">
-                      <p class="card-info">Sport: <%= item.sport %></p>
-                      <p class="card-info">Skill: <%= item.skill %></p>
+                      <p class="card-info sport">Sport: <%= item.sport %></p>
+                      <p class="card-info skill">Skill: <%= item.skill %></p>
                   </div>
                   <a class="btn btn-light d-flex justify-content-center" href= <%= "/players/" + item.id %>>Click here for more info</a>
                 </div>
@@ -197,7 +197,7 @@
 
     function applyOrderby(e) {
       listitems.sort(function(a, b) {
-        return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
+        return $(a).children('div').children('div').children('.card-name').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-name').text().toUpperCase());
       })
       $.each(listitems, function(idx, itm) {
         for (let i = itm.classList.length - 1; i >= 0; i--) {
@@ -253,7 +253,7 @@
     $("#clearFilters").on("click", function() {
       $('input[type=checkbox]').prop('checked',false);
       $('input[type=radio]').prop('checked',false);
-      $('.playerList')();
+      $('.playerList').show();
 
       let resetList = $('#myPlayers');
       let removeFilter = resetList.children('.playerList').get();
