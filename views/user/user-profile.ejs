@@ -1,28 +1,28 @@
-<section style="background-color: #eee;">
+<section class="edit-page">
     <div class="container py-5">
         <div class="row">
         <div class="col-lg-4">
             <div class="card mb-4">
-            <div class="card-body text-center">
+            <div class="edit-card text-center">
                 <img src="<%=user.picture%>" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
-                <h5 class="my-3"><%= user.fname%></h5>
-                <p class="text-muted mb-1"><%= user.sport%> Enthusiast</p>
-                <p class="text-muted mb-4">Vancouver, BC</p>
+                <h5 class="team-header my-3"><%= user.fname%></h5>
+                <p class="team-header mb-1"><%= user.sport%> Enthusiast</p>
+                <p class="team-header mb-4">Vancouver, BC</p>
                 <div class="d-flex justify-content-center mb-2">
                     <a class="btn btn-warning" href="/user/edit">Edit</a>
                 </div>
             </div>
             </div>
             <div class="card mb-4 mb-lg-0">
-            <div class="card-body p-0">
+            <div class="edit-card card-body p-0">
                 <ul class="list-group list-group-flush rounded-3">
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <li class="edit-social list-group-item d-flex justify-content-between align-items-center p-3">
                     <i class="fas fa-globe fa-lg text-warning"></i>
                     <a class="mb-0" href="https://<%=user.social_link%>">Link to Socials</a>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i class="fas fa-user fa-lg" style="color: #333333;"></i>
+                <li class="edit-card list-group-item d-flex justify-content-between align-items-center p-3">
+                    <i class="fas fa-user fa-lg" style="color: whitesmoke;"></i>
                     <p class="mb-0">jd_github</p>
                 </li>
                 </ul>
@@ -31,13 +31,13 @@
         </div>
         <div class="col-lg-8">
             <div class="card mb-4">
-            <div class="card-body">
+            <div class="edit-card edit-card card-body">
                 <div class="row">
                 <div class="col-sm-3">
                     <p class="mb-0">Full Name</p>
                 </div>
                 <div class="col-sm-9">
-                    <p class="text-muted mb-0"><%= user.fname%> <%= user.lname%></p>
+                    <p class="mb-0"><%= user.fname%> <%= user.lname%></p>
                 </div>
                 </div>
                 <hr>
@@ -46,7 +46,7 @@
                     <p class="mb-0">Sport</p>
                     </div>
                     <div class="col-sm-9">
-                    <p class="text-muted mb-0"><%= user.sport%></p>
+                    <p class="mb-0"><%= user.sport%></p>
                     </div>
                 </div>
                 <hr>
@@ -55,7 +55,7 @@
                     <p class="mb-0">Email</p>
                 </div>
                 <div class="col-sm-9">
-                    <p class="text-muted mb-0"><%= user.email%></p>
+                    <p class="mb-0"><%= user.email%></p>
                 </div>
                 </div>
                 <hr>
@@ -64,7 +64,7 @@
                     <p class="mb-0">Phone</p>
                 </div>
                 <div class="col-sm-9">
-                    <p class="text-muted mb-0">(097) 234-5678</p>
+                    <p class="mb-0">(097) 234-5678</p>
                 </div>
                 </div>
                 <hr>
@@ -73,7 +73,7 @@
                     <p class="mb-0">Skill</p>
                 </div>
                 <div class="col-sm-9">
-                    <p class="text-muted mb-0"><%= user.skill%></p>
+                    <p class="mb-0"><%= user.skill%></p>
                 </div>
                 </div>
                 <hr>
@@ -82,7 +82,7 @@
                     <p class="mb-0">Date of Birth</p>
                 </div>
                 <div class="col-sm-9">
-                    <p class="text-muted mb-0"><%= user.dob%></p>
+                    <p class="mb-0"><%= user.dob%></p>
                 </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mb-4 mb-md-0">
-                    <div class="card-body">
+                    <div class="edit-card card-body">
                         <p class="mb-4">Joined Teams
                         </p>
                         <p class="mb-1">
@@ -117,7 +117,7 @@
                 </div>
             <div class="col-md-6">
                 <div class="card mb-4 mb-md-0">
-                <div class="card-body">
+                <div class="edit-card card-body">
                     <p class="mb-4">Team Requests
                     </p>
                     <p class="mb-1">
@@ -150,34 +150,34 @@
 
     <%if(user.isManager === true){%>
         <div class="container">
-        <h1>Manage Teams</h1>
-        <a class="btn btn-success" href="/teams/create">Create a Team</a>
+        <h1 class="manage-header">Manage Teams</h1>
+        <a class="btn btn-warning" href="/teams/create">Create a Team</a>
         <%teams.forEach(team => {%>
         <%if(team.manager_id == user.id){%>
         <div class="container py-5">
             <div class="row">
                 <div class="col-lg-4">
                     <div class="card mb-4">
-                        <div class="card-body text-center">
+                        <div class="edit-card card-body text-center">
                         <img src="<%= team.picture %>" alt="avatar"
                         class="rounded-circle img-fluid" style="width: 150px;">
                         <h5 class="my-3"><%= team.name %></h5>
-                        <p class="text-muted mb-1"><%= team.description %></p>
-                        <p class="text-muted mb-4"><%= team.location %></p>
+                        <p class="mb-1"><%= team.description %></p>
+                        <p class="mb-4"><%= team.location %></p>
                         <div class="d-flex justify-content-center mb-2">
                             <a class="btn btn-warning" href="/teams/<%=team.id%>/edit/">Edit Team</a>
                         </div>
                     </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
-                    <div class="card-body p-0">
+                    <div class="edit-card card-body p-0">
                     <ul class="list-group list-group-flush rounded-3">
-                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <li class="edit-social list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fas fa-globe fa-lg text-warning"></i>
                         <a class="mb-0" href="https://<%=team.social_link%>">Link to Team Page</a>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                        <i class="fas fa-user fa-lg" style="color: #333333;"></i>
+                        <li class="edit-card list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fas fa-user fa-lg" style="color: whitesmoke;"></i>
                         <p class="mb-0">jd_github</p>
                         </li>
                     </ul>
@@ -186,13 +186,13 @@
             </div>
             <div class="col-lg-8">
                 <div class="card mb-4">
-                <div class="card-body">
+                <div class="edit-card card-body">
                     <div class="row">
                     <div class="col-sm-3">
                         <p class="mb-0">Sport</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0"><%=team.sport%></p>
+                        <p class="mb-0"><%=team.sport%></p>
                     </div>
                     </div>
                     <hr>
@@ -201,7 +201,7 @@
                         <p class="mb-0">Rank</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0"><%=team.skill_level%></p>
+                        <p class="mb-0"><%=team.skill_level%></p>
                     </div>
                     </div>
                     <hr>
@@ -210,7 +210,7 @@
                         <p class="mb-0">Level</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">
+                        <p class="mb-0">
                             <%if(team.competitive === true){%>
                                 Competitive
                             <%} else {%>
@@ -225,7 +225,7 @@
                         <p class="mb-0">Number of Players</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">
+                        <p class="mb-0">
                             <%let count=0 %>
                             <% players.forEach(player => {%>
                                 <%player.joinedTeams.forEach(teamId => {%>
@@ -242,7 +242,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card mb-4 mb-md-0">
-                            <div class="card-body">
+                            <div class="edit-card card-body">
                                 <p class="mb-4">Current Members
                                 </p>
                                 <p class="mb-1">
@@ -269,7 +269,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card mb-4 mb-md-0">
-                            <div class="card-body">
+                            <div class="edit-card card-body">
                                 <p class="mb-4">Team Requests
                                 </p>
                                 <p class="mb-1">
