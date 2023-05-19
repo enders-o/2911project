@@ -1,274 +1,272 @@
 <section class="edit-page">
-<div class="container">
-    <h1 class="letter-color">Registered Teams</h1>
-    <form class="form-inline pb-2">
-      <div class="mr-2">
-        <input class="form-control" id="myInput" type="text">
-      </div>
-      <button type="button" id="searchBtn" class="btn btn-light">Search</button>
-    </form>
-  
-    <div class="row">
-      <!-------- Filters -------->
-      <div class="col">
-        <div class="pb-3">
-          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#orderBy">
-            Order by
-          </button>
+  <div class="container">
+      <h1 class="letter-color">Registered Teams</h1>
+      <form class="form-inline pb-2">
+        <div class="mr-2">
+          <input class="form-control" id="myInput" type="text">
         </div>
-        <div id="orderBy" class="collapse pb-3">
-          <!-- Order by buttons -->
+        <button type="button" id="searchBtn" class="btn btn-light">Search</button>
+      </form>
+    
+      <div class="row">
+        <!-------- Filters -------->
+        <div class="col">
+          <div class="pb-3">
+            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#orderBy">
+              Order by
+            </button>
+          </div>
+          <div id="orderBy" class="collapse pb-3">
+            <!-- Order by buttons -->
+          </div>
+          <div class="pb-3">
+            <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#skillLevel">
+              Skill Level
+            </button>
+          </div>
+          <div id="skillLevel" class="collapse pb-3">
+            <!-- Filter by skill buttons -->
+          </div>
+          <div class="pb-3">
+            <button class="team-btn btn btn-light" type="button" data-toggle="collapse" data-target="#teamSport">
+              Sport
+            </button>
+          </div>
+          <div id="teamSport" class="collapse pb-3">
+            <!-- Filter by player sport -->
+          </div>
+          <button type="button" class="btn btn-light" id="clearFilters">Cear all filters</button>
         </div>
-        <div class="pb-3">
-          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#skillLevel">
-            Skill Level
-          </button>
-        </div>
-        <div id="skillLevel" class="collapse pb-3">
-          <!-- Filter by skill buttons -->
-        </div>
-        <div class="pb-3">
-          <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#playerSport">
-            Sport
-          </button>
-        </div>
-        <div id="playerSport" class="collapse pb-3">
-          <!-- Filter by player sport -->
-        </div>
-        <button type="button" class="btn btn-light" id="clearFilters">Cear all filters</button>
-      </div>
-  
-      <!-------- Player Data -------->
-      <div class="col-10">
-        <div class="team-card row row-cols-1 row-cols-md-3" id="myPlayers">
-          <% teams.forEach( item => { %>
-            <div class="card-main col mb-4 playerList">
-              <div class="card-frame">
-                <div class="card-body">
-                  <!-- <h5 class="card-title"><%= item.fname %> <%= item.lname %></h5> -->
-                  <div class="card-text">
-                      <p class="card-name"><%= item.name %></p>
-                      <p class="card-info"><%= item.sport %></p>
-                      <p class="card-info"><%= item.skill_level %></p>
+    
+        <!-------- Team Data -------->
+        <div class="col-10">
+          <div class="team-card row row-cols-1 row-cols-md-3" id="myTeams">
+            <% teams.forEach( item => { %>
+              <div class="card-main col mb-4 teamList">
+                <div class="card-frame">
+                  <div class="card-body">
+                    <div class="card-text">
+                        <p class="card-name"><%= item.name %></p>
+                        <p class="card-info sport"><%= item.sport %></p>
+                        <p class="card-info skill"><%= item.skill_level %></p>
+                    </div>
+                    <a class="btn btn-light d-flex justify-content-center" href= <%= "/teams/" + item.id %>>Click here for more info</a>
                   </div>
-                  <a class="btn btn-light d-flex justify-content-center" href= <%= "/teams/" + item.id %>>Click here for more info</a>
+                    <img
+                    src="<%= item.picture %>"
+                    class="card-img-bottom"
+                    alt="player profile"
+                    width="380"
+                    height="200"
+                    />
                 </div>
-                  <img
-                  src="<%= item.picture %>"
-                  class="card-img-bottom"
-                  alt="player profile"
-                  width="380"
-                  height="200"
-                  />
               </div>
-            </div>
-          <%})%>
+            <%})%>
+          </div>
         </div>
+    
       </div>
-  
     </div>
-  </div>
-</section>
-  <script>
-    //------------------------------------------------ Adds buttons -----------------------------------------------//
-    // -------- Order by Buttons -------- //
-    let orderOptions = [
-      {
-        'id' : 'alphaAZ',
-        'input' : 'Player name (A-Z)'
-      },
-      {
-        'id' : 'alphaZA',
-        'input' : 'Player name (Z-A)'
-      }
-    ]
-    orderOptions.forEach(function (item) {
-      $('<div/>', {
-        'class' : 'form-check'
-      }
-        ).appendTo('#orderBy').append(
-          $('<input>', {
-            'class' : 'form-check-input',
-            'type' : 'radio',
-            'name' : 'myOrder',
-            'id' : `${item.id}`
-          }),
-          $('<label/>', {
-            'class' : 'form-check-label',
-            'for' : 'myOrder',
-            'text' : `${item.input}`
-          })
-        );
-    })
-  
-    // -------- Filter by skill buttons -------- //
-    let skillOptions = [
-      {
-        'id' : 'beginner',
-        'input' : 'Beginner'
-      },
-      {
-        'id' : 'intermediate',
-        'input' : 'Intermediate'
-      },
-      {
-        'id' : 'advanced',
-        'input' : 'Advanced'
-      }
-    ]
-    skillOptions.forEach(function (item) {
-      $('<div/>', {
-        'class' : 'form-check'
-      }
-        ).appendTo('#skillLevel').append(
-          $('<input>', {
-            'class' : 'form-check-input',
-            'type' : 'checkbox',
-            'name' : 'playerSkill',
-            'id' : `${item.id}`,
-            'value': `${item.id}`
-          }),
-          $('<label/>', {
-            'class' : 'form-check-label',
-            'for' : 'defaultCheck1',
-            'text' : `${item.input}`
-          })
-        );
-    })
-  
-    // -------- Filter by skill buttons -------- //
-    let sportOptions = [
-      {
-        'id' : 'basketball',
-        'input' : 'Basketball'
-      },
-      {
-        'id' : 'Frisbee',
-        'input' : 'Ultimate Frisbee'
-      },
-      {
-        'id' : 'volleyball',
-        'input' : 'Volleyball'
-      }
-    ]
-    sportOptions.forEach(function (item) {
-      $('<div/>', {
-        'class' : 'form-check'
-      }
-        ).appendTo('#playerSport').append(
-          $('<input>', {
-            'class' : 'form-check-input',
-            'type' : 'checkbox',
-            'name' : 'plySport',
-            'id' : `${item.id}`,
-            'value': `${item.input}`
-          }),
-          $('<label/>', {
-            'class' : 'form-check-label',
-            'for' : 'defaultCheck1',
-            'text' : `${item.input}`
-          })
-        );
-    })
-  
-    //------------------------------------------------ Event Listeners -----------------------------------------------//
-    $(document).ready(function(){
-      // -------- Search Function -------- //
-      $("#searchBtn").on("click", function() { filterPlayers(); });
-      $('#myInput').on("keypress", function() {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-          filterPlayers();
+  </section>
+    <script>
+      //------------------------------------------------ Adds buttons -----------------------------------------------//
+      // -------- Order by Buttons -------- //
+      let orderOptions = [
+        {
+          'id' : 'alphaAZ',
+          'input' : 'Team name (A-Z)'
+        },
+        {
+          'id' : 'alphaZA',
+          'input' : 'Team name (Z-A)'
         }
+      ]
+      orderOptions.forEach(function (item) {
+        $('<div/>', {
+          'class' : 'form-check'
+        }
+          ).appendTo('#orderBy').append(
+            $('<input>', {
+              'class' : 'form-check-input',
+              'type' : 'radio',
+              'name' : 'myOrder',
+              'id' : `${item.id}`
+            }),
+            $('<label/>', {
+              'class' : 'form-check-label',
+              'for' : 'myOrder',
+              'text' : `${item.input}`
+            })
+          );
       })
-  
-      function filterPlayers() {
-        let value = $("#myInput").val().toLowerCase();
-          $("#myPlayers .playerList").filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-          });
-      }
-  
-      // -------- Order by alphabet -------- //
-      let mylist = $('#myPlayers');
-      let listitems = mylist.children('.playerList').get();
-  
-      $("#alphaAZ").on("click", applyOrderby);
-      $("#alphaZA").on("click", applyOrderby);
-  
-      function applyOrderby(e) {
-        listitems.sort(function(a, b) {
-          return $(a).children('div').children('div').children('.card-title').text().toUpperCase().localeCompare($(b).children('div').children('div').children('.card-title').text().toUpperCase());
+    
+      // -------- Filter by skill buttons -------- //
+      let skillOptions = [
+        {
+          'id' : 'beginner',
+          'input' : 'Beginner'
+        },
+        {
+          'id' : 'intermediate',
+          'input' : 'Intermediate'
+        },
+        {
+          'id' : 'advanced',
+          'input' : 'Advanced'
+        }
+      ]
+      skillOptions.forEach(function (item) {
+        $('<div/>', {
+          'class' : 'form-check'
+        }
+          ).appendTo('#skillLevel').append(
+            $('<input>', {
+              'class' : 'form-check-input',
+              'type' : 'checkbox',
+              'name' : 'teamSkill',
+              'id' : `${item.id}`,
+              'value': `${item.id}`
+            }),
+            $('<label/>', {
+              'class' : 'form-check-label',
+              'for' : 'defaultCheck1',
+              'text' : `${item.input}`
+            })
+          );
+      })
+    
+      // -------- Filter by sport buttons -------- //
+      let sportOptions = [
+        {
+          'id' : 'basketball',
+          'input' : 'Basketball'
+        },
+        {
+          'id' : 'Frisbee',
+          'input' : 'Ultimate Frisbee'
+        },
+        {
+          'id' : 'volleyball',
+          'input' : 'Volleyball'
+        }
+      ]
+      sportOptions.forEach(function (item) {
+        $('<div/>', {
+          'class' : 'form-check'
+        }
+          ).appendTo('#teamSport').append(
+            $('<input>', {
+              'class' : 'form-check-input',
+              'type' : 'checkbox',
+              'name' : 'tmSport',
+              'id' : `${item.id}`,
+              'value': `${item.input}`
+            }),
+            $('<label/>', {
+              'class' : 'form-check-label',
+              'for' : 'defaultCheck1',
+              'text' : `${item.input}`
+            })
+          );
+      })
+    
+      //------------------------------------------------ Event Listeners -----------------------------------------------//
+      $(document).ready(function(){
+        // -------- Search Function -------- //
+        $("#searchBtn").on("click", function() { filterPlayers(); });
+        $('#myInput').on("keypress", function() {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            filterPlayers();
+          }
         })
-        $.each(listitems, function(idx, itm) {
-          for (let i = itm.classList.length - 1; i >= 0; i--) {
-            const className = itm.classList[i];
-            if (className.startsWith('order')) {
-              itm.classList.remove(className);
+    
+        function filterPlayers() {
+          let value = $("#myInput").val().toLowerCase();
+            $("#myTeams .teamList").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        }
+    
+        // -------- Order by alphabet -------- //
+        let mylist = $('#myTeams');
+        let listitems = mylist.children('.teamList').get();
+    
+        $("#alphaAZ").on("click", applyOrderby);
+        $("#alphaZA").on("click", applyOrderby);
+    
+        function applyOrderby(e) {
+          listitems.sort(function(a, b) {
+            return $(a).children('div').children('div').children('div').children('.card-name').text().toUpperCase().localeCompare($(b).children('div').children('div').children('div').children('.card-name').text().toUpperCase());
+          })
+          $.each(listitems, function(idx, itm) {
+            for (let i = itm.classList.length - 1; i >= 0; i--) {
+              const className = itm.classList[i];
+              if (className.startsWith('order')) {
+                itm.classList.remove(className);
+              }
             }
-          }
-          if (e.target.id === 'alphaAZ') {
-            $(itm).addClass(`order-${(idx+1)}`);
-          } else {
-            $(itm).addClass(`order-${(listitems.length - idx)}`)
-          }
-        });
-      }
-      
-      // -------- Filter by skill -------- //
-      var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
-      var allPlayers = Array.from(document.querySelectorAll('.playerList'));
-      var checked = {};
-  
-      getChecked('playerSkill');
-      getChecked('plySport');
-  
-      Array.prototype.forEach.call(allCheckboxes, function (el) {
-        el.addEventListener('change', toggleCheckbox);
-      });
-  
-      function toggleCheckbox(e) {
-        getChecked(e.target.name);
-        setVisibility();
-      }
-  
-      function getChecked(name) {
-        checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function (el) {
-          return el.value;
-        });
-      }
-  
-      function setVisibility() {
-        allPlayers.map(function (el) {
-          let playerSkill = checked.playerSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase().substr(7))], checked.playerSkill.map(x => x.toLowerCase())).length : true;
-          let plySport = checked.plySport.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.sport').text().toLowerCase().substr(7))], checked.plySport.map(x => x.toLowerCase())).length : true;
-          if (playerSkill && plySport) {
-            $(el).toggle(true);
-          } else {
-            $(el).toggle(false);
-          }
-        });
-      }
-  
-      // -------- Clear Filters -------- //
-      $("#clearFilters").on("click", function() {
-        $('input[type=checkbox]').prop('checked',false);
-        $('input[type=radio]').prop('checked',false);
-        $('.playerList').show();
-  
-        let resetList = $('#myPlayers');
-        let removeFilter = resetList.children('.playerList').get();
-        $.each(removeFilter, function(idx, itm) {
-          for (let i = itm.classList.length - 1; i >= 0; i--) {
-            const className = itm.classList[i];
-            if (className.startsWith('order')) {
-              itm.classList.remove(className);
+            if (e.target.id === 'alphaAZ') {
+              $(itm).addClass(`order-${(idx+1)}`);
+            } else {
+              $(itm).addClass(`order-${(listitems.length - idx)}`)
             }
-          }
+          });
+        }
+        
+        // -------- Filter by skill -------- //
+        var allCheckboxes = document.querySelectorAll('input[type=checkbox]');
+        var allPlayers = Array.from(document.querySelectorAll('.teamList'));
+        var checked = {};
+    
+        getChecked('teamSkill');
+        getChecked('tmSport');
+    
+        Array.prototype.forEach.call(allCheckboxes, function (el) {
+          el.addEventListener('change', toggleCheckbox);
         });
-        $("#myInput").val("");
+    
+        function toggleCheckbox(e) {
+          getChecked(e.target.name);
+          setVisibility();
+        }
+    
+        function getChecked(name) {
+          checked[name] = Array.from(document.querySelectorAll('input[name=' + name + ']:checked')).map(function (el) {
+            return el.value;
+          });
+        }
+    
+        function setVisibility() {
+          allPlayers.map(function (el) {
+            let teamSkill = checked.teamSkill.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.skill').text().toLowerCase())], checked.teamSkill.map(x => x.toLowerCase())).length : true;
+            let tmSport = checked.tmSport.length ? _.intersection([($(el).children('div').children('div').children('.card-text').children('.sport').text().toLowerCase())], checked.tmSport.map(x => x.toLowerCase())).length : true;
+            if (teamSkill && tmSport) {
+              $(el).toggle(true);
+            } else {
+              $(el).toggle(false);
+            }
+          });
+        }
+    
+        // -------- Clear Filters -------- //
+        $("#clearFilters").on("click", function() {
+          $('input[type=checkbox]').prop('checked',false);
+          $('input[type=radio]').prop('checked',false);
+          $('.teamList').show();
+    
+          let resetList = $('#myTeams');
+          let removeFilter = resetList.children('.teamList').get();
+          $.each(removeFilter, function(idx, itm) {
+            for (let i = itm.classList.length - 1; i >= 0; i--) {
+              const className = itm.classList[i];
+              if (className.startsWith('order')) {
+                itm.classList.remove(className);
+              }
+            }
+          });
+          $("#myInput").val("");
+        });
+    
       });
-  
-    });
-  </script>
-  
+    </script>
