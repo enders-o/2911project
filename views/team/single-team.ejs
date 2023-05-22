@@ -1,8 +1,9 @@
+<section class="edit-page">
 <div class="container">
   <div class="container py-5">
       <div class="row">
           <div class="col-lg-4">
-              <div class="card mb-4">
+              <div class="card-frame card mb-4">
                   <div class="card-frame text-center">
                   <img src="<%= teamItem.picture %>" alt="avatar"
                   class="rounded-circle img-fluid" style="width: 150px;">
@@ -32,12 +33,12 @@
           <div class="card mb-4 mb-lg-0">
               <div class="card-body p-0">
               <ul class="list-group list-group-flush rounded-3">
-                  <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <li class="edit-card list-group-item d-flex justify-content-between align-items-center p-3">
                   <i class="fas fa-globe fa-lg text-warning"></i>
                   <a class="mb-0" href="https://<%=teamItem.social_link%>">Link to Team Page</a>
                   </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                  <i class="fas fa-user fa-lg" style="color: #333333;"></i>
+                  <li class="edit-card list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-user fa-lg" style="color: whitesmoke;"></i>
                   <p class="mb-0">jd_github</p>
                   </li>
               </ul>
@@ -46,13 +47,13 @@
       </div>
       <div class="col-lg-8">
           <div class="card mb-4">
-          <div class="card-body">
+          <div class="edit-social card-body">
             <div class="row">
               <div class="col-sm-3">
                   <p class="mb-0">Manager</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0"><%= manager.fname %> <%= manager.lname%></p>
+                  <p class="mb-0"><%= manager.fname %> <%= manager.lname%></p>
               </div>
             </div>
             <hr>  
@@ -61,7 +62,7 @@
                   <p class="mb-0">Manager Email</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0"><%= manager.email %></p>
+                  <p class="mb-0"><%= manager.email %></p>
               </div>
             </div>
             <hr>  
@@ -70,7 +71,7 @@
                   <p class="mb-0">Sport</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0"><%=teamItem.sport%></p>
+                  <p class="mb-0"><%=teamItem.sport%></p>
               </div>
             </div>
             <hr>
@@ -79,7 +80,7 @@
                   <p class="mb-0">Rank</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0"><%=teamItem.skill_level%></p>
+                  <p class="mb-0"><%=teamItem.skill_level%></p>
               </div>
             </div>
             <hr>
@@ -88,7 +89,7 @@
                   <p class="mb-0">Level</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0">
+                  <p class="mb-0">
                       <%if(teamItem.competitive === true){%>
                           Competitive
                       <%} else {%>
@@ -103,7 +104,7 @@
                   <p class="mb-0">Number of Players</p>
               </div>
               <div class="col-sm-9">
-                  <p class="text-muted mb-0">
+                  <p class="mb-0">
                       <%let count=0 %>
                       <% players.forEach(player => {%>
                           <%player.joinedTeams.forEach(teamId => {%>
@@ -120,7 +121,7 @@
           <div class="row">
               <div class="col-md-6">
                   <div class="card mb-4 mb-md-0">
-                      <div class="card-body">
+                      <div class="edit-card card-body">
                           <p class="mb-4">Current Members
                           </p>
                           <p class="mb-1">
@@ -144,3 +145,4 @@
       </div>
   </div>
   </div>
+</section>
