@@ -12,7 +12,6 @@
             "location": "Richmond, BC",
             "social_link": "instagram.com/reignopen",
             "picture": "https://d36m266ykvepgv.cloudfront.net/uploads/media/X1IX6cWCsC/c-232-160-160-0-1096-757/4bfbf2f2-1be3-4921-86c7-dde67a4e9677.png"
-            
         },
         {
             "id": 2,
@@ -48,7 +47,7 @@
             "skill_level": "Advanced",
             "competitive": true,
             "player_count": 16,
-            "manager_id":6,
+            "manager_id": 6,
             "location": "Toronto, ON",
             "social_link": "instagram.com/thunder",
             "picture": "https://seeklogo.com/images/T/thunderbolts-logo-86727FBF42-seeklogo.com.png"
@@ -61,7 +60,7 @@
             "skill_level": "Intermediate",
             "competitive": false,
             "player_count": 20,
-            "manager_id":4,
+            "manager_id": 4,
             "location": "New York, NY",
             "social_link": "instagram.com/wildcats",
             "picture": "https://media.istockphoto.com/id/1356489475/vector/lynx-wildcat-bobcat-tiger-big-cat-logo-mascot-vector-illustration.jpg?s=612x612&w=0&k=20&c=l7J2KPa9miB20mN9JQC0D25CWm2RZe4-rGnTVY92NEg="
@@ -95,7 +94,9 @@
             "picture": "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp",
             "isManager": false,
             "requestedTeams": [],
-            "joinedTeams": [1]
+            "joinedTeams": [
+                1
+            ]
         },
         {
             "id": 1,
@@ -110,8 +111,14 @@
             "social_link": "instagram.com/js",
             "picture": "https://img.freepik.com/free-vector/ball_1308-18679.jpg?",
             "isManager": false,
-            "requestedTeams": [2, 3],
-            "joinedTeams": [1,5]
+            "requestedTeams": [
+                2,
+                3
+            ],
+            "joinedTeams": [
+                1,
+                5
+            ]
         },
         {
             "id": 2,
@@ -127,7 +134,9 @@
             "picture": "https://img.freepik.com/free-photo/mesmerizing-view-silhouette-surfer-ocean-during-sunset-indonesia_181624-44971.jpg?",
             "isManager": false,
             "requestedTeams": [],
-            "joinedTeams": [2]
+            "joinedTeams": [
+                2
+            ]
         },
         {
             "id": 3,
@@ -143,16 +152,18 @@
             "picture": "https://img.freepik.com/free-vector/athletic-handball-player-with-flat-design_23-2147875614.jpg?",
             "isManager": false,
             "requestedTeams": [],
-            "joinedTeams": []
+            "joinedTeams": [
+                4
+            ]
         },
         {
-            "id":4,
+            "id": 4,
             "fname": "Ellen",
-            "lname":"Young",
+            "lname": "Young",
             "gender": "Female",
-            "sport":"Ultimate Frisbee",
-            "skill":"Advanced",
-            "dob":"2001-02-08",
+            "sport": "Ultimate Frisbee",
+            "skill": "Advanced",
+            "dob": "2001-02-08",
             "email": "ellenyoung@gmail.com",
             "password": "ey",
             "social_link": "instagram.com/ey",
@@ -166,32 +177,395 @@
             "fname": "Mark",
             "lname": "Johnson",
             "gender": "Male",
-            "sport":"Basketball",
-            "skill":"Advanced",
-            "dob":"1998-04-02",
+            "sport": "Basketball",
+            "skill": "Advanced",
+            "dob": "1998-04-02",
             "email": "markjohnson@gmail.com",
             "password": "mj",
             "social_link": "instagram.com/mj",
             "picture": null,
             "isManager": true,
             "requestedTeams": [],
-            "joinedTeams": [4]
+            "joinedTeams": [
+                4
+            ]
         },
         {
-            "id":6,
+            "id": 6,
             "fname": "Emily",
-            "lname":"Davis",
-            "gender":"Female",
-            "sport":"Basketball",
-            "skill":"Advanced",
-            "dob":"2002-05-15",
+            "lname": "Davis",
+            "gender": "Female",
+            "sport": "Basketball",
+            "skill": "Advanced",
+            "dob": "2002-05-15",
             "email": "emilydavis@gmail.com",
             "password": "ed",
             "social_link": "instagram.com/ed",
             "picture": null,
             "isManager": true,
             "requestedTeams": [],
+            "joinedTeams": [
+                1
+            ]
+        },
+        {
+            "id": 7,
+            "fname": "Michael",
+            "lname": "Anderson",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Intermediate",
+            "dob": "1997-09-12",
+            "email": "michaelanderson@gmail.com",
+            "password": "ma",
+            "social_link": "instagram.com/ma",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1
+            ]
+        },
+        {
+            "id": 8,
+            "fname": "Sarah",
+            "lname": "Wilson",
+            "gender": "Female",
+            "sport": "Volleyball",
+            "skill": "Intermediate",
+            "dob": "2000-03-25",
+            "email": "sarahwilson@gmail.com",
+            "password": "sw",
+            "social_link": "instagram.com/sw",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [
+                4
+            ],
+            "joinedTeams": [
+                6
+            ]
+        },
+        {
+            "id": 9,
+            "fname": "David",
+            "lname": "Thompson",
+            "gender": "Male",
+            "sport": "Basketball",
+            "skill": "Advanced",
+            "dob": "1996-12-03",
+            "email": "davidthompson@gmail.com",
+            "password": "dt",
+            "social_link": "instagram.com/dt",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                2,
+                5
+            ]
+        },
+        {
+            "id": 10,
+            "fname": "Emma",
+            "lname": "Miller",
+            "gender": "Female",
+            "sport": "Basketball",
+            "skill": "Beginner",
+            "dob": "2003-07-18",
+            "email": "emmamiller@gmail.com",
+            "password": "em",
+            "social_link": "instagram.com/em",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                2,
+                3
+            ]
+        },
+        {
+            "id": 11,
+            "fname": "Ryan",
+            "lname": "Clark",
+            "gender": "Male",
+            "sport": "Volleyball",
+            "skill": "Advanced",
+            "dob": "1995-11-02",
+            "email": "ryanclark@gmail.com",
+            "password": "rc",
+            "social_link": "instagram.com/rc",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                4,
+                6
+            ]
+        },
+        {
+            "id": 12,
+            "fname": "Olivia",
+            "lname": "Brown",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Beginner",
+            "dob": "2004-04-30",
+            "email": "oliviabrown@gmail.com",
+            "password": "ob",
+            "social_link": "instagram.com/ob",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1
+            ]
+        },
+        {
+            "id": 13,
+            "fname": "Daniel",
+            "lname": "Garcia",
+            "gender": "Male",
+            "sport": "Basketball",
+            "skill": "Intermediate",
+            "dob": "1999-08-08",
+            "email": "danielgarcia@gmail.com",
+            "password": "dg",
+            "social_link": "instagram.com/dg",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [
+                3
+            ],
+            "joinedTeams": [
+                2
+            ]
+        },
+        {
+            "id": 14,
+            "fname": "Sophia",
+            "lname": "Rodriguez",
+            "gender": "Female",
+            "sport": "Basketball",
+            "skill": "Intermediate",
+            "dob": "2000-01-22",
+            "email": "sophiarodriguez@gmail.com",
+            "password": "sr",
+            "social_link": "instagram.com/sr",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [
+                2
+            ],
+            "joinedTeams": [
+                3
+            ]
+        },
+        {
+            "id": 15,
+            "fname": "Matthew",
+            "lname": "Lopez",
+            "gender": "Male",
+            "sport": "Volleyball",
+            "skill": "Advanced",
+            "dob": "1997-03-09",
+            "email": "matthewlopez@gmail.com",
+            "password": "ml",
+            "social_link": "instagram.com/ml",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                4
+            ]
+        },
+        {
+            "id": 16,
+            "fname": "Isabella",
+            "lname": "Harris",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Intermediate",
+            "dob": "2001-09-05",
+            "email": "isabellaharris@gmail.com",
+            "password": "ih",
+            "social_link": "instagram.com/ih",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1
+            ]
+        },
+        {
+            "id": 17,
+            "fname": "Adam",
+            "lname": "Wilson",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Advanced",
+            "dob": "1996-07-20",
+            "email": "adamwilson@gmail.com",
+            "password": "aw",
+            "social_link": "instagram.com/aw",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1,
+                5
+            ]
+        },
+        {
+            "id": 18,
+            "fname": "Sophie",
+            "lname": "Davis",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Intermediate",
+            "dob": "1999-03-12",
+            "email": "sophiedavis@gmail.com",
+            "password": "sd",
+            "social_link": "instagram.com/sd",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1
+            ]
+        },
+        {
+            "id": 19,
+            "fname": "Ethan",
+            "lname": "Thomas",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Beginner",
+            "dob": "2002-01-08",
+            "email": "ethanthomas@gmail.com",
+            "password": "et",
+            "social_link": "instagram.com/et",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [1],
             "joinedTeams": []
+        },
+        {
+            "id": 20,
+            "fname": "Grace",
+            "lname": "Anderson",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Advanced",
+            "dob": "1998-09-15",
+            "email": "graceanderson@gmail.com",
+            "password": "ga",
+            "social_link": "instagram.com/ga",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [
+                1,
+                5
+            ]
+        },
+        {
+            "id": 21,
+            "fname": "Ryan",
+            "lname": "Brown",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Intermediate",
+            "dob": "1997-05-28",
+            "email": "ryanbrown@gmail.com",
+            "password": "rb",
+            "social_link": "instagram.com/rb",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [5],
+            "joinedTeams": []
+        },
+        {
+            "id": 22,
+            "fname": "Olivia",
+            "lname": "Turner",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Beginner",
+            "dob": "2003-02-14",
+            "email": "oliviaturner@gmail.com",
+            "password": "ot",
+            "social_link": "instagram.com/ot",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [5],
+            "joinedTeams": []
+        },
+        {
+            "id": 23,
+            "fname": "Daniel",
+            "lname": "Smith",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Advanced",
+            "dob": "1999-11-05",
+            "email": "danielsmith@gmail.com",
+            "password": "ds",
+            "social_link": "instagram.com/ds",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [1],
+            "joinedTeams": [
+                5
+            ]
+        },
+        {
+            "id": 24,
+            "fname": "Mia",
+            "lname": "Clark",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Intermediate",
+            "dob": "2000-04-19",
+            "email": "miaclark@gmail.com",
+            "password": "mc",
+            "social_link": "instagram.com/mc",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [1],
+            "joinedTeams": []
+        },
+        {
+            "id": 25,
+            "fname": "Jacob",
+            "lname": "Hall",
+            "gender": "Male",
+            "sport": "Ultimate Frisbee",
+            "skill": "Beginner",
+            "dob": "2004-09-10",
+            "email": "jacobhall@gmail.com",
+            "password": "jh",
+            "social_link": "instagram.com/jh",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [5],
+            "joinedTeams": []
+        },
+        {
+            "id": 26,
+            "fname": "Ava",
+            "lname": "Gonzalez",
+            "gender": "Female",
+            "sport": "Ultimate Frisbee",
+            "skill": "Advanced",
+            "dob": "1997-12-03",
+            "email": "avagonzalez@gmail.com",
+            "password": "ag",
+            "social_link": "instagram.com/ag",
+            "picture": null,
+            "isManager": false,
+            "requestedTeams": [],
+            "joinedTeams": [1]
         }
     ]
 }
